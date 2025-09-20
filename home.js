@@ -1,4 +1,4 @@
-let points = 0;
+let points = 00;
 let htmlProgress = 0;
 let cssProgress = 0;
 let jsProgress = 0;

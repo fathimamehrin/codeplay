@@ -10,19 +10,25 @@
     <title>Document</title>
 </head>
 <body>
-   
+   <form id="form">
     <div class="accountbox">
         <div class="contents">
     <h1 class="h1">CREATE AN ACCOUNT</h1>
-    <div class="input-box">
-    <input type="text" placeholder="USERNAME" class="name"><br>
-    <input type="text" placeholder="EMAIL" class="email"><br>
-    <input type="password" placeholder="PASSWORD" class="password"><br>
+    <div class="input-box" id="text">
+    <input type="text" placeholder="USERNAME" class="name" id="name"><br>
+    <span id="nameError" style="color:rgba(190, 145, 220, 0.9)" ></span><br>
+
+    <input type="text" placeholder="EMAIL" class="email" id="email"><br>
+    <span id="emailError" style=" color:rgba(190, 145, 220, 0.9)"></span><br>
+    <input type="password" placeholder="PASSWORD" class="password" id="pass"><br>
+    <span id="passwordError" style="color:rgba(190, 145, 220, 0.9);"></span><br>
     </div>
-    <button class="submit">SUBMIT</button>
+    <button class="submit" onclick="verify()" id="submit">SUBMIT</button>
+    
+    <script src="login.js"></script>
     </div>
 </div>
-
+</form>
     
 </body>
 </html>

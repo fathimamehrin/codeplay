@@ -35,28 +35,36 @@ body {
 .input-box input[type="password"] {
     width: 90%;
     max-width: 380px;
-    margin: 15px 0;
+    margin: 10px 0;
     padding: 13px 5px;
     border-radius: 8px;
     border: none;
     outline: none;
     transition: box-shadow 0.3s;
     font-family: "Instrument Serif", serif;
-    font-weight: 200;
+    font-weight: bolder;
     font-style: normal;
     font-size: 14px;
     letter-spacing: 0.5px;
     background-color: #2b2457;
     color: white;
     
+    
 }
 
 .input-box input[type="text"]:focus,
 .input-box input[type="password"]:focus {
     box-shadow: 0 0 5px 2px rgba(207, 134, 227, 0.5);
+    
 }
+.input-box input[type="text"]:hover,
+.input-box input[type="password"]:hover{
+   background-color: rgba(146, 98, 178, 0.881);
+}
+
+
 input::placeholder{
-    color: rgb(192, 191, 191);
+    color: rgb(151, 150, 150);
     font-size: small;
     padding: 10px;
 }
@@ -82,8 +90,18 @@ input::placeholder{
 }
 
 .submit:hover {
-    background-color: #2d2146;
+    background-color: rgba(200, 120, 255, 0.9);
     color: white;
     font-weight: 300;
      box-shadow: 0 0 5px 2px rgba(207, 134, 227, 0.5);
+}
+#nameError{
+    font-weight: bolder;
+    
+}
+#emailError{
+    font-weight: bolder;
+}
+#passwordError{
+    font-weight: bolder;
 }

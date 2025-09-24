@@ -30,10 +30,11 @@ body {
 }
 
 h1 {
-  font-size: 2rem;
+  letter-spacing: 2px;
   margin: 0;
   color: white;
   text-align: center;
+  font-weight: lighter;
 }
 
 .ninja-img {

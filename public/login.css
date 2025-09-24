@@ -1,7 +1,8 @@
 body {
     font-family: "Instrument Serif", serif;
     font-style: normal;
-    background: url(images/galaxy.png);
+    background: url("/images/galaxyhd.png") no-repeat center center fixed;
+    margin: 0;
 }
 
 .accountbox {

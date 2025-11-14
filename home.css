@@ -10,7 +10,7 @@ body {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background: rgb(39, 18, 49);
+  background: #30234f;
   padding: 10px 20px;
   color: white;
 }
@@ -30,7 +30,7 @@ body {
 
 
 .card {
-  background: rgba(42, 4, 77, 0.8);
+  background: #23193a;
   border-radius: 12px;
   margin: 15px auto;
   display: flex;
@@ -63,7 +63,7 @@ body {
 }
 
 .module-btn:hover {
-  background: rgba(200, 120, 255, 0.9);
+  background: rgba(48, 27, 67, 0.9);
 
 }
 

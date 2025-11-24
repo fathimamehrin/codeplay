@@ -1,7 +1,7 @@
 body {
   margin: 0;
   font-family: Arial, sans-serif;
-  background: url("/images/galaxyhd.png") no-repeat center center fixed;
+  background: url("/images/galaxyhd1.png") no-repeat center center fixed;
   background-size: cover;
   color: white;
 }
@@ -13,38 +13,89 @@ body {
   background: #30234f;
   padding: 10px 20px;
   color: white;
+  margin-bottom: 50px;
+
 }
 .navbar .left {
   display: flex;
   align-items: center;
+  cursor: pointer;
+
 }
 
 
 .navbar .right {
   display: flex;
   align-items: center;
+ 
 }
 .navbar .right img{
   padding-left: 30px;
+  
+}
+.points {
+  display: flex;
+  align-items: center;
+  position: relative;
+  cursor: pointer;
+}
+.graph{
+  cursor: pointer;
+  transition: filter 0.3s;
+
+}
+  
+
+.graph:hover{
+  filter: brightness(0) invert(1);
+}
+.notifications{
+  height: 27px;
+  cursor: pointer;
+
+}
+.notifications:hover{
+filter:brightness(100) ;
+}
+#points-count {
+  position: relative;
+  top: 1px;   
+  margin-left: 4px;
+  font-size: 19px;
+  font-family: 'Instrument Serif',serif;
+  letter-spacing: 1px;
+
 }
 
 
+
+
 .card {
-  background: #23193a;
+  background: #ad86c9e6;
   border-radius: 12px;
-  margin: 15px auto;
+  margin: 30px auto;
   display: flex;
   align-items: center;
   justify-content: center;
   width: 550px;
   height: 100px;
-  font-size: 18px;
-  font-weight: bold;
+  transition: background-color 0.3s;
+  position: relative;
+  box-shadow: 1px 1px 1px 2px rgba(0,0,0,0.15);
+
 }
+.card:hover .lock {
+  content: url("/images/Group\ 122.png");
+}
+.card:hover .unlock{
+  content: url("/images/white\ unlock.png");
+}
+
 
 .card.plain {
   justify-content: center;
-  font-size: 20px;
+  background-color:#513e76e6 ;
+  transition: background-color 0.3s;
 }
 
 .module-btn {
@@ -57,35 +108,109 @@ body {
   box-sizing: border-box;
   text-decoration: none;
   color: white;
-  font-weight: bold;
-  transition: background 0.3s;
+
+  transition: background-color 0.3s;
   border-radius: 12px;
 }
 
-.module-btn:hover {
-  background: rgba(48, 27, 67, 0.9);
-
+.card:hover{
+  background-color: #ad86c944;
+}
+.card.plain:hover{
+  background-color: #5d498350;
 }
 
+
 .locked {
-  opacity: 0.5;
   pointer-events: none; 
+  position: absolute;
+}
+.unlock{
+  width: 23px;
+  margin-left: auto;
+  margin-right: 4px;
+  
+
+
 }
 
 .lock {
   width: 18px;
-  margin-left: 10px;
+  margin-left: auto;
+  margin-right: 8px;
+ 
+}
+.egg{
+  width: 20px;
+  margin-right:-10px;
+  margin-left: -2px;
+  margin-bottom: 10px;
+  margin-top: 66px;
+
+}
+.lock,.unlock{
+margin-bottom:9px ;
+margin-top:63px ;
+  
 }
 
 .progress {
-  margin-left: auto;
+  margin-left:5px;
   padding-left: 10px;
+  font-family: 'Instrument Serif',serif !important;
+  font-size:18px !important;
+  font-weight: small;
+  margin-bottom: -60px;
+  position: relative;
+
 }
-.module-btn img{
-  height: 32px;
+.html-icon{
+  height: 52px;
   margin-right: 10px;
+}
+.css-icon{
+  height: 59px;
+  margin-right: 7px;
+  margin-left: -3px;
+}
+.js-icon{
+  height: 52px;
+  margin-left: -15px;
+  margin-right: -4px;
 }
 .profile{
   margin-left: 280px;
 }
+.card.plain a, .module-btn span{
+  font-family: "Jaini Purva",cursive;
+  letter-spacing: 2px;
+  font-size: 42px;
+  font-weight: 100;
+  line-height: 1;
+}
+.menu{
+  cursor:pointer;
+  transition: content 0.3s;
+}
+.menu:hover{
+content: url(/images/white\ menu.png);
+height:19px ;
+padding-bottom: 5px;
+}
+ .profile{
+display: flex;
+flex-direction: row;
+cursor: pointer;
 
+}
+.pic-icon{
+  width: 25px;
+  margin-right: 5px;
+}
+  
+.profile-name{
+  font-family:'Instrument Serif',serif ;
+  letter-spacing: 1px;
+  font-weight: small;
+  margin-top: 3px;
+}

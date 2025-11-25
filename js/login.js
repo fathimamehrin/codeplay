@@ -1,52 +1,51 @@
-function verify() {
+document.getElementById("form").addEventListener("submit", function(e){
+    e.preventDefault();
+
     const nameInput = document.getElementById("name");
     const emailInput = document.getElementById("email");
     const passInput = document.getElementById("pass");
 
-    const nameError = document.getElementById('nameError');
-    const emailError = document.getElementById('emailError');
-    const passwordError = document.getElementById('passwordError');
+    const nameError = document.getElementById("nameError");
+    const emailError = document.getElementById("emailError");
+    const passwordError = document.getElementById("passwordError");
 
-    // Clear errors while typing
-    nameInput.addEventListener("input", function() {
-        if(nameInput.value.trim() !== "") {
-            nameError.innerHTML = "";
-        }
-    });
+    const name = nameInput.value.trim();
+    const email = emailInput.value.trim();
+    const password = passInput.value.trim();
 
-    emailInput.addEventListener("input", function() {
-        if(emailInput.value.trim() !== "") {
-            emailError.innerHTML = "";
-        }
-    });
+    nameError.innerHTML = "";
+    emailError.innerHTML = "";
+    passwordError.innerHTML = "";
 
-    passInput.addEventListener("input", function() {
-        if(passInput.value.trim() !== "") {
-            passwordError.innerHTML = "";
-        }
-    });
+    let valid = true;
 
-    document.getElementById("form").addEventListener("submit", function(e) {
-        e.preventDefault();
+    if(name === ""){
+        nameError.innerHTML = "Name is required";
+        valid = false;
+    }
 
-        const name = nameInput.value.trim();
-        const email = emailInput.value.trim();
-        const pass = passInput.value.trim();
+    if(email === ""){
+        emailError.innerHTML = "Email is required";
+        valid = false;
+    } else if(!/^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/.test(email)){
+        emailError.innerHTML = "Enter a valid email";
+        valid = false;
+    }
 
-        if(name === ""){
-            nameError.innerHTML = "name is required";
-        }
+    if(password === ""){
+        passwordError.innerHTML = "Password is required";
+        valid = false;
+    } else if(password.length < 8){
+        passwordError.innerHTML = "Password must be at least 8 characters";
+        valid = false;
+    }
 
-        if(email === ""){
-            emailError.innerHTML = "email is required";
-        } else if (!/^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/.test(email)){
-            emailError.innerHTML = "Please enter a valid email address";
-        }
+    if(valid){
+        localStorage.setItem("username", name);
+        localStorage.setItem("email", email);
+        localStorage.setItem("profilePic", "/images/Ellipse 1.png");
 
-        if(pass === ""){
-            passwordError.innerHTML = "Password is required";
-        } else if(pass.length < 8){
-            passwordError.innerHTML = "password must be atleast 8 characters";
-        }
-    });
-}
+
+        window.location.href = "welcome.html";
+    }
+});

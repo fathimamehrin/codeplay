@@ -5,30 +5,34 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/css/login.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
-    <title>login</title>
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+    <title>Login</title>
 </head>
 <body>
-   <form id="form" action="/submit" method="POST">
+
+<form id="form">
     <div class="accountbox">
         <div class="contents">
-    <h1 class="h1">CREATE AN ACCOUNT</h1>
-    <div class="input-box" id="text">
-    <input type="text" name="username" placeholder="USERNAME" class="name" id="name"><br>
-    <span id="nameError" style="color:rgba(190, 145, 220, 0.9)" ></span><br>
+            <h1 class="h1">CREATE AN ACCOUNT</h1>
 
-    <input type="text" name="email" placeholder="EMAIL" class="email" id="email"><br>
-    <span id="emailError" style=" color:rgba(190, 145, 220, 0.9)"></span><br>
-    <input type="password" name="password" placeholder="PASSWORD" class="password" id="pass"><br>
-    <span id="passwordError" style="color:rgba(190, 145, 220, 0.9);"></span><br>
+            <div class="input-box">
+                <input type="text" name="username" placeholder="USERNAME" class="name" id="name"><br>
+                <span id="nameError"></span><br>
+
+                <input type="text" name="email" placeholder="EMAIL" class="email" id="email"><br>
+                <span id="emailError"></span><br>
+
+                <input type="password" name="password" placeholder="PASSWORD" class="password" id="pass"><br>
+                <span id="passwordError"></span><br>
+            </div>
+
+            <button type="submit" class="submit" id="submit">SUBMIT</button>
+        </div>
     </div>
-    <button class="submit" onclick="verify()" id="submit">SUBMIT</button>
-    
-    <script src="login.js"></script>
-    </div>
-</div>
 </form>
-    
+
+<script src="/js/login.js"></script>
+
 </body>
 </html>

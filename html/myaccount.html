@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Profile</title>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/css/myaccount.css">
+<link rel="stylesheet" href="/css/home.css">
+</head>
+<body>
+
+<div class="profile-card">
+
+    <div class="profile-pic-container">
+        <img id="profilePic" class="profile-pic" src="default.png">
+        <input type="file" id="fileInput" accept="image/*" style="display:none;">
+        <button class="edit-pic-btn" onclick="document.getElementById('fileInput').click()">✎</button>
+    </div>
+
+    <div class="username-section">
+        <span id="username" contenteditable="true"><u>username</u></span>
+        <span class="edit-icon">✎</span>
+    </div>
+
+    <div class="stats">
+
+        <!-- ✅ STREAK BOX -->
+        <div class="stat-box">
+            <span class="icon">
+                <img class="streak" src="/images/Group.png">
+            </span>
+
+            <div class="fire">
+                <span id="streak">0</span>
+                <p>Streak</p>
+            </div>
+        </div>
+
+        <!-- ✅ TOTAL EGG BOX (MATCHED LAYOUT) -->
+        <div class="stat-box">
+            <span class="icon">
+                <img class="egg" src="/images/egg.png">
+            </span>
+
+            <div class="fire">
+                <span id="totalEgg">0</span>
+                <p>Total Egg</p>
+            </div>
+        </div>
+
+    </div>
+
+    <button class="back-btn" onclick="window.location.href='\html\home.html'">Back</button>
+
+
+</div>
+
+<script src="/js/myaccount.js"></script>
+</body>
+</html>

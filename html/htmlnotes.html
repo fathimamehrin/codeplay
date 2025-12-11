@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HTML Notes</title>
+    <link rel="stylesheet" href="/css/htmlnotes.css">
+      <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif&display=swap" rel="stylesheet">
+</head>
+<body>
+   <!-- ====== SIDEBAR ====== -->
+<div class="sidebar" id="sidebar">
+  <h2>Menu</h2>
+  <ul>
+    <li><a href="/html/index.html">Home</a></li>
+    <li><a href="/html/index.html#features">About</a></li>
+    <li><a href="/html/home.html">Lessons</a></li>
+    
+    <li><a href="/html/myaccount.html">My Account</a></li>
+    <li><a href="projects.html">Projects</a></li>
+    <li><a href="#" id="removeAccount">Log out</a></li>
+  </ul>
+</div>
+<div class="overlay" id="overlay"></div>
+
+<!-- ====== NAVBAR ====== -->
+<nav class="navbar">
+  <div class="menu" id="menu-btn">
+      <img src="/images/Group 119.png" alt="menu" width="24">
+  </div>
+
+  <div class="right">
+    <div class="profile">
+        <div class="profile-pic-wrapper">
+            <img id="home-profile-pic" src="default.png" alt="profile">
+        </div>
+        <div id="home-username" class="profile-name">Username</div>
+    </div>
+</div>
+
+
+      <div class="points">
+          <img src="/images/Group 115.png" width="24">
+          <span id="points-count">00</span>
+      </div>
+
+      <div class="graph">
+          <img src="/images/Group 116.png" width="24">
+      </div>
+
+      <div class="notifications">
+          <img src="/images/notifi.png" width="24">
+      </div>
+  </div>
+</nav>
+    
+    <div class="container">
+        <div class="context">
+        <h1>INTRODUCTION TO HTML</h1>
+        <p class="intro">
+            HTML (HyperText Markup Language) is the standard language used to create webpages.
+            It tells the browser how to structure content — like text, images, links, etc.<br>
+            Think of HTML as the <em>skeleton</em> of a website.
+        </p>
+
+        <ul class="topics">
+            <li><img src="/images/image 14.png" class="icon"><u> BASIC STRUCTURE TAGS</li></u>
+            <li><img src="/images/image 14.png" class="icon"><u> TEXT FORMATTING TAGS</li></u>
+            <li><img src="/images/image 14.png" class="icon"> <u>TEXT FORMATTING TAGS</li></u>
+            <li><img src="/images/image 14.png" class="icon"> <u>LINKS & IMAGES</li></u>
+            <li><img src="/images/image 14.png" class="icon"><u> CONTAINERS & LAYOUT</li></u>
+            <li><img src="/images/image 14.png" class="icon"><u> LISTS</li></u>
+            <li><img src="/images/image 14.png" class="icon"> <u>FORMS AND INPUT</li></u>
+            <li><img src="/images/image 14.png" class="icon"> <u>MEDIA ELEMENTS</li></u>
+            <li><img src="/images/image 14.png" class="icon"><u> SCRIPTING & META</li></u>
+            </ul>
+       <h2><u>BASIC STRUCTURE TAGS:</h2></u>
+        <p class="elements">1. <b>&lt;!DOCTYPE html&gt;</b></p>
+        <p> Declares that the document is using HTML5 — the latest version of HTML.</p>
+
+        <p class="elements">2. <b>&lt;html&gt;</b> ... <b>&lt;/html&gt;</b></p>
+       <p> Wraps the entire content of your webpage. It's the root tag of your HTML document.</p>
+
+        <div class="code-box">
+<pre>
+  &lt;html&gt;
+  <span class="comment">&lt;!-- Everything else goes here --&gt;</span>
+  &lt;/html&gt;
+</pre>
+
+        </div>
+        <p class="elements">3. <b>&lt;head&gt;</b> ... <b>&lt;/head&gt;</b></p>
+       <p> Holds information about the page — like the title, metadata, linked CSS/JS files. This is not shown on the webpage</p>
+
+        <div class="code-box">
+<pre>
+  &lt;html&gt;
+  &lt;head&gt;
+    &lt;title&gt;<span class="highlight">My First page</span>&lt;/title&gt;
+    &lt;meta <span class="charset"> charset</span>=<span class="utf">"UTF-8"</span>&gt;
+  &lt;/head&gt;
+  &lt;/html&gt;
+</pre>
+
+        </div>
+
+    </div>
+    <script src="/js/htmlnotes.js"></script>
+
+
+
+</body>
+</html>

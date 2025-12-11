@@ -1,11 +1,11 @@
 body {
-  margin: 0;
-  font-family: Arial, sans-serif;
-  background: url("/images/galaxyhd1.png") no-repeat center center fixed;
-  background-size: cover;
-  color: white;
+    margin: 0;
+    background: url("/images/galaxyhd.png") no-repeat center center fixed;
+    background-size: cover;
+    color: white;
+    font-family: "Instrument Serif",serif;
+    font-weight: lighter;
 }
-
 .navbar {
   display: flex;
   justify-content: space-between;
@@ -68,127 +68,9 @@ filter:brightness(100) ;
 }
 
 
-
-
-.card {
-  background: #ad86c9e6;
-  border-radius: 12px;
-  margin: 30px auto;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 550px;
-  height: 100px;
-  transition: background-color 0.3s;
-  position: relative;
-  box-shadow: 1px 1px 1px 2px rgba(0,0,0,0.15);
-
-}
-.card:hover .lock {
-  content: url("/images/Group\ 122.png");
-}
-.card:hover .unlock{
-  content: url("/images/white\ unlock.png");
-}
-
-
-.card.plain {
-  justify-content: center;
-  background-color:#513e76e6 ;
-  transition: background-color 0.3s;
-}
-
-.module-btn {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  width: 100%;
-  height: 100%;
-  padding: 0 25px;
-  box-sizing: border-box;
-  text-decoration: none;
-  color: white;
-
-  transition: background-color 0.3s;
-  border-radius: 12px;
-}
-
-.card:hover{
-  background-color: #ad86c944;
-}
-.card.plain:hover{
-  background-color: #5d498350;
-}
-
-
-.locked {
-  pointer-events: none; 
-  position: absolute;
-}
-.unlock{
-  width: 23px;
-  margin-left: auto;
-  margin-right: 4px;
-  
-
-
-}
-
-.lock {
-  width: 18px;
-  margin-left: auto;
-  margin-right: 8px;
- 
-}
-.egg{
-  width: 20px;
-  margin-right:-10px;
-  margin-left: -2px;
-  margin-bottom: 10px;
-  margin-top: 66px;
-
-}
-.lock,.unlock{
-margin-bottom:9px ;
-margin-top:63px ;
-  
-}
-
-.progress {
-  margin-left:5px;
-  padding-left: 10px;
-  font-family: 'Instrument Serif',serif !important;
-  font-size:18px !important;
-  font-weight: small;
-  margin-bottom: -60px;
-  position: relative;
-
-}
-.html-icon{
-  height: 52px;
-  margin-right: 10px;
-}
-.css-icon{
-  height: 59px;
-  margin-right: 7px;
-  margin-left: -3px;
-}
-.js-icon{
-  height: 52px;
-  margin-left: -15px;
-  margin-right: -4px;
-}
 .profile{
   margin-left: 900px;
-}
-.card.plain a, .module-btn span{
-  font-family: "Jaini Purva",cursive;
-  letter-spacing: 2px;
-  font-size: 42px;
-  font-weight: 100;
-  line-height: 1;
-}
-.menu{
+}.menu{
   cursor:pointer;
   transition: content 0.3s;
 }
@@ -285,4 +167,103 @@ padding-bottom: 5px;
 
 .overlay.show {
   display: block;
+}
+
+
+
+
+.container {
+    width: 84%;
+    padding: 60px;
+    margin: 40px;
+    background: #bb9bd12c;
+    backdrop-filter: blur(4px);
+    border-radius: 15px;
+
+    /* IMPORTANT: allow content to expand normally */
+    height: auto;
+    overflow: visible;
+}
+
+
+/* Title Styling */
+h1 {
+    font-size: 46px;
+    letter-spacing: 1.5px;
+    margin-top: -10px;
+    font-weight: lighter;
+    
+}
+.intro{
+    font-size: 27px;
+    font-weight: lighter;
+}
+
+h2 {
+    margin-top: 40px;
+    font-size: 30px;
+    letter-spacing: 1.2px;
+    font-weight: lighter;
+}
+
+/* Image Bullet Points */
+.topics {
+    list-style: none;
+    padding-left: 0;
+    font-size: 27px;
+    line-height: 2.2;
+    cursor: pointer;
+}
+
+.icon {
+    width: 50px;
+    height: 50px;
+    margin-right: 8px;
+    vertical-align: middle;
+}
+
+/* Code Box */
+.code-box {
+    background-color: #747272;
+    padding: 10px 12px 10px;
+    border-radius: 15px;
+    margin-top: 10px;
+           /* shrink to content width */
+    max-width: 100%;          /* prevent overflow */
+    height: auto;             /* grow naturally */
+}
+
+
+.code-box pre {
+    margin: 0px;               /* removes extra space */
+    line-height: 34px;       /* smaller lines so box is smaller */
+    font-size: 21px;
+    color: rgb(222, 83, 83);
+    white-space: pre-wrap;   /* allows wrapping if needed */
+}
+
+
+.elements{
+    font-size: 24px;
+    margin-bottom: -15px;
+    letter-spacing: 1px;
+  
+}
+p{
+    font-size:21px ;
+    letter-spacing: 1.5px;
+    color:white ;
+}
+.comment {
+    color: rgb(248, 248, 248);
+    font-style: italic;
+}
+.highlight{
+    color: black;
+}
+.charset{
+    color: rgb(49, 23, 3);
+}
+.utf{
+    color: rgb(37, 62, 16);
 }

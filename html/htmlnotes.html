@@ -64,17 +64,17 @@
         </p>
 
         <ul class="topics">
-            <li><img src="/images/image 14.png" class="icon"><u> BASIC STRUCTURE TAGS</li></u>
-            <li><img src="/images/image 14.png" class="icon"><u> TEXT FORMATTING TAGS</li></u>
-            <li><img src="/images/image 14.png" class="icon"> <u>TEXT FORMATTING TAGS</li></u>
-            <li><img src="/images/image 14.png" class="icon"> <u>LINKS & IMAGES</li></u>
-            <li><img src="/images/image 14.png" class="icon"><u> CONTAINERS & LAYOUT</li></u>
-            <li><img src="/images/image 14.png" class="icon"><u> LISTS</li></u>
-            <li><img src="/images/image 14.png" class="icon"> <u>FORMS AND INPUT</li></u>
-            <li><img src="/images/image 14.png" class="icon"> <u>MEDIA ELEMENTS</li></u>
-            <li><img src="/images/image 14.png" class="icon"><u> SCRIPTING & META</li></u>
+            <li><img src="/images/image 14.png" class="icon"><a href="#1"><u>BASIC STRUCTURE TAGS</u></a></li>
+            <li><img src="/images/image 14.png" class="icon"><a href="#2"><u>TEXT FORMATTING TAGS</u></a></li>
+            <li><img src="/images/image 14.png" class="icon"><a href="#4"><u>LINKS & IMAGES</u></a></li>
+            <li><img src="/images/image 14.png" class="icon"><a href="#5"><u>CONTAINERS & LAYOUT</u></a></li>
+            <li><img src="/images/image 14.png" class="icon"><a href="#6"><u>LISTS</u></a></li>
+            <li><img src="/images/image 14.png" class="icon"><a href="#7"><u>FORMS AND INPUT</u></a></li>
+            <li><img src="/images/image 14.png" class="icon"><a href="#8"><u>MEDIA ELEMENTS</u></a></li>
+            <li><img src="/images/image 14.png" class="icon"><a href="#9"><u>SCRIPTING & META</u></a></li>
             </ul>
-       <h2><u>BASIC STRUCTURE TAGS:</h2></u>
+            <div id="1" class="1">
+       <h2><u>BASIC STRUCTURE TAGS:</h2></u></div>
         <p class="elements">1. <b>&lt;!DOCTYPE html&gt;</b></p>
         <p> Declares that the document is using HTML5 — the latest version of HTML.</p>
 
@@ -83,26 +83,245 @@
 
         <div class="code-box">
 <pre>
-  &lt;html&gt;
+<span class="tag">&lt;html&gt;</span>
   <span class="comment">&lt;!-- Everything else goes here --&gt;</span>
-  &lt;/html&gt;
+<span class="tag">&lt;/html&gt;</span>
 </pre>
+</div>
 
-        </div>
         <p class="elements">3. <b>&lt;head&gt;</b> ... <b>&lt;/head&gt;</b></p>
        <p> Holds information about the page — like the title, metadata, linked CSS/JS files. This is not shown on the webpage</p>
 
         <div class="code-box">
 <pre>
-  &lt;html&gt;
-  &lt;head&gt;
-    &lt;title&gt;<span class="highlight">My First page</span>&lt;/title&gt;
-    &lt;meta <span class="charset"> charset</span>=<span class="utf">"UTF-8"</span>&gt;
-  &lt;/head&gt;
-  &lt;/html&gt;
+<span class="tag">&lt;head&gt;</span>
+  <span class="tag">&lt;title&gt;</span><span class="text">My First Page</span><span class="tag">&lt;/title&gt;</span>
+  <span class="tag">&lt;meta</span> <span class="attr">charset</span>=<span class="value">"UTF-8"</span><span class="tag">&gt;</span>
+<span class="tag">&lt;/head&gt;</span>
+</pre>
+</div>
+
+        <p class="elements">4. <b>&lt;title&gt;</b> ... <b>&lt;/title&gt;</b></p>
+       <p> Sets the title shown in the browser tab or search results.</p>
+
+        <div class="code-box">
+<pre>
+<span class="tag">&lt;html&gt;</span>
+<span class="tag">&lt;head&gt;</span>
+   <span class="tag">&lt;title&gt;</span><span class="text">My First Page</span><span class="tag">&lt;/title&gt;</span>
+<span class="tag">&lt;/head&gt;</span>
+<span class="tag">&lt;/html&gt;</span>
 </pre>
 
         </div>
+  
+        <p class="elements">5. 
+          <b>&lt;body&gt;</b> ... <b>&lt;/body&gt;</b></p>
+         <p>Contains all the visible content of a webpage like text, images, links, and forms.</p> 
+ <div class="code-box">
+<pre>
+<span class="tag">&lt;html&gt;</span>
+<span class="tag">&lt;head&gt;</span>
+   <span class="tag">&lt;title&gt;</span><span class="text">My First Page</span><span class="tag">&lt;/title&gt;</span>
+<span class="tag">&lt;/head&gt;</span>
+<span class="tag">&lt;body&gt;</span>
+  <span class="tag">&lt;p&gt;</span><span class="text">This is visible content</span><span class="tag">&lt;/p&gt;</span>
+<span class="tag">&lt;/body&gt;</span>
+<span class="tag">&lt;/html&gt;</span>
+</pre>
+</div>
+ <div id="2" class="2">
+       <h2><u>TEXT FORMATTING TAGS:</h2></u></div>
+  <p class="elements">6.
+     <b>&lt;h1&gt;</b> to <b>&lt;h6&gt;</b></p> 
+     <p>Used for headings. &lt;h1&gt; is the largest and most important, &lt;h6&gt; is the smallest.</p>
+      <div class="code-box">
+<pre>
+<span class="tag">&lt;h1&gt;</span><span class="text">Main Heading</span><span class="tag">&lt;/h1&gt;</span>
+<span class="tag">&lt;h2&gt;</span><span class="text">Section Heading</span><span class="tag">&lt;/h2&gt;</span>
+<span class="tag">&lt;h3&gt;</span><span class="text">Sub-Section Heading</span><span class="tag">&lt;/h3&gt;</span>
+<span class="tag">&lt;h4&gt;</span><span class="text">Minor Heading</span><span class="tag">&lt;/h4&gt;</span>
+<span class="tag">&lt;h5&gt;</span><span class="text">Very Small Heading</span><span class="tag">&lt;/h5&gt;</span>
+<span class="tag">&lt;h6&gt;</span><span class="text">Least Important Heading</span><span class="tag">&lt;/h6&gt;</span>
+</pre>
+</div>
+ <p class="elements">7.
+  <b>&lt;p&gt;</b> ... <b>&lt;/p&gt;</b></p>
+  <p>Defines a paragraph of text.</p>
+  <div class="code-box">
+  <pre>
+
+<span class="tag">&lt;p&gt;</span><span class="text">This is a paragraph of text</span><span class="tag">&lt;/p&gt;</span>
+
+</pre> 
+                </div> 
+                <p class="elements">8. 
+                  <b>&lt;br&gt;</b></p> 
+                  <p>Inserts a line break without starting a new paragraph.</p> 
+                  <div class="code-box">
+<pre>
+                         
+<span class="text">Hello <span class="tag">&lt;br&gt;</span> world</span><span class="tag"></span>
+  </pre> 
+   </div> 
+   <p class="elements">9.
+   <b>&lt;i&gt;</b>, <b>&lt;b&gt;</b>, <b>&lt;u&gt;</b></p>
+    <p>Formats text: italic, bold, and underline.</p> 
+    <div class="code-box"> 
+    <pre>
+<span class="tag">&lt;i&gt;</span><span class="text"><i>italic text</i></span><span class="tag">&lt;/p&gt;</span>
+<span class="tag">&lt;b&gt;</span><span class="text"><b>bold text</b></span><span class="tag">&lt;/p&gt;</span> 
+<span class="tag">&lt;u&gt;</span><span class="text"><u>underlined text</u></span><span class="tag">&lt;/p&gt;</span>
+</pre>
+   </div>
+   <div id="4" class="4">
+<h2><u>LINKS & IMAGES:</u></h2></div>
+<p class="elements">10. 
+<b>&lt;a&gt;</b> ... <b>&lt;/a&gt;</b></p>
+<p>Creates a clickable hyperlink.</p> 
+<div class="code-box">
+<pre>
+<span class="tag">&lt;a</span> <span class="attr">href</span>=<span class="value">"https://example.com"</span><span class="tag">&gt;</span>
+  <span class="text">Visit Website</span>
+<span class="tag">&lt;/a&gt;</span>
+</div> 
+<p class="elements">11.
+   <b>&lt;img&gt;</b></p> 
+   <p>Displays an image on the webpage.</p> 
+   <div class="code-box"> 
+    <pre>
+
+<span class="tag">&lt;img</span> <span class="attr">src</span>=<span class="value">"image.jpg"</span>  <span class="attr">alt</span>=<span class="value">"Sample Image"</span><span class="tag">&gt;</span> 
+ </pre>
+</div>
+<div id="5" class="5">
+<h2><u>CONTAINER & LAYOUT:</u></h2></div>
+<p class="elements">12. 
+  <b>&lt;div&gt;</b> ... <b>&lt;/div&gt;</b></p> 
+  <p>A block-level container used to group elements for layout and styling.</p> 
+  <div class="code-box"> 
+<pre> <span class="tag">&lt;div</span> <span class="attr">class</span>=<span class="value">"box"</span> 
+ <span class="tag">&lt;p&gt;</span> <span class="text">Content Inside</span><span class="tag">&lt;/p&gt;</span>
+<span class="tag"> &lt;/div&gt;</span>
+</pre> 
+</div> 
+<p class="elements">13. 
+  <b>&lt;span&gt;</b> ... <b>&lt;/span&gt;</b></p> 
+  <p>An inline container used for styling part of text.</p> 
+  <div class="code-box">
+<pre>
+<span class="tag">&lt;p&gt;</span>
+<span class="text">This is </span><span class="tag">&lt;span&gt;</span><span class="text">highlighted</span><span class="tag">&lt;/span&gt;</span><span class="text"> text</span>
+<span class="tag">&lt;/p&gt;</span>
+</pre>
+</div>
+<div id="6" class="6">
+<h2><u>LISTS:</u></h2></div>
+<p class="elements">14. &lt;ul&gt;</p>
+<p>Used when the order of items is not important.</p>
+
+<div class="code-box">
+<pre>
+<span class="tag">&lt;ul&gt;</span>
+  <span class="tag">&lt;li&gt;</span><span class="text">HTML</span><span class="tag">&lt;/li&gt;</span>
+  <span class="tag">&lt;li&gt;</span><span class="text">CSS</span><span class="tag">&lt;/li&gt;</span>
+  <span class="tag">&lt;li&gt;</span><span class="text">JavaScript</span><span class="tag">&lt;/li&gt;</span>
+<span class="tag">&lt;/ul&gt;</span>
+</pre>
+</div>
+<p class="elements">15. &lt;ol&gt;</p>
+<p>Used when the sequence of items matters.</p>
+
+<div class="code-box">
+<pre>
+<span class="tag">&lt;ol&gt;</span>
+  <span class="tag">&lt;li&gt;</span><span class="text">Open browser</span><span class="tag">&lt;/li&gt;</span>
+  <span class="tag">&lt;li&gt;</span><span class="text">Write HTML</span><span class="tag">&lt;/li&gt;</span>
+  <span class="tag">&lt;li&gt;</span><span class="text">Save file</span><span class="tag">&lt;/li&gt;</span>
+<span class="tag">&lt;/ol&gt;</span>
+</pre>
+</div>
+<p class="elements">16. &lt;li&gt;</p>
+<p>&lt;li&gt; must be used inside &lt;ul&gt; or &lt;ol&gt;.</p>
+
+<div class="code-box">
+<pre>
+<span class="tag">&lt;ul&gt;</span>
+  <span class="comment">&lt;!-- Each line below is a list item --&gt;</span>
+  <span class="tag">&lt;li&gt;</span><span class="text">Milk</span><span class="tag">&lt;/li&gt;</span>
+  <span class="tag">&lt;li&gt;</span><span class="text">Bread</span><span class="tag">&lt;/li&gt;</span>
+<span class="tag">&lt;/ul&gt;</span>
+</pre>
+</div>
+
+
+<div id="7" class="7">
+<h2><u>FORMS & INPUT:</u></h2></div>
+<p class="elements">17.
+   <b>&lt;form&gt;</b> ... <b>&lt;/form&gt;</b></p> 
+  <p>Used to collect user input.</p> 
+  <div class="code-box">
+<pre>
+<span class="tag">&lt;form&gt;</span>
+  <span class="tag">&lt;input</span> <span class="attr">type</span>=<span class="value">"text"</span><span class="tag">&gt;</span>
+  <span class="tag">&lt;button&gt;</span><span class="text">Submit</span><span class="tag">&lt;/button&gt;</span>
+<span class="tag">&lt;/form&gt;</span>
+</pre>
+</div>
+<p class="elements">18. 
+  <b>&lt;input&gt;</b></p> 
+<p>Accepts user input like text, email, password, etc.</p> 
+<div class="code-box"> 
+  <pre>
+
+<span class="tag">&lt;input</span> <span class="attr">type</span>=<span class="value">"email"</span> <span class="attr">placeholder</span>=<span class="value">"enter email"</span> 
+  </pre> </div>
+  <div id="8" class="8">
+<h2><u>MEDIA ELEMENTS:</u></h2></div>
+<p class="elements">19. 
+  <b>&lt;audio&gt;</b></p> 
+  <p>Embeds audio content.</p> 
+  <div class="code-box">
+<pre>
+<span class="tag">&lt;audio</span> <span class="attr">controls</span><span class="tag">&gt;</span>
+  <span class="tag">&lt;source</span> <span class="attr">src</span>=<span class="value">"music.mp3"</span><span class="tag">&gt;</span>
+<span class="tag">&lt;/audio&gt;</span>
+</pre>
+</div>
+  <p class="elements">20. 
+    <b>&lt;video&gt;</b></p> 
+    <p>Embeds video content.</p> 
+
+<div class="code-box">
+<pre>
+<span class="tag">&lt;video</span> <span class="attr">controls width</span>=<span class="value">"300"</span><span class="tag">&gt;</span>
+  <span class="tag">&lt;source</span> <span class="attr">src</span>=<span class="value">"video.mp4"</span><span class="tag">&gt;</span>
+<span class="tag">&lt;/video&gt;</span>
+</pre>
+</div>
+<div id="9" class="9">
+<h2><u>SCRIPTING & META TAGS:</u></h2></div>
+<p class="elements">21. <b>&lt;script&gt;</b></p> 
+<p>Used to add JavaScript to a webpage.</p> 
+<div class="code-box">
+<pre>
+
+<span class="tag">&lt;script&gt;</span><span class="text">alert("Hello World");</span><span class="tag">&lt;/script&gt;</span>
+
+</pre>
+</div>
+ 
+<p class="elements">22. 
+  <b>&lt;meta&gt;</b></p> 
+  <p>Provides metadata like character set and page description.</p>
+  <div class="code-box"> 
+    <pre>
+
+<span class="tag">&lt;meta</span> <span class="attr">name</span>=<span class="value">"description"</span> <span class="attr">content</span>=<span class="value">"Learning HTML"</span><span class="tag">&gt;</span>
+
+</pre>
+
+</div>
 
     </div>
     <script src="/js/htmlnotes.js"></script>

@@ -213,8 +213,16 @@ h2 {
     font-size: 27px;
     line-height: 2.2;
     cursor: pointer;
+  
+    
 }
-
+.topics a{
+  color: white;
+  transition: color 0.1s;
+}
+.topics a:hover{
+  color:rgb(171, 171, 171)
+}
 .icon {
     width: 50px;
     height: 50px;
@@ -238,7 +246,7 @@ h2 {
     margin: 0px;               /* removes extra space */
     line-height: 34px;       /* smaller lines so box is smaller */
     font-size: 21px;
-    color: rgb(222, 83, 83);
+    color: #e5e7eb;
     white-space: pre-wrap;   /* allows wrapping if needed */
 }
 
@@ -252,18 +260,25 @@ h2 {
 p{
     font-size:21px ;
     letter-spacing: 1.5px;
-    color:white ;
+    color:rgb(255, 255, 255) ;
 }
 .comment {
-    color: rgb(248, 248, 248);
+    color:  #94a3b8;
     font-style: italic;
 }
-.highlight{
-    color: black;
+
+.tag {
+  color: #023b53; /* blue → HTML tags */
 }
-.charset{
-    color: rgb(49, 23, 3);
+
+.attr {
+  color: #543d02; /* yellow → attributes */
 }
-.utf{
-    color: rgb(37, 62, 16);
+
+.value {
+  color: #0a462a; /* green → attribute values */
+}
+
+.text {
+  color: #752525; /* pink → visible text */
 }

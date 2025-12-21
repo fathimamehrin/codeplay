@@ -40,36 +40,7 @@ function formatPoints(value) {
 
 
 // ==================== PROGRESS BUTTON LOGIC ==================== //
-document.getElementById("html-btn").addEventListener("click", (e) => {
-  e.preventDefault();
-  if (htmlProgress < 30) {
-    htmlProgress += 5;
-    points += 5;
-    updateUI();
-  }
-});
 
-document.getElementById("css-btn").addEventListener("click", (e) => {
-  e.preventDefault();
-  if (!document.getElementById("css-btn").classList.contains("locked")) {
-    if (cssProgress < 50) {
-      cssProgress += 5;
-      points += 5;
-      updateUI();
-    }
-  }
-});
-
-document.getElementById("js-btn").addEventListener("click", (e) => {
-  e.preventDefault();
-  if (!document.getElementById("js-btn").classList.contains("locked")) {
-    if (jsProgress < 60) {
-      jsProgress += 5;
-      points += 5;
-      updateUI();
-    }
-  }
-});
 
 // ==================== SIDEBAR MENU FUNCTIONALITY ==================== //
 const menuBtn = document.getElementById("menu-btn");

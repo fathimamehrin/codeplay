@@ -1,28 +1,24 @@
 document.getElementById("form").addEventListener("submit", function(e){
     e.preventDefault();
 
-    const nameInput = document.getElementById("name");
+    
     const emailInput = document.getElementById("email");
     const passInput = document.getElementById("pass");
 
-    const nameError = document.getElementById("nameError");
+    
     const emailError = document.getElementById("emailError");
     const passwordError = document.getElementById("passwordError");
 
-    const name = nameInput.value.trim();
+    
     const email = emailInput.value.trim();
     const password = passInput.value.trim();
 
-    nameError.innerHTML = "";
+    
     emailError.innerHTML = "";
     passwordError.innerHTML = "";
 
     let valid = true;
 
-    if(name === ""){
-        nameError.innerHTML = "Name is required";
-        valid = false;
-    }
 
     if(email === ""){
         emailError.innerHTML = "Email is required";
@@ -41,7 +37,6 @@ document.getElementById("form").addEventListener("submit", function(e){
     }
 
     if(valid){
-        localStorage.setItem("username", name);
         localStorage.setItem("email", email);
         localStorage.setItem("profilePic", "/images/Ellipse 1.png");
 

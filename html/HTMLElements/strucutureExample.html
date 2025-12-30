@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="/css/HTMLElements/strucutureExample.css">
+   <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Jacquarda+Bastarda+9&display=swap" rel="stylesheet"> 
+
+  <title>strucutureExample</title>
+</head>
+<body>
+  <nav class="navbar">
+    <div class="left">
+     <img src="/images/Group 119.png" class="menu-icon">
+    </div>
+  <div class="right">
+  <div class="point">
+    <img src="/images/Group 115.png"><span class="point-span">00</span>
+  </div>
+  <div class="profile">
+    Profile
+  </div>
+</div>
+</nav>
+<div class="header">
+<h2>Structural Elements</h2>
+<p>
+  Structural elements are used to define the layout and structure of a webpage.
+They help organize content into meaningful sections.
+</p>
+
+  </div>
+  <div class="containers">
+    <div class="container1">
+      <div class="top">
+      &lt;html&gt;<br>
+       &lt;style&gt;<br>
+
+        <pre class="highlight-pre">
+        * {
+        box-sizing: border-box;
+        }
+
+        body {
+        font-family: Arial, Helvetica, sans-serif;
+        }
+
+        <span class="highlight">header </span>{
+        background-color: #666;
+        padding: 10px;
+        text-align: center;
+        font-size: 35px;
+        color: white;
+        }
+
+        <span class="highlight">nav</span> {
+        float: left;
+        width: 30%;
+        height: 300px; 
+        background: #ccc;
+        padding: 20px;
+        }
+
+        nav ul {
+        list-style-type: none;
+        padding: 0;
+        }
+
+        <span class="highlight">article</span> {
+        float: left;
+        padding: 20px;
+        width: 50%;
+        background-color: #f1f1f1;
+        height: 300px; 
+        }
+
+        <span class="highlight"></span> {
+        content: "";
+        display: table;
+        clear: both;
+        }
+
+        <span class="highlight">footer</span> {
+        background-color: #777;
+        padding: 10px;
+        text-align: center;
+        color: white;
+        }
+      </pre>
+        &lt;/style&gt;<br>
+      &lt;/body&gt;<br>
+  
+      </div>
+     
+       
+      <div class="middle">
+    <pre class="highlight-pre">
+       <!-- &lt;div class="city"&gt; <br>
+        &lt;h2&gt;London&lt;/p&gt; <br>
+        &lt;p&gt;London is the capital of England&lt;/p&gt;<br>
+        &lt;div&gt;-->
+      &lt;h2&gt;CSS Layout Float&lt;/h2&gt;
+      &lt;p&gt;In this example, we have created a header, two columns/boxes  and a footer. On smaller screens, the columns will stack on top of each other.&lt;/p&gt;
+
+      <span class="highlight">&lt;header&gt;</span>
+        &lt;h2&gt;Cities&lt;/h2&gt;
+      <span class="highlight">&lt;/header&gt;</span>
+
+      <span class="highlight">&lt;section&gt;</span>
+        <span class="highlight">&lt;nav&gt;</span>
+          &lt;ul&gt;
+             &lt;li&gt;&lt;a href="#"&gt;London&lt;/a&gt;&lt;/li&gt;
+             &lt;li&gt;&lt;a href="#"&gt;Paris&lt;/a&gt;&lt;/li&gt;
+             &lt;li&gt;&lt;a href="#"&gt;Tokyo&lt;/a&gt;&lt;/li&gt;
+          &lt;/ul&gt;
+        <span class="highlight">&lt;/nav&gt;</span>
+  
+      <span class="highlight">&lt;article&gt;</span>
+        &lt;h1&gt;London&lt;/h1&gt;
+        &lt;p&gt;London is the capital city of England. It is the most populous city in the United Kingdom &lt;/p&gt;
+        
+      <span class="highlight">&lt;/article&gt;</span>
+      <span class="highlight">&lt;/section&gt;</span>
+
+        <span class="highlight">&lt;footer&gt;</span>
+         &lt;p&gt;Footer&lt;/p&gt;
+        <span class="highlight">&lt;/footer&gt;</span>
+    </pre>
+        </div>
+        <div class="bottom">
+      &lt;/body&gt;<br>
+       &lt;/html&gt;<br>
+       </div>
+  </div>
+
+    <div class="container2" >
+      <nav class="tryme-navbar">
+        <div class="left">
+          TRY ME!
+        </div>
+      <div class="right">
+        <button class="run-button" onclick="runCode()">
+          Run
+        </button>
+      </div>
+      </nav>
+    <textarea class="editor" id="editor"></textarea> 
+    <iframe id="output" class="output" style="display:none;"></iframe>
+
+    </div>
+  </div>
+  <div class="right-buttons">
+    <div class="button-wrapper">
+    <img src="/images/Group 96 (1).png"class="prev">
+    <button onclick="location.href='/html/HTMLElements/div.html'">PREV</button>
+    </div>
+     <div class="button-wrapper">
+    <img src="/images/Group 96 (1).png" class="next">
+    <button onclick="location.href='/html/HTMLElements/id.html'" >NEXT</button>
+    </div>
+    </div>
+
+    <script src="/js/structureExample.js"></script>
+  </body>
+</html>

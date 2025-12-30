@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="/css/HTMLElements/forms.css">
+   <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Jacquarda+Bastarda+9&display=swap" rel="stylesheet"> 
+
+  <title>form</title>
+</head>
+<body>
+  <nav class="navbar">
+    <div class="left">
+     <img src="/images/Group 119.png" class="menu-icon">
+    </div>
+  <div class="right">
+  <div class="point">
+    <img src="/images/Group 115.png"><span class="point-span">00</span>
+  </div>
+  <div class="profile">
+    Profile
+  </div>
+</div>
+</nav>
+<div class="header">
+<h2>HTML Forms</h2>
+<p class="p">
+The &lt;form &gt; element is used to create an HTML form .The &lt;input&gt; element is used to collect data from users.
+Different input types are used for different kinds of input
+</p>
+  </div>
+  <div class="containers">
+    <div class="container1">
+      <div class="top">
+      &lt;html&gt;<br>
+      &lt;body&gt;<br>
+      </div>
+     
+      <div class="middle">
+        <pre class="highlight-pre">
+        <div class="h2">&lt;h2&gt;HTML Forms&lt;/h2&gt;</div>
+        <span class="highlight">&lt;form&gt;</span>
+
+        <span class="highlight">&lt;label for ="username"&gt;</span>Name:&lt;<span class="highlight">/label&gt;</span>
+        <span class="highlight">&lt;input type="text" id="username"&gt;</span>&lt;br&gt;&lt;br&gt;
+
+        <span class="highlight">&lt;label for="checkbox"&gt;
+          <span class="highlight">&lt;input </span> type="checkbox" id="checkbox"&gt;</span> I agree 
+          <span class="highlight">&lt;/label&gt;</span>&lt;br&gt;&lt;br&gt;
+
+        <span class="highlight">&lt;label for="gender"&gt;</span>Gender:&lt;<span class="highlight">/label&gt;</span>&lt;br&gt;
+        <span class="highlight">&lt;input type="radio"</span> id="gender" name="gender"&gt; Male &lt;br&gt;
+        <span class="highlight">&lt;input type="radio"</span> id="gender" name="gender"&gt; Female  &lt;br&gt;
+        
+        <span class="highlight">&lt;input type="button" </span> value="Submit" onclick="alert('You Submitted Successfully')"&gt; &lt;br&gt;&lt;br&gt;
+
+        <span class="highlight">&lt;/form&gt;</span>
+        </pre>
+        
+
+      
+        </div>
+        <div class="bottom">
+      &lt;/body&gt;<br>
+       &lt;/html&gt;<br>
+       </div>
+      
+
+    </div>
+    <div class="container2" >
+      <nav class="tryme-navbar">
+        <div class="left">
+          TRY ME!
+        </div>
+      <div class="right">
+        <button class="run-button" onclick="runCode()">
+          Run
+        </button>
+      </div>
+      </nav>
+    <textarea class="editor" id="editor"></textarea> 
+    <iframe id="output" class="output" style="display:none;"></iframe>
+
+    </div>
+  </div>
+  <div class="right-buttons">
+    <div class="button-wrapper">
+    <img src="/images/Group 96 (1).png"class="prev">
+    <button onclick="location.href='/html/HTMLElements/button.html'">PREV</button>
+    </div>
+     <div class="button-wrapper">
+    <img src="/images/Group 96 (1).png" class="next">
+    <button onclick="location.href='/html/HTMLElements/labelFor.html'" >NEXT</button>
+    </div>
+    </div>
+
+    <script src="/js/h1.js"></script>
+  </body>
+</html>

@@ -3,11 +3,11 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="/css/tutorial.css">
+  <link rel="stylesheet" href="/css/HTMLElements/div.css">
    <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Jacquarda+Bastarda+9&display=swap" rel="stylesheet"> 
 
-  <title>tutorial</title>
+  <title>div</title>
 </head>
 <body>
   <nav class="navbar">
@@ -24,61 +24,73 @@
 </div>
 </nav>
 <div class="header">
-<h2>&lt;h1&gt; to &lt;h6&gt;</h2>
-<p>Displays headings.&lt;h1&gt; is the biggest,&lt;h6&gt;is the smallest.</p>
+<h2>&lt;div&gt; tag</h2>
+<p>
+The &lt;div&gt; tag is a block-level container that is used to group related HTML elements together so they can be structured and styled as a single section on a webpage.
+</p>
+
   </div>
   <div class="containers">
     <div class="container1">
       <div class="top">
       &lt;html&gt;<br>
+       &lt;style&gt;<br>
+        <span class="highlight">
+        div { <br>
+        background-color:#FFF4A3 ; <br>
+        }<br>
+        </span>
+        &lt;/style&gt;<br>
       &lt;body&gt;<br>
       </div>
+     
       <div class="middle">
-      &lt;h1&gt;Try Me!&lt;h1&gt;<br>
-      &lt;h2&gt;Try Me!&lt;h2&gt;<br>
-      &lt;h3&gt;Try Me!&lt;h3&gt;<br>
-      &lt;h4&gt;Try Me!&lt;h4&gt;<br>
-      &lt;h5&gt;Try Me!&lt;h5&gt;<br>
-      &lt;h6&gt;Try Me!&lt;h6&gt;<br>
-        </div>
-        <div class="bottom">
-      &lt;body&gt;<br>
-       &lt;html&gt;<br>
-      &lt;h1&gt;Try Me!&lt;/h1&gt;<br>
-      &lt;h2&gt;Try Me!&lt;/h2&gt;<br>
-      &lt;h3&gt;Try Me!&lt;/h3&gt;<br>
-      &lt;h4&gt;Try Me!&lt;/h4&gt;<br>
-      &lt;h5&gt;Try Me!&lt;/h5&gt;<br>
-      &lt;h6&gt;Try Me!&lt;/h6&gt;<br>
+       
+        &lt;h2&gt;HTML DIV Example&lt;/h2&gt;<br>
+    <span class="highlight">
+        &lt;div&gt; <br>
+        &lt;p&gt;Multiple elements are wrapped inside this div.&lt;/p&gt; <br>
+        &lt;p&gt;The div separates this block from other content.&lt;/p&gt;<br>
+        &lt;div&gt;
+    </span>
+
+
+      
         </div>
         <div class="bottom">
       &lt;/body&gt;<br>
        &lt;/html&gt;<br>
+      
        </div>
 
     </div>
-    <div class="container2">
+    <div class="container2" >
       <nav class="tryme-navbar">
         <div class="left">
           TRY ME!
         </div>
       <div class="right">
-        <button class="run-button">
+        <button class="run-button" onclick="runCode()">
           Run
         </button>
       </div>
       </nav>
+    <textarea class="editor" id="editor"></textarea> 
+    <iframe id="output" class="output" style="display:none;"></iframe>
+
     </div>
   </div>
   <div class="right-buttons">
     <div class="button-wrapper">
     <img src="/images/Group 96 (1).png"class="prev">
-    <button>PREV</button>
+    <button onclick="location.href='/html/HTMLElements/listElements.html'">PREV</button>
     </div>
      <div class="button-wrapper">
     <img src="/images/Group 96 (1).png" class="next">
-    <button >NEXT</button>
+    <button onclick="location.href='/html/HTMLElements/class.html'" >NEXT</button>
     </div>
     </div>
+
+    <script src="/js/h1.js"></script>
   </body>
 </html>

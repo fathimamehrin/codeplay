@@ -1,0 +1,461 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS Notes</title>
+    <link rel="stylesheet" href="/css/cssnotes.css">
+      <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif&display=swap" rel="stylesheet">
+</head>
+<body>
+<!-- ====== SIDEBAR ====== -->
+<div class="sidebar" id="sidebar">
+  <h2>Menu</h2>
+  <ul>
+    <li><a href="/html/index.html">Home</a></li>
+    <li><a href="/html/index.html#features">About</a></li>
+    <li><a href="/html/home.html">Lessons</a></li>
+    <li class="has-submenu">
+  <li class="has-submenu">
+  <div class="menu-row">
+    <a href="/html/studydeck.html">Studydeck</a>
+    <span class="arrow studydeck-arrow">▸</span>
+  </div>
+
+  <ul class="submenu">
+
+    <!-- HTML -->
+    <li class="has-submenu">
+      <div class="menu-row">
+        <a href="/html/htmlnotes.html">HTML</a>
+        <span class="arrow tech-arrow">▸</span>
+      </div>
+      <ul class="sub-submenu">
+        <li><a href="/html/htmlnotes.html#1">Basic Structure Tags</a></li>
+        <li><a href="/html/htmlnotes.html#2">Text Formatting Tags</a></li>
+        <li><a href="/html/htmlnotes.html#4">Links & Images</a></li>
+        <li><a href="/html/htmlnotes.html#5">Containers & Layouts</a></li>
+        <li><a href="/html/htmlnotes.html#6">Lists</a></li>
+        <li><a href="/html/htmlnotes.html#7">Forms And Inputs</a></li>
+        <li><a href="/html/htmlnotes.html#8">Media Elements</a></li>
+        <li><a href="/html/htmlnotes.html#9">Scripting & Meta</a></li>
+      </ul>
+    </li>
+
+    <!-- CSS -->
+    <li class="has-submenu">
+      <div class="menu-row">
+        <a href="/html/cssnotes.html">CSS</a>
+        <span class="arrow tech-arrow">▸</span>
+      </div>
+      <ul class="sub-submenu">
+        <li><a href="/html/cssnotes.html#1">Basic CSS Structure</a></li>
+        <li><a href="/html/cssnotes.html#2">CSS Box Model</a></li>
+        <li><a href="/html/cssnotes.html#3">Colors & Background</a></li>
+        <li><a href="/html/cssnotes.html#4">Text & Fonts</a></li>
+        <li><a href="/html/cssnotes.html#5">Display & Position</a></li>
+        <li><a href="/html/cssnotes.html#6">Flexbox(Modern Layout)</a></li>
+        <li><a href="/html/cssnotes.html#7">Responsive Design</a></li>
+        <li><a href="/html/cssnotes.html#8">Effects & Animation</a></li>
+        <li><a href="/html/cssnotes.html#9">Border Property</a></li>
+      </ul>
+    </li>
+
+    <!-- JavaScript -->
+    <li class="has-submenu">
+      <div class="menu-row">
+        <a href="/html/jsnotes.html">JavaScript</a>
+        <span class="arrow tech-arrow">▸</span>
+      </div>
+      <ul class="sub-submenu">
+      <li><a href="/html/jsnotes.html#vars">Variables</a></li>
+      <li><a href="/html/jsnotes.html#types">Data Types</a></li>
+      <li><a href="/html/jsnotes.html#operators">Operators</a></li>
+      <li><a href="/html/jsnotes.html#conditions">Conditional Statements</a></li>
+      <li><a href="/html/jsnotes.html#loops">Loops</a></li>
+      <li><a href="/html/jsnotes.html#functions">Functions</a></li>
+      <li><a href="/html/jsnotes.html#JS1">Dom Manipulation</a></li>
+      <li><a href="/html/jsnotes.html#JS2">Events</a></li>
+      <li><a href="/html/jsnotes.html#JS3">Arrays</a></li>
+      <li><a href="/html/jsnotes.html#JS4">Objects</a></li>
+      <li><a href="/html/jsnotes.html#JS5">Local Storage</a></li>
+      <li><a href="/html/jsnotes.html#JS6">Error Handling</a></li>
+      </ul>
+    </li>
+
+  </ul>
+</li>
+
+
+    
+    <li><a href="/html/myaccount.html">My Account</a></li>
+    <li><a href="projects.html">Projects</a></li>
+    <li><a href="#" id="removeAccount">Log out</a></li>
+  </ul>
+</div>
+<div class="overlay" id="overlay"></div>
+
+<!-- ====== NAVBAR ====== -->
+<nav class="navbar">
+  <div class="menu" id="menu-btn">
+      <img src="/images/Group 119.png" alt="menu" width="24">
+  </div>
+
+  <div class="right">
+    <div class="profile">
+        <div class="profile-pic-wrapper">
+            <img id="home-profile-pic" src="default.png" alt="profile">
+        </div>
+        <div id="home-username" class="profile-name">Username</div>
+    </div>
+</div>
+
+
+      <div class="points">
+          <img src="/images/Group 115.png" width="24">
+          <span id="points-count">00</span>
+      </div>
+
+      <div class="graph">
+          <img src="/images/Group 116.png" width="24">
+      </div>
+
+      <div class="notifications">
+          <img src="/images/notifi.png" width="24">
+      </div>
+  </div>
+</nav>
+ <div class="container">
+ <div class="context">
+        <h1>INTRODUCTION TO CSS</h1>
+        <p class="intro">
+            CSS (Cascading Style Sheets) is used to style and design web pages.
+While HTML creates the structure of a website, CSS controls how it looks — colors, spacing, layout, fonts, and animations.
+<br>
+            
+Think of HTML as the  <em>skeleton</em> and CSS as the <em>skin and clothes</em> of a website.
+        
+        <br>To apply CSS styles, we must connect CSS with HTML.
+There are 3 common and beginner-friendly ways to do this.</p>
+<p class="elements">1. <b>INTERNAL CSS</b> </p>
+       <p> Internal CSS is written inside the &lt;style&gt; tag within the &lt;head&gt; section of an HTML file.</p>
+
+        <div class="code-box">
+<pre>
+<span class="tag">&lt;html&gt;</span>
+<span class="tag">&lt;head&gt;</span>
+<span class="tag">&lt;style&gt;</span>
+<span class="tag">p{ </span>
+  <span class="value">color</span><span class="tag">:blue;</span>
+  <span class="value">font-size</span><span class="tag">:</span><span class="attr">18px</span><span class="tag">;</span>
+  <span class="tag">}</span>
+  <span class="tag">&lt;/style&gt;</span>
+<span class="tag">&lt;/head&gt;</span>
+<span class="tag">&lt;body&gt;</span>
+
+  <span class="tag">&lt;p&gt;</span><span class="text">The text is styled using internal css.</span><span class="tag">&lt;/p&gt;</span>
+
+<span class="tag">&lt;/body&gt;</span>
+<span class="tag">&lt;/html&gt;</span>
+</pre>
+</div>
+<p class="elements">2. <b>EXTERNAL CSS</b> </p>
+       <p> External CSS is written in a seperate .css file and linked to HTML using the  &lt;link&gt; tag. </p>
+       <p>Step 1: Create a CSS file(style.css)</p>
+
+        <div class="code-box">
+<pre>
+<span class="tag">p{ </span>
+  <span class="value">color</span><span class="tag">:blue;</span>
+  <span class="value">font-size</span><span class="tag">:</span><span class="attr">18px</span><span class="tag">;</span>
+  <span class="tag">}</span>
+</pre>
+</div>
+<p>Step 2: Link CSS file in HTML</p>
+<div class="code-box">
+  <pre>
+<span class="tag">&lt;!DOCTYPE html&gt; </span>
+<span class="tag">&lt;html&gt;</span>
+<span class="tag">&lt;head&gt;</span>
+  <span class="tag">&lt;link</span> <span class="attr">rel</span>=<span class="value">"stylesheet"</span>  <span class="attr">href</span>=<span class="value">"style.css"</span>
+<span class="tag">&lt;/head&gt;</span>
+<span class="tag">&lt;body&gt;</span>
+
+  <span class="tag">&lt;p&gt;</span><span class="text">The text is styled using internal css.</span><span class="tag">&lt;/p&gt;</span>
+
+<span class="tag">&lt;/body&gt;</span>
+<span class="tag">&lt;/html&gt;</span>
+</pre>
+
+</div>
+<p class="elements">3. <b>INLINE CSS</b> </p>
+       <p> Inline CSS is written directly inside an HTML element using the style attribute.</p>
+
+        <div class="code-box">
+<pre>
+<span class="tag">&lt;p</span> <span class="attr">style</span>=<span class="value">"color:Red; </span><span class="value">font-size:18px;"</span><span class="tag">&gt;</span>
+ <span class="text">This text is styled using internal css.</span><span class="tag">&lt;/p&gt;</span>
+</pre>
+</div>
+<ul class="topics">
+            <li><img src="/images/image 14.png" class="icon"><a href="#1"><u>BASIC CSS STRUCTURE </u></a></li>
+            <li><img src="/images/image 14.png" class="icon"><a href="#2"><u>CSS BOX MODEL</u></a></li>
+            <li><img src="/images/image 14.png" class="icon"><a href="#3"><u>COLORS & BACKGROUND</u></a></li>
+            <li><img src="/images/image 14.png" class="icon"><a href="#4"><u>TEXT & FONTS</u></a></li>
+            <li><img src="/images/image 14.png" class="icon"><a href="#5"><u>DISPLAY & POSITION</u></a></li>
+            <li><img src="/images/image 14.png" class="icon"><a href="#6"><u>FLEXBOX (MODERN LAYOUT)</u></a></li>
+            <li><img src="/images/image 14.png" class="icon"><a href="#7"><u>RESPONSIVE DESIGN</u></a></li>
+            <li><img src="/images/image 14.png" class="icon"><a href="#8"><u>EFFECTS & ANIMATIONS</u></a></li>
+            <li><img src="/images/image 14.png" class="icon"><a href="#9"><u>BORDER PROPERTY</u></a></li>
+          </ul>
+          <div id="1" class="1">
+<h2><u>BASIC CSS STRUCTURE:</u></h2></div>
+<p class="elements">1. <b>CSS Syntax</b></p> 
+<p>CSS is written using selectors and rules.</p> 
+<div class="code-box"> 
+  <pre> <span class="text">selector {</span> 
+  <span class="attr">property</span>: <span class="value">value</span>; <span class="text">
+ }</span> </pre> 
+</div>
+<p class="elements">2. <b>Element Selector</b></p> <p>Selects all elements of the same type.</p> 
+<div class="code-box">
+   <pre> <span class="tag">p</span> {
+  <span class="attr">color</span>: <span class="value">blue</span>;
+ } </pre>
+ </div>
+ <p class="elements">3. <b>Class Selector</b></p>
+  <p>Used to style multiple elements.</p>
+   <div class="code-box"> 
+    <pre> <span class="tag">.box</span> { 
+   <span class="attr">background-color</span>: <span class="value">lightblue</span>;
+ } </pre>
+ </div>
+ <p class="elements">4. <b>ID Selector</b></p>
+  <p>Used to style a single unique element.</p> 
+  <div class="code-box"> 
+    <pre> <span class="tag">#header</span> { 
+   <span class="attr">height</span>: <span class="value">60px</span>;
+ } </pre> 
+</div>
+<div id="2" class="2">
+<h2><u>CSS BOX MODEL:</u></h2></div>
+<p class="elements">1. <b>Width & Height</b></p>
+ <p>Controls the size of an element.</p> 
+ <div class="code-box"> 
+  <pre> <span class="tag">.box</span> { 
+   <span class="attr">width</span>: <span class="value">200px</span>; 
+   <span class="attr">height</span>: <span class="value">100px</span>; 
+ } </pre>
+ </div>
+ <p class="elements">2. <b>Padding</b></p> 
+ <p>Space inside the element.</p> 
+ <div class="code-box"> 
+  <pre> <span class="tag">.box</span> { 
+   <span class="attr">padding</span>: <span class="value">20px</span>;
+ } </pre> 
+</div>
+<p class="elements">3. <b>Margin</b></p> 
+<p>Space outside the element.</p> 
+<div class="code-box"> 
+  <pre> <span class="tag">.box</span> { 
+   <span class="attr">margin</span>: <span class="value">20px</span>; 
+ } </pre> 
+</div>
+<p class="elements">4. <b>Border</b></p> 
+<p>Outline around an element.</p> 
+<div class="code-box"> 
+  <pre> <span class="tag">.box</span> { 
+   <span class="attr">border</span>: <span class="value">2px solid black</span>; 
+  } </pre>
+  
+   </div>
+   <p class="elements">5. <b>Box Sizing</b></p>
+    <p>Makes sizing easier and predictable.</p> <div class="code-box">
+       <pre> <span class="tag">*</span> { 
+   <span class="attr">box-sizing</span>: <span class="value">border-box</span>; 
+ } </pre> 
+</div>
+<div id="3" class="3">
+<h2><u>COLORS & BACKGROUND:</u></h2></div>
+<p class="elements">1. <b>Text Color</b></p>
+<p>You can set the color of text</p>
+ <div class="code-box">
+   <pre> <span class="tag">p</span> { 
+  <span class="attr">color</span>: <span class="value">red</span>; 
+ } </pre> 
+</div>
+<p class="elements">2. <b>Background Color</b></p>
+<p>You can set the background color for HTML elements</p>
+ <div class="code-box"> 
+  <pre> <span class="tag">div</span> { 
+  <span class="attr">background-color</span>: <span class="value">#6a4fbf</span>; 
+ } </pre> 
+</div>
+<p class="elements">3. <b>Background Image</b></p>
+<p>The background-image property specifies an image to use as the background of an element.By default, the image is repeated so it covers the entire element.
+</p> 
+<div class="code-box"> 
+  <pre> <span class="tag">body</span> { 
+   <span class="attr">background-image</span>: <span class="value">url("bg.jpg")</span>; 
+   <span class="attr">background-size</span>: <span class="value">cover</span>; 
+ } </pre>
+ </div>
+ <div id="4" class="4">
+ <h2><u>TEXT & FONTS:</u></h2></div>
+<p class="elements">1. <b>Font Family</b></p>
+<p>The CSS font-family property specifies the font for an element.</p>
+<p></p>
+ <div class="code-box"> <pre> <span class="tag">body</span> { 
+  <span class="attr">font-family</span>: <span class="value">Arial, sans-serif</span>; 
+ } </pre> 
+</div>
+<p class="elements">2. <b>Font Size & Weight</b></p> 
+<p>The CSS font-size property is used to specify the size of the text/font.
+
+Being able to manage the text size is very important in web design.</p>
+<div class="code-box"> 
+  <pre> <span class="tag">h1</span> { 
+  <span class="attr">font-size</span>: <span class="value">32px</span>; 
+  <span class="attr">font-weight</span>: <span class="value">bold</span>; 
+ } </pre> 
+</div>
+<p class="elements">3. <b>Text Alignment</b></p>
+<p>The text-align property is used to set the horizontal alignment of a text.</p>
+ <div class="code-box"> <pre> <span class="tag">p</span> { 
+  <span class="attr">text-align</span>: <span class="value">center</span>; 
+ } </pre>
+ </div>
+ <div id="5" class="5">
+<h2><u>DISPLAY & POSITION:</u></h2></div>
+<p class="elements">1. <b>Display Property</b></p>
+<p>The display property is an important CSS property for controlling layout. It specifies whether an HTML element is treated as a block or an inline element.</p>
+<div class="code-box"> <pre> <span class="tag">span</span> { 
+  <span class="attr">display</span>: <span class="value">inline-block</span>; 
+ } </pre> 
+</div>
+<p class="elements">2. <b>Position Property</b></p> 
+<p>CSS positioning is about controlling the placement of elements within a web page.
+With CSS positioning, you can override the normal document flow.</p>
+<div class="code-box"> 
+  <pre> <span class="tag">.box</span> { 
+  <span class="attr">position</span>: <span class="value">relative</span>; 
+  <span class="attr">top</span>: <span class="value">10px</span>; 
+ } </pre>
+ </div>
+ <div id="6" class="6">
+<h2><u> FLEXBOX (MODERN LAYOUT):</u></h2></div>
+<p class="elements">1. <b>Flex Container</b></p> 
+<p>The flex container element can have the following properties:<br>
+
+display - Must be set to flex or inline-flex<br>
+flex-direction - Sets the display-direction of flex items<br>
+flex-wrap - Specifies whether the flex items should wrap or not<br>
+flex-flow - Shorthand property for flex-direction and flex-wrap<br>
+justify-content - Aligns the flex items when they do not use all available space on the main-axis (horizontally)<br>
+align-items - Aligns the flex items when they do not use all available space on the cross-axis (vertically)<br>
+align-content - Aligns the flex lines when there is extra space in the cross axis and flex items wrap<br>
+</p>
+<div class="code-box"> 
+  <pre> <span class="tag">.container</span> { 
+   <span class="attr">display</span>: <span class="value">flex</span>; 
+   <span class="attr">justify-content</span>: <span class="value">center</span>; 
+   <span class="attr">align-items</span>: <span class="value">center</span>; 
+  } </pre>
+ </div>
+ <div id="7" class="7">
+<h2><u> RESPONSIVE DESIGN:</u></h2></div>
+<p class="elements">1. <b>Media Queries</b></p> 
+<p>CSS media queries allow you to apply styles based on the characteristics of a device or the environment displaying the web page.</p>
+<div class="code-box"> <pre> <span class="tag">@media</span> (<span class="attr">max-width</span>: <span class="value">768px</span>) { 
+  <span class="tag">.container</span> { <span class="attr">flex-direction</span>: <span class="value">column</span>; } 
+ } </pre> 
+</div>
+ <div id="8" class="8">
+<h2><u>EFFECTS & ANIMATIONS:</u></h2></div>
+<p class="elements">1. <b>Transition</b></p> 
+<p>CSS transitions allows you to change property values smoothly, over a given duration.</p>
+<div class="code-box"> 
+  <pre> <span class="tag">button</span> { 
+  <span class="attr">transition</span>: <span class="value">0.3s</span>; 
+ } </pre> </div>
+<p class="elements">2. <b>Transform</b></p> 
+<p>The CSS transform property applies a 2D or 3D transformation to an element. This property allows you to rotate, scale, move, and skew elements.</p>
+<div class="code-box"> 
+  <pre> <span class="tag">button:hover</span> { 
+  <span class="attr">transform</span>: <span class="value">scale(1.1)</span>; 
+ } </pre>
+ </div>
+ <p class="elements">3. <b>animation</b></p> 
+ <p>The <b>animation</b> property is used to add motion effects to HTML elements using CSS. It allows elements to move, change color, size, position, or shape automatically.</p>
+ <p class="elements">3.1 <b>@keyframes</b></p>
+  <p><b>@keyframes</b> defines the steps of an animation — what happens at the start, middle, and end.</p> 
+  <div class="code-box"> 
+    <pre> <span class="tag">@keyframes</span> <span class="text">moveBox</span> { 
+    <span class="value">from</span> { <span class="attr">transform</span>: <span class="value">translateX(0)</span>; } 
+    <span class="value">to</span> { <span class="attr">transform</span>: <span class="value">translateX(100px)</span>; } 
+ } </pre>
+ </div>
+ <p class="elements">3.2. <b>animation-name</b></p> 
+ <p>Specifies the name of the animation defined using <b>@keyframes</b>.</p> 
+ <div class="code-box"> 
+  <pre> <span class="tag">.box</span> { 
+   <span class="attr">animation-name</span>: <span class="value">moveBox</span>; 
+ } </pre> 
+</div>
+<p class="elements">3.3. <b>animation-duration</b></p> <p>Defines how long the animation takes to complete one cycle.</p> 
+<div class="code-box"> 
+  <pre> <span class="tag">.box</span> { 
+   <span class="attr">animation-duration</span>: <span class="value">2s</span>; 
+ } </pre> 
+</div>
+<p class="elements">3.4. <b>animation-timing-function</b></p> 
+<p>Controls the speed curve of the animation.</p> 
+<div class="code-box"> 
+  <pre> <span class="tag">.box</span> {
+  <span class="attr">animation-timing-function</span>: <span class="value">ease</span>;  
+ } </pre> 
+</div>
+<div id="9" class="9">
+ <h2><u>BORDER PROPERTY:</u></h2></div>
+ <p class="elements">1. <b>border-width</b></p> 
+ <p>Controls the thickness of the border.</p> 
+ <div class="code-box">
+   <pre> <span class="tag">.box</span> { 
+   <span class="attr">border-width</span>: <span class="value">4px</span>; 
+   <span class="attr">border-style</span>: <span class="value">solid</span>; 
+   } </pre>
+   </div>
+   <p class="elements">2. <b>border-style</b></p> 
+   <p>Defines how the border looks.</p> 
+   <div class="code-box"> 
+    <pre> <span class="tag">.box</span> { 
+   <span class="attr">border-style</span>: <span class="value">dashed</span>; 
+  } </pre>
+</div>
+<p class="elements">3. <b>border-color</b></p> 
+<p>Sets the color of the border.</p> 
+<div class="code-box"> 
+  <pre> <span class="tag">.box</span> { 
+   <span class="attr">border-color</span>: <span class="value">blue</span>; 
+  } </pre> 
+</div>
+<p class="elements">4. <b>Border on Individual Sides</b></p> 
+<p>You can apply borders to specific sides.</p> 
+<div class="code-box"> 
+  <pre> <span class="tag">.box</span> { 
+   <span class="attr">border-top</span>: <span class="value">2px solid red</span>; 
+   <span class="attr">border-bottom</span>: <span class="value">2px solid blue</span>; 
+  } </pre>
+ </div>
+ <p class="elements">5. <b>border-radius</b></p> 
+ <p>Makes the corners of an element rounded.</p> 
+ <div class="code-box"> 
+  <pre> <span class="tag">.card</span> { 
+   <span class="attr">border</span>: <span class="value">2px solid black</span>; 
+   <span class="attr">border-radius</span>: <span class="value">12px</span>; 
+ } </pre> 
+</div>
+  </div>
+ <script src="/js/cssnotes.js"></script>
+</body>
+</html>

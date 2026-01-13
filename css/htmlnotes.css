@@ -1,6 +1,6 @@
 body {
     margin: 0;
-    background: url("/images/galaxyhd.png") no-repeat center center fixed;
+    background: url("/images/galaxyhd1.png") no-repeat center center fixed;
     background-size: cover;
     color: white;
     font-family: "Instrument Serif",serif;
@@ -8,12 +8,17 @@ body {
 }
 .navbar {
   display: flex;
-  justify-content: space-between;
+  justify-content: space-between; 
   align-items: center;
   background: #30234f;
   padding: 10px 20px;
   color: white;
   margin-bottom: 50px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1000;
+  width: 97%;
 
 }
 .navbar .left {
@@ -118,6 +123,15 @@ padding-bottom: 5px;
   padding: 20px;
   transition: 0.4s ease;
   z-index: 999;
+
+  overflow-y: auto;
+}
+.sidebar::-webkit-scrollbar{
+  width: 5px;
+}
+.sidebar::-webkit-scrollbar-thumb{
+  background: rgba(255,255,255,0.3);
+  border-radius: 10px;
 }
 
 .sidebar.open {
@@ -144,13 +158,81 @@ padding-bottom: 5px;
 .sidebar ul li a {
   color: #dddddd;
   text-decoration: none;
-  font-size: 18px;
   font-family: "Instrument Serif", serif;
 }
 
 .sidebar ul li a:hover {
   color: white;
   text-decoration: underline;
+}
+.menu-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+/* ---------------- FONT SIZE HIERARCHY ---------------- */
+
+/* Level 1: Main sidebar links (Home, Studydeck, etc.) */
+.sidebar > ul > li > a,
+.menu-row > a {
+  font-size: 20px;
+}
+
+/* Level 2: HTML, CSS, JavaScript (inside Studydeck) */
+.submenu > li > .menu-row > a {
+  font-size: 19px;
+  color: #d6d6d6;
+}
+
+/* Level 3: Subtopics (HTML/CSS/JS topics) */
+.sub-submenu li a {
+  font-size: 17px;
+  color: #bfbfbf;
+}
+
+/* Hover clarity */
+.submenu > li > .menu-row > a:hover,
+.sub-submenu li a:hover {
+  color: #ffffff;
+}
+
+
+.submenu,
+.sub-submenu {
+  list-style: none;
+  padding-left: 15px;
+  display: none;
+  
+}
+
+.submenu li,
+.sub-submenu li {
+  margin: 10px 0;
+}
+
+/* Submenu links */
+.submenu a,
+.sub-submenu a {
+  color: #cfcfcf;
+  text-decoration: none;
+}
+
+.submenu a:hover,
+.sub-submenu a:hover {
+  color: #ffffff;
+  text-decoration: underline;
+}
+
+/* Arrows */
+.arrow {
+  cursor: pointer;
+  font-size: 15px;
+  color: #cfcfcf;
+  user-select: none;
+}
+
+.arrow:hover {
+  color: #ffffff;
 }
 
 
@@ -175,12 +257,18 @@ padding-bottom: 5px;
 .container {
     width: 84%;
     padding: 60px;
-    margin: 40px;
-    background: #bb9bd12c;
-    backdrop-filter: blur(4px);
+    margin-top: 90px;
+    margin-left: 40px;
+
+    /* Glass effect */
+    background: rgba(182, 155, 209, 0.189); /* transparent purple */
+    backdrop-filter: blur(0px);
+    -webkit-backdrop-filter: blur(8px); /* Safari support */
+
+    /* Glass border */
+    
     border-radius: 15px;
 
-    /* IMPORTANT: allow content to expand normally */
     height: auto;
     overflow: visible;
 }
@@ -232,7 +320,7 @@ h2 {
 
 /* Code Box */
 .code-box {
-    background-color: #747272;
+    background-color: #9e9d9dc4;
     padding: 10px 12px 10px;
     border-radius: 15px;
     margin-top: 10px;
@@ -246,7 +334,7 @@ h2 {
     margin: 0px;               /* removes extra space */
     line-height: 34px;       /* smaller lines so box is smaller */
     font-size: 21px;
-    color: #e5e7eb;
+    color: #000000;
     white-space: pre-wrap;   /* allows wrapping if needed */
 }
 
@@ -263,22 +351,22 @@ p{
     color:rgb(255, 255, 255) ;
 }
 .comment {
-    color:  #94a3b8;
+    color:  rgba(255, 255, 255, 0.451);
     font-style: italic;
 }
 
 .tag {
-  color: #023b53; /* blue → HTML tags */
+  color: #000000; /* blue → HTML tags */
 }
 
 .attr {
-  color: #543d02; /* yellow → attributes */
+  color: #920836; /* yellow → attributes */
 }
 
 .value {
-  color: #0a462a; /* green → attribute values */
+  color: #025e2b; /* green → attribute values */
 }
 
 .text {
-  color: #752525; /* pink → visible text */
+  color: #3b3b3b; /* pink → visible text */
 }

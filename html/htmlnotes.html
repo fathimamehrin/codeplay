@@ -8,13 +8,85 @@
       <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif&display=swap" rel="stylesheet">
 </head>
 <body>
-   <!-- ====== SIDEBAR ====== -->
+<!-- ====== SIDEBAR ====== -->
 <div class="sidebar" id="sidebar">
   <h2>Menu</h2>
   <ul>
     <li><a href="/html/index.html">Home</a></li>
     <li><a href="/html/index.html#features">About</a></li>
     <li><a href="/html/home.html">Lessons</a></li>
+    <li class="has-submenu">
+  <li class="has-submenu">
+  <div class="menu-row">
+    <a href="/html/studydeck.html">Studydeck</a>
+    <span class="arrow studydeck-arrow">▸</span>
+  </div>
+
+  <ul class="submenu">
+
+    <!-- HTML -->
+    <li class="has-submenu">
+      <div class="menu-row">
+        <a href="/html/htmlnotes.html">HTML</a>
+        <span class="arrow tech-arrow">▸</span>
+      </div>
+      <ul class="sub-submenu">
+        <li><a href="/html/htmlnotes.html#1">Basic Structure Tags</a></li>
+        <li><a href="/html/htmlnotes.html#2">Text Formatting Tags</a></li>
+        <li><a href="/html/htmlnotes.html#4">Links & Images</a></li>
+        <li><a href="/html/htmlnotes.html#5">Containers & Layouts</a></li>
+        <li><a href="/html/htmlnotes.html#6">Lists</a></li>
+        <li><a href="/html/htmlnotes.html#7">Forms And Inputs</a></li>
+        <li><a href="/html/htmlnotes.html#8">Media Elements</a></li>
+        <li><a href="/html/htmlnotes.html#9">Scripting & Meta</a></li>
+      </ul>
+    </li>
+
+    <!-- CSS -->
+    <li class="has-submenu">
+      <div class="menu-row">
+        <a href="/html/cssnotes.html">CSS</a>
+        <span class="arrow tech-arrow">▸</span>
+      </div>
+      <ul class="sub-submenu">
+        <li><a href="/html/cssnotes.html#1">Basic CSS Structure</a></li>
+        <li><a href="/html/cssnotes.html#2">CSS Box Model</a></li>
+        <li><a href="/html/cssnotes.html#3">Colors & Background</a></li>
+        <li><a href="/html/cssnotes.html#4">Text & Fonts</a></li>
+        <li><a href="/html/cssnotes.html#5">Display & Position</a></li>
+        <li><a href="/html/cssnotes.html#6">Flexbox(Modern Layout)</a></li>
+        <li><a href="/html/cssnotes.html#7">Responsive Design</a></li>
+        <li><a href="/html/cssnotes.html#8">Effects & Animation</a></li>
+        <li><a href="/html/cssnotes.html#9">Border Property</a></li>
+      </ul>
+    </li>
+
+    <!-- JavaScript -->
+    <li class="has-submenu">
+      <div class="menu-row">
+        <a href="/html/jsnotes.html">JavaScript</a>
+        <span class="arrow tech-arrow">▸</span>
+      </div>
+      <ul class="sub-submenu">
+      <li><a href="/html/jsnotes.html#vars">Variables</a></li>
+      <li><a href="/html/jsnotes.html#types">Data Types</a></li>
+      <li><a href="/html/jsnotes.html#operators">Operators</a></li>
+      <li><a href="/html/jsnotes.html#conditions">Conditional Statements</a></li>
+      <li><a href="/html/jsnotes.html#loops">Loops</a></li>
+      <li><a href="/html/jsnotes.html#functions">Functions</a></li>
+      <li><a href="/html/jsnotes.html#JS1">Dom Manipulation</a></li>
+      <li><a href="/html/jsnotes.html#JS2">Events</a></li>
+      <li><a href="/html/jsnotes.html#JS3">Arrays</a></li>
+      <li><a href="/html/jsnotes.html#JS4">Objects</a></li>
+      <li><a href="/html/jsnotes.html#JS5">Local Storage</a></li>
+      <li><a href="/html/jsnotes.html#JS6">Error Handling</a></li>
+      </ul>
+    </li>
+
+  </ul>
+</li>
+
+
     
     <li><a href="/html/myaccount.html">My Account</a></li>
     <li><a href="projects.html">Projects</a></li>
@@ -74,7 +146,8 @@
             <li><img src="/images/image 14.png" class="icon"><a href="#9"><u>SCRIPTING & META</u></a></li>
             </ul>
             <div id="1" class="1">
-       <h2><u>BASIC STRUCTURE TAGS:</h2></u></div>
+       <h2><u>BASIC STRUCTURE TAGS:</h2></u>
+      </div>
         <p class="elements">1. <b>&lt;!DOCTYPE html&gt;</b></p>
         <p> Declares that the document is using HTML5 — the latest version of HTML.</p>
 
@@ -132,7 +205,7 @@
 </div>
  <div id="2" class="2">
        <h2><u>TEXT FORMATTING TAGS:</h2></u></div>
-  <p class="elements">6.
+  <p class="elements">1.
      <b>&lt;h1&gt;</b> to <b>&lt;h6&gt;</b></p> 
      <p>Used for headings. &lt;h1&gt; is the largest and most important, &lt;h6&gt; is the smallest.</p>
       <div class="code-box">
@@ -145,7 +218,7 @@
 <span class="tag">&lt;h6&gt;</span><span class="text">Least Important Heading</span><span class="tag">&lt;/h6&gt;</span>
 </pre>
 </div>
- <p class="elements">7.
+ <p class="elements">2.
   <b>&lt;p&gt;</b> ... <b>&lt;/p&gt;</b></p>
   <p>Defines a paragraph of text.</p>
   <div class="code-box">
@@ -155,7 +228,7 @@
 
 </pre> 
                 </div> 
-                <p class="elements">8. 
+                <p class="elements">3. 
                   <b>&lt;br&gt;</b></p> 
                   <p>Inserts a line break without starting a new paragraph.</p> 
                   <div class="code-box">
@@ -164,7 +237,7 @@
 <span class="text">Hello <span class="tag">&lt;br&gt;</span> world</span><span class="tag"></span>
   </pre> 
    </div> 
-   <p class="elements">9.
+   <p class="elements">4.
    <b>&lt;i&gt;</b>, <b>&lt;b&gt;</b>, <b>&lt;u&gt;</b></p>
     <p>Formats text: italic, bold, and underline.</p> 
     <div class="code-box"> 
@@ -176,7 +249,7 @@
    </div>
    <div id="4" class="4">
 <h2><u>LINKS & IMAGES:</u></h2></div>
-<p class="elements">10. 
+<p class="elements">1. 
 <b>&lt;a&gt;</b> ... <b>&lt;/a&gt;</b></p>
 <p>Creates a clickable hyperlink.</p> 
 <div class="code-box">
@@ -185,7 +258,7 @@
   <span class="text">Visit Website</span>
 <span class="tag">&lt;/a&gt;</span>
 </div> 
-<p class="elements">11.
+<p class="elements">2.
    <b>&lt;img&gt;</b></p> 
    <p>Displays an image on the webpage.</p> 
    <div class="code-box"> 
@@ -196,7 +269,7 @@
 </div>
 <div id="5" class="5">
 <h2><u>CONTAINER & LAYOUT:</u></h2></div>
-<p class="elements">12. 
+<p class="elements">1. 
   <b>&lt;div&gt;</b> ... <b>&lt;/div&gt;</b></p> 
   <p>A block-level container used to group elements for layout and styling.</p> 
   <div class="code-box"> 
@@ -205,7 +278,7 @@
 <span class="tag"> &lt;/div&gt;</span>
 </pre> 
 </div> 
-<p class="elements">13. 
+<p class="elements">2. 
   <b>&lt;span&gt;</b> ... <b>&lt;/span&gt;</b></p> 
   <p>An inline container used for styling part of text.</p> 
   <div class="code-box">
@@ -217,7 +290,7 @@
 </div>
 <div id="6" class="6">
 <h2><u>LISTS:</u></h2></div>
-<p class="elements">14. &lt;ul&gt;</p>
+<p class="elements">1. &lt;ul&gt;</p>
 <p>Used when the order of items is not important.</p>
 
 <div class="code-box">
@@ -229,7 +302,7 @@
 <span class="tag">&lt;/ul&gt;</span>
 </pre>
 </div>
-<p class="elements">15. &lt;ol&gt;</p>
+<p class="elements">2. &lt;ol&gt;</p>
 <p>Used when the sequence of items matters.</p>
 
 <div class="code-box">
@@ -241,7 +314,7 @@
 <span class="tag">&lt;/ol&gt;</span>
 </pre>
 </div>
-<p class="elements">16. &lt;li&gt;</p>
+<p class="elements">3. &lt;li&gt;</p>
 <p>&lt;li&gt; must be used inside &lt;ul&gt; or &lt;ol&gt;.</p>
 
 <div class="code-box">
@@ -257,7 +330,7 @@
 
 <div id="7" class="7">
 <h2><u>FORMS & INPUT:</u></h2></div>
-<p class="elements">17.
+<p class="elements">1.
    <b>&lt;form&gt;</b> ... <b>&lt;/form&gt;</b></p> 
   <p>Used to collect user input.</p> 
   <div class="code-box">
@@ -268,7 +341,7 @@
 <span class="tag">&lt;/form&gt;</span>
 </pre>
 </div>
-<p class="elements">18. 
+<p class="elements">2. 
   <b>&lt;input&gt;</b></p> 
 <p>Accepts user input like text, email, password, etc.</p> 
 <div class="code-box"> 
@@ -278,7 +351,7 @@
   </pre> </div>
   <div id="8" class="8">
 <h2><u>MEDIA ELEMENTS:</u></h2></div>
-<p class="elements">19. 
+<p class="elements">1. 
   <b>&lt;audio&gt;</b></p> 
   <p>Embeds audio content.</p> 
   <div class="code-box">
@@ -288,7 +361,7 @@
 <span class="tag">&lt;/audio&gt;</span>
 </pre>
 </div>
-  <p class="elements">20. 
+  <p class="elements">2. 
     <b>&lt;video&gt;</b></p> 
     <p>Embeds video content.</p> 
 
@@ -301,7 +374,7 @@
 </div>
 <div id="9" class="9">
 <h2><u>SCRIPTING & META TAGS:</u></h2></div>
-<p class="elements">21. <b>&lt;script&gt;</b></p> 
+<p class="elements">1. <b>&lt;script&gt;</b></p> 
 <p>Used to add JavaScript to a webpage.</p> 
 <div class="code-box">
 <pre>
@@ -311,7 +384,7 @@
 </pre>
 </div>
  
-<p class="elements">22. 
+<p class="elements">2. 
   <b>&lt;meta&gt;</b></p> 
   <p>Provides metadata like character set and page description.</p>
   <div class="code-box"> 

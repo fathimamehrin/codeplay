@@ -82,7 +82,11 @@ removeAcc.addEventListener("click", (e) => {
   document.querySelector(".profile-name").textContent = "Profile";
 document.getElementById("home-profile-pic").src = "default.png";
 
-
+// ==================== LOCK CSS & JS AGAIN ==================== //
+  document.getElementById("css-btn").classList.add("locked");
+  document.getElementById("css-btn").style.pointerEvents = "none";
+  document.getElementById("js-btn").classList.add("locked");
+  document.getElementById("js-btn").style.pointerEvents = "none";
  
   // Refresh UI
   updateUI();
@@ -107,5 +111,26 @@ document.getElementById("home-profile-pic").src = "default.png";
     }
 };
 });
+const studydeckArrow = document.querySelector(".studydeck-arrow");
+  if (studydeckArrow) {
+    studydeckArrow.addEventListener("click", (e) => {
+      e.stopPropagation();
+      const submenu = studydeckArrow.parentElement.nextElementSibling;
 
+      submenu.style.display =
+        submenu.style.display === "block" ? "none" : "block";
+    });
+  }
+
+  /* ---------------- HTML / CSS / JS TOGGLES ---------------- */
+
+  document.querySelectorAll(".tech-arrow").forEach((arrow) => {
+    arrow.addEventListener("click", (e) => {
+      e.stopPropagation();
+      const submenu = arrow.parentElement.nextElementSibling;
+
+      submenu.style.display =
+        submenu.style.display === "block" ? "none" : "block";
+    });
+  });
 

@@ -1,0 +1,585 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS Notes</title>
+    <link rel="stylesheet" href="/css/jsnotes.css">
+      <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif&display=swap" rel="stylesheet">
+</head>
+<body>
+  <!-- ====== SIDEBAR ====== -->
+<div class="sidebar" id="sidebar">
+  <h2>Menu</h2>
+  <ul>
+    <li><a href="/html/index.html">Home</a></li>
+    <li><a href="/html/index.html#features">About</a></li>
+    <li><a href="/html/home.html">Lessons</a></li>
+    <li class="has-submenu">
+  <li class="has-submenu">
+  <div class="menu-row">
+    <a href="/html/studydeck.html">Studydeck</a>
+    <span class="arrow studydeck-arrow">▸</span>
+  </div>
+
+  <ul class="submenu">
+
+    <!-- HTML -->
+    <li class="has-submenu">
+      <div class="menu-row">
+        <a href="/html/htmlnotes.html">HTML</a>
+        <span class="arrow tech-arrow">▸</span>
+      </div>
+      <ul class="sub-submenu">
+        <li><a href="/html/htmlnotes.html#1">Basic Structure Tags</a></li>
+        <li><a href="/html/htmlnotes.html#2">Text Formatting Tags</a></li>
+        <li><a href="/html/htmlnotes.html#4">Links & Images</a></li>
+        <li><a href="/html/htmlnotes.html#5">Containers & Layouts</a></li>
+        <li><a href="/html/htmlnotes.html#6">Lists</a></li>
+        <li><a href="/html/htmlnotes.html#7">Forms And Inputs</a></li>
+        <li><a href="/html/htmlnotes.html#8">Media Elements</a></li>
+        <li><a href="/html/htmlnotes.html#9">Scripting & Meta</a></li>
+      </ul>
+    </li>
+
+    <!-- CSS -->
+    <li class="has-submenu">
+      <div class="menu-row">
+        <a href="/html/cssnotes.html">CSS</a>
+        <span class="arrow tech-arrow">▸</span>
+      </div>
+      <ul class="sub-submenu">
+        <li><a href="/html/cssnotes.html#1">Basic CSS Structure</a></li>
+        <li><a href="/html/cssnotes.html#2">CSS Box Model</a></li>
+        <li><a href="/html/cssnotes.html#3">Colors & Background</a></li>
+        <li><a href="/html/cssnotes.html#4">Text & Fonts</a></li>
+        <li><a href="/html/cssnotes.html#5">Display & Position</a></li>
+        <li><a href="/html/cssnotes.html#6">Flexbox(Modern Layout)</a></li>
+        <li><a href="/html/cssnotes.html#7">Responsive Design</a></li>
+        <li><a href="/html/cssnotes.html#8">Effects & Animation</a></li>
+        <li><a href="/html/cssnotes.html#9">Border Property</a></li>
+      </ul>
+    </li>
+
+    <!-- JavaScript -->
+    <li class="has-submenu">
+      <div class="menu-row">
+        <a href="/html/jsnotes.html">JavaScript</a>
+        <span class="arrow tech-arrow">▸</span>
+      </div>
+      <ul class="sub-submenu">
+      <li><a href="/html/jsnotes.html#vars">Variables</a></li>
+      <li><a href="/html/jsnotes.html#types">Data Types</a></li>
+      <li><a href="/html/jsnotes.html#operators">Operators</a></li>
+      <li><a href="/html/jsnotes.html#conditions">Conditional Statements</a></li>
+      <li><a href="/html/jsnotes.html#loops">Loops</a></li>
+      <li><a href="/html/jsnotes.html#functions">Functions</a></li>
+      <li><a href="/html/jsnotes.html#JS1">Dom Manipulation</a></li>
+      <li><a href="/html/jsnotes.html#JS2">Events</a></li>
+      <li><a href="/html/jsnotes.html#JS3">Arrays</a></li>
+      <li><a href="/html/jsnotes.html#JS4">Objects</a></li>
+      <li><a href="/html/jsnotes.html#JS5">Local Storage</a></li>
+      <li><a href="/html/jsnotes.html#JS6">Error Handling</a></li>
+      </ul>
+    </li>
+
+  </ul>
+</li>
+
+
+    
+    <li><a href="/html/myaccount.html">My Account</a></li>
+    <li><a href="projects.html">Projects</a></li>
+    <li><a href="#" id="removeAccount">Log out</a></li>
+  </ul>
+</div>
+<div class="overlay" id="overlay"></div>
+
+<!-- ====== NAVBAR ====== -->
+<nav class="navbar">
+  <div class="menu" id="menu-btn">
+      <img src="/images/Group 119.png" alt="menu" width="24">
+  </div>
+
+  <div class="right">
+    <div class="profile">
+        <div class="profile-pic-wrapper">
+            <img id="home-profile-pic" src="default.png" alt="profile">
+        </div>
+        <div id="home-username" class="profile-name">Username</div>
+    </div>
+</div>
+
+
+      <div class="points">
+          <img src="/images/Group 115.png" width="24">
+          <span id="points-count">00</span>
+      </div>
+
+      <div class="graph">
+          <img src="/images/Group 116.png" width="24">
+      </div>
+
+      <div class="notifications">
+          <img src="/images/notifi.png" width="24">
+      </div>
+  </div>
+</nav>
+<div class="container">
+  <div class="context">
+
+    <h1>INTRODUCTION TO JAVASCRIPT</h1>
+
+    <p class="intro">
+      JavaScript is a high-level, interpreted programming language
+      used to make web pages interactive.
+      It allows you to control behavior, respond to user actions,
+      update content dynamically, and build full web applications.
+      <br>
+      JavaScript runs directly in the browser and works together with
+      HTML and CSS.
+    <br>To apply JS , we must connect JS with HTML.
+There are 3 common and beginner-friendly ways to do this.</p>
+
+     <p class="elements">1 <b>INTERNAL JAVASCRIPT</b></p>
+    <p>Written inside the &lt;script&gt; tag.</p>
+
+    <div class="code-box">
+      <pre>
+<span class="tag">&lt;script&gt;</span>
+<span class="text">alert("Hello World");</span>
+<span class="tag">&lt;/script&gt;</span></pre>
+    </div>
+
+    <p class="elements">2. <b>EXTERNAL JAVASCRIPT (Recommended)</b></p>
+    <p>Written in a separate .js file and linked to HTML.</p>
+
+    <div class="code-box">
+      <pre>
+<span class="tag">&lt;script</span> <span class="attr">src</span>=<span class="value">"script.js"</span><span class="tag">&gt;&lt;/script&gt;</span>
+      </pre>
+    </div>
+
+    <p class="elements">3. <b>INLINE JAVASCRIPT</b></p>
+    <p>Written directly inside HTML elements.</p>
+
+    <div class="code-box">
+      <pre>
+<span class="tag">&lt;button</span> <span class="attr">onclick</span>=<span class="value">"alert('Clicked!')"</span><span class="tag">&gt;</span>
+<span class="text">Click Me</span>
+<span class="tag">&lt;/button&gt;</span>
+      </pre>
+    </div>
+    <!-- ================= TOPICS LIST ================= -->
+
+    <ul class="topics">
+      <li><img src="/images/image 14.png" class="icon"><a href="#vars"><u>VARIABLES</u></a></li>
+      <li><img src="/images/image 14.png" class="icon"><a href="#types"><u>DATA TYPES</u></a></li>
+      <li><img src="/images/image 14.png" class="icon"><a href="#operators"><u>OPERATORS</u></a></li>
+      <li><img src="/images/image 14.png" class="icon"><a href="#conditions"><u>CONDITIONAL STATEMENTS</u></a></li>
+      <li><img src="/images/image 14.png" class="icon"><a href="#loops"><u>LOOPS</u></a></li>
+      <li><img src="/images/image 14.png" class="icon"><a href="#functions"><u>FUNCTIONS</u></a></li>
+      <li><img src="/images/image 14.png" class="icon"><a href="#JS1"><u>DOM MANIPULATION</u></a></li>
+      <li><img src="/images/image 14.png" class="icon"><a href="#JS2"><u>EVENTS</u></a></li>
+      <li><img src="/images/image 14.png" class="icon"><a href="#JS3"><u>ARRAYS</u></a></li>
+      <li><img src="/images/image 14.png" class="icon"><a href="#JS4"><u>OBJECTS</u></a></li>
+      <li><img src="/images/image 14.png" class="icon"><a href="#JS5"><u>LOCAL STORAGE</u></a></li>
+      <li><img src="/images/image 14.png" class="icon"><a href="#JS6"><u>ERROR HANDLING</u></a></li>
+    </ul>
+
+    <!-- ================= VARIABLES ================= -->
+
+    <div id="vars">
+      <h2><u>VARIABLES</u></h2></div>
+
+      <p class="elements"></p>
+      <p>A variable is a container used to store data values.</p>
+
+      <div class="code-box">
+<pre>
+<span class="attr">let</span> <span class="text">age</span> <span class="value">=</span> <span class="value">20</span>;
+</pre>
+      </div>
+
+      <p class="elements">1. <b>var</b></p>
+      <p><b>var</b> is the old way of declaring variables. It has function scope.</p>
+
+      <div class="code-box">
+<pre>
+<span class="attr">var</span> <span class="text">name</span> <span class="value">=</span> <span class="value">"Alex"</span>;
+</pre>
+      </div>
+
+      <p class="elements">2. <b>let</b></p>
+      <p><b>let</b> is used to declare variables that can change later.</p>
+
+      <div class="code-box">
+<pre>
+<span class="attr">let</span> <span class="text">score</span> <span class="value">=</span> <span class="value">50</span>;
+<span class="text">score</span> <span class="value">=</span> <span class="value">60</span>;
+</pre>
+      </div>
+
+      <p class="elements">3. <b>const</b></p>
+      <p><b>const</b> is used for values that should not change.</p>
+
+      <div class="code-box">
+<pre>
+<span class="attr">const</span> <span class="text">pi</span> <span class="value">=</span> <span class="value">3.14</span>;
+</pre>
+      </div>
+
+
+    <!-- ================= DATA TYPES ================= -->
+
+    <div id="types">
+      <h2><u>DATA TYPES</u></h2></div>
+
+      <p class="elements">1. <b>String</b></p>
+      <p>Strings store text values.</p>
+
+      <div class="code-box">
+<pre>
+<span class="attr">let</span> <span class="text">city</span> <span class="value">=</span> <span class="value">"Chennai"</span>;
+</pre>
+      </div>
+
+      <p class="elements">2. <b>Number</b></p>
+      <p>Numbers store numeric values.</p>
+
+      <div class="code-box">
+<pre>
+<span class="attr">let</span> <span class="text">price</span> <span class="value">=</span> <span class="value">199</span>;
+</pre>
+      </div>
+
+      <p class="elements">3. <b>Boolean</b></p>
+      <p>Boolean values can be true or false.</p>
+
+      <div class="code-box">
+<pre>
+<span class="attr">let</span> <span class="text">isLoggedIn</span> <span class="value">=</span> <span class="value">true</span>;
+</pre>
+      </div>
+
+      <p class="elements">4. <b>typeof Operator</b></p>
+      <p>The typeof operator checks the data type of a value.</p>
+
+      <div class="code-box">
+<pre>
+<span class="attr">typeof</span> <span class="text">price</span>;
+</pre>
+      </div>
+ 
+
+    <!-- ================= OPERATORS ================= -->
+
+    <div id="operators">
+      <h2><u>OPERATORS</u></h2></div>
+
+      <p class="elements">1. <b>Arithmetic Operators</b></p>
+      <p>Used to perform mathematical calculations.</p>
+
+      <div class="code-box">
+<pre>
+<span class="attr">let</span> <span class="text">sum</span> <span class="value">=</span> <span class="value">10</span> <span class="value">+</span> <span class="value">5</span>;
+</pre>
+      </div>
+
+      <p class="elements">2. <b>Comparison Operators</b></p>
+      <p>Used to compare two values.</p>
+
+      <div class="code-box">
+<pre>
+<span class="value">5</span> <span class="value">===</span> <span class="value">5</span>;
+</pre>
+      </div>
+
+      <p class="elements">3. <b>Logical Operators</b></p>
+      <p>Used to combine conditions.</p>
+
+      <div class="code-box">
+<pre>
+<span class="value">true</span> <span class="value">&&</span> <span class="value">false</span>;
+</pre>
+      </div>
+   
+
+    <!-- ================= CONDITIONALS ================= -->
+
+    <div id="conditions">
+<h2><u>CONDITIONAL STATEMENTS:</u></h2></div>
+
+<p class="elements">1. <b>if Statement</b></p>
+<p>Executes a block of code if the condition is true.</p>
+
+<div class="code-box">
+<pre>
+<span class="attr">if</span> (<span class="text">age</span> <span class="value">&gt;</span> <span class="value">18</span>) {
+  <span class="text">console</span>.<span class="attr">log</span>(<span class="value">"Adult"</span>);
+}
+</pre>
+</div>
+
+<p class="elements">2. <b>else Statement</b></p>
+<p>Runs when the if condition is false.</p>
+
+<div class="code-box">
+<pre>
+<span class="attr">if</span> (<span class="text">age</span> <span class="value">&lt;</span> <span class="value">18</span>) {
+  <span class="text">console</span>.<span class="attr">log</span>(<span class="value">"Minor"</span>);
+} <span class="attr">else</span> {
+  <span class="text">console</span>.<span class="attr">log</span>(<span class="value">"Adult"</span>);
+}
+</pre>
+</div>
+
+<p class="elements">3. <b>else if Statement</b></p>
+<p>Checks multiple conditions.</p>
+
+<div class="code-box">
+<pre>
+<span class="attr">if</span> (<span class="text">score</span> <span class="value">&gt;=</span> <span class="value">90</span>) {
+  <span class="text">grade</span> = <span class="value">"A"</span>;
+} <span class="attr">else if</span> (<span class="text">score</span> <span class="value">&gt;=</span> <span class="value">75</span>) {
+  <span class="text">grade</span> = <span class="value">"B"</span>;
+}
+</pre>
+</div>
+
+<p class="elements">4. <b>switch Statement</b></p>
+<p>Used to perform different actions based on different values.</p>
+
+<div class="code-box">
+<pre>
+<span class="attr">switch</span> (<span class="text">day</span>) {
+  <span class="attr">case</span> <span class="value">1</span>:
+    <span class="text">result</span> = <span class="value">"Monday"</span>;
+    <span class="attr">break</span>;
+  <span class="attr">default</span>:
+    <span class="text">result</span> = <span class="value">"Unknown"</span>;
+}
+</pre>
+</div>
+
+
+
+    <!-- ================= LOOPS ================= -->
+
+   <div id="loops">
+<h2><u>LOOPS:</u></h2></div>
+
+<p class="elements">1. <b>for Loop</b></p>
+<p>Repeats code a specific number of times.</p>
+
+<div class="code-box">
+<pre>
+<span class="attr">for</span> (<span class="attr">let</span> <span class="text">i</span> = <span class="value">0</span>; <span class="text">i</span> &lt; <span class="value">5</span>; <span class="text">i</span>++) {
+  <span class="text">console</span>.<span class="attr">log</span>(<span class="text">i</span>);
+}
+</pre>
+</div>
+
+<p class="elements">2. <b>while Loop</b></p>
+<p>Runs while a condition is true.</p>
+
+<div class="code-box">
+<pre>
+<span class="attr">while</span> (<span class="text">count</span> &lt; <span class="value">3</span>) {
+  <span class="text">count</span>++;
+}
+</pre>
+</div>
+
+<p class="elements">3. <b>do...while Loop</b></p>
+<p>Executes at least once before checking condition.</p>
+
+<div class="code-box">
+<pre>
+<span class="attr">do</span> {
+  <span class="text">count</span>++;
+} <span class="attr">while</span> (<span class="text">count</span> &lt; <span class="value">3</span>);
+</pre>
+</div>
+
+
+
+    <!-- ================= FUNCTIONS ================= -->
+
+  <div id="functions">
+<h2><u>FUNCTIONS:</u></h2></div>
+
+<p class="elements">1. <b>Function Declaration</b></p>
+<p>Defines reusable code.</p>
+
+<div class="code-box">
+<pre>
+<span class="attr">function</span> <span class="text">greet</span>() {
+  <span class="text">console</span>.<span class="attr">log</span>(<span class="value">"Hello"</span>);
+}
+</pre>
+</div>
+
+<p class="elements">2. <b>Function Parameters</b></p>
+<p>Parameters are values passed to a function.</p>
+
+<div class="code-box">
+<pre>
+<span class="attr">function</span> <span class="text">add</span>(<span class="text">a</span>, <span class="text">b</span>) {
+  <span class="attr">return</span> <span class="text">a</span> + <span class="text">b</span>;
+}
+</pre>
+</div>
+
+<p class="elements">3. <b>Arrow Function</b></p>
+<p>Shorter syntax for writing functions.</p>
+
+<div class="code-box">
+<pre>
+<span class="attr">const</span> <span class="text">multiply</span> = (<span class="text">a</span>, <span class="text">b</span>) => <span class="text">a</span> * <span class="text">b</span>;
+</pre>
+</div>
+
+
+
+    <!-- ================= DOM ================= -->
+
+   <div id="JS1">
+<h2><u>DOM MANIPULATION:</u></h2></div>
+
+<p class="elements">1. <b>Selecting Elements</b></p>
+<p>Selecting elements means finding and accessing HTML elements from the webpage so JavaScript can work with them.<br>
+JavaScript uses methods like getElementById() and querySelector() to select elements.</p>
+
+<div class="code-box">
+<pre>
+<span class="attr">document</span>.<span class="attr">querySelector</span>(<span class="value">".box"</span>);
+</pre>
+</div>
+
+<p class="elements">2. <b>Changing Content</b></p>
+<p>Changing content means modifying the text or HTML inside an element using JavaScript.
+Properties like <b>innerText</b> and <b>innerHTML</b> are used to update what appears on the webpage dynamically.</p>
+
+<div class="code-box">
+<pre>
+<span class="text">element</span>.<span class="attr">innerText</span> = <span class="value">"Updated"</span>;
+</pre>
+</div>
+
+
+
+    <!-- ================= EVENTS ================= -->
+
+    <div id="JS2">
+<h2><u>EVENTS:</u></h2></div>
+
+<p class="elements">1. <b>Click Event</b></p>
+<p>A click event occurs when a user clicks on an element like a button, image, or link.
+JavaScript listens for this action and runs code when the click happens.</p>
+<div class="code-box">
+<pre>
+<span class="text">btn</span>.<span class="attr">addEventListener</span>(<span class="value">"click"</span>, () => {
+  <span class="text">alert</span>(<span class="value">"Clicked"</span>);
+});
+</pre>
+</div>
+
+  <!--==========ARRAYS=========-->
+<div id="JS3">
+<h2><u>ARRAYS:</u></h2>
+
+<p class="elements">1. <b>Creating an Array</b></p>
+<p>Stores multiple values in one variable.</p>
+
+<div class="code-box">
+<pre>
+<span class="attr">let</span> <span class="text">colors</span> = [<span class="value">"red"</span>, <span class="value">"blue"</span>];
+</pre>
+</div>
+
+<p class="elements">2. <b>Accessing Elements</b></p>
+<p>Accessing elements means getting a specific value from an array using its position</p>
+
+<div class="code-box">
+<pre>
+<span class="text">colors</span>[<span class="value">0</span>];
+</pre>
+</div>
+
+<p class="elements">3. <b>Array Methods</b></p>
+<p>Array methods are built-in functions used to perform actions on arrays, such as adding, removing, or modifying items.</p>
+
+<div class="code-box">
+<pre>
+<span class="text">colors</span>.<span class="attr">push</span>(<span class="value">"green"</span>);
+</pre>
+</div>
+<!--==========OBJECTS=========-->
+<div id="JS4">
+<h2><u>OBJECTS:</u></h2></div>
+
+<p class="elements">1. <b>Creating an Object</b></p>
+<p>Objects store data in key-value pairs.</p>
+
+<div class="code-box">
+<pre>
+<span class="attr">const</span> <span class="text">user</span> = {
+  <span class="attr">name</span>: <span class="value">"Alex"</span>,
+  <span class="attr">age</span>: <span class="value">20</span>
+};
+</pre>
+</div>
+
+<p class="elements">2. <b>Accessing Properties</b></p>
+<p>Accessing properties means reading or using a value stored inside an object using its key name.</p>
+
+<div class="code-box">
+<pre>
+<span class="text">user</span>.<span class="attr">name</span>;
+</pre>
+</div>
+<!--==========LOCAL STORAGE=========-->
+<div id="JS5">
+<h2><u>LOCAL STORAGE:</u></h2></div>
+
+<p class="elements">1. <b>Storing Data</b></p>
+<p>Storing data means saving information in the browser so it can be used later, even after refreshing the page.</p>
+<div class="code-box">
+<pre>
+<span class="attr">localStorage</span>.<span class="attr">setItem</span>(<span class="value">"name"</span>, <span class="value">"Alex"</span>);
+</pre>
+</div>
+
+<p class="elements">2. <b>Retrieving Data</b></p>
+<p>Retrieving data means getting back stored information from the browser storage so it can be displayed or used again.</p>
+<div class="code-box">
+<pre>
+<span class="attr">localStorage</span>.<span class="attr">getItem</span>(<span class="value">"name"</span>);
+</pre>
+</div>
+<!--==========ERROR HANDLING=========-->
+<div id="JS6">
+<h2><u>ERROR HANDLING:</u></h2>
+
+<p class="elements">1. <b>try...catch</b></p>
+<p>Handles runtime errors safely.</p>
+
+<div class="code-box">
+<pre>
+<span class="attr">try</span> {
+  <span class="text">undefinedFunction</span>();
+} <span class="attr">catch</span> (<span class="text">error</span>) {
+  <span class="text">console</span>.<span class="attr">log</span>(<span class="text">error</span>);
+}
+</pre>
+</div>
+</div>
+
+
+  </div>
+</div>
+
+ <script src="/js/jsnotes.js"></script>
+</body>
+</html>

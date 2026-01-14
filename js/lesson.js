@@ -88,11 +88,14 @@ function loadAlert() {
 
 function showAlert() {
   document.getElementById("customAlert").style.display = "block";
+  document.getElementById("alertOverlay").style.display = "block";
 }
 
 function closeAlert() {
   document.getElementById("customAlert").style.display = "none";
+  document.getElementById("alertOverlay").style.display = "none";
 }
+
 
 
 /* =========================================

@@ -1,0 +1,288 @@
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: url("/images/galaxyhd1.png") no-repeat center center fixed;
+  background-size: cover;
+  color: white;
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #30234f;
+  padding: 10px 20px;
+  color: white;
+  margin-bottom: 50px;
+
+}
+.navbar .left {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+
+}
+
+
+.navbar .right {
+  display: flex;
+  align-items: center;
+ 
+}
+.navbar .right img{
+  padding-left: 0px;
+  
+}
+.points {
+  display: flex;
+  align-items: center;
+  position: relative;
+  cursor: pointer;
+}
+.graph{
+  cursor: pointer;
+  transition: filter 0.3s;
+
+}
+  
+
+.graph:hover{
+  filter: brightness(0) invert(1);
+}
+.notifications{
+  height: 27px;
+  cursor: pointer;
+
+}
+.notifications:hover{
+filter:brightness(100) ;
+}
+#points-count {
+  position: relative;
+  top: 1px;   
+  margin-left: 4px;
+  font-size: 19px;
+  font-family: 'Instrument Serif',serif;
+  letter-spacing: 0px;
+
+}
+
+
+
+
+.card {
+  background: #ad86c9e6;
+  border-radius: 12px;
+  margin: 30px auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 550px;
+  height: 100px;
+  transition: background-color 0.3s;
+  position: relative;
+  box-shadow: 1px 1px 1px 2px rgba(0,0,0,0.15);
+
+}
+.card:hover .lock {
+  content: url("/images/Group\ 122.png");
+}
+.card:hover .unlock{
+  content: url("/images/white\ unlock.png");
+}
+
+
+.card.plain {
+  justify-content: center;
+  background-color:#513e76e6 ;
+  transition: background-color 0.3s;
+}
+
+.module-btn {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  height: 100%;
+  padding: 0 25px;
+  box-sizing: border-box;
+  text-decoration: none;
+  color: white;
+
+  transition: background-color 0.3s;
+  border-radius: 12px;
+}
+
+.card:hover{
+  background-color: #ad86c944;
+}
+.card.plain:hover{
+  background-color: #5d498350;
+}
+
+
+.locked {
+  pointer-events: none; 
+  position: absolute;
+}
+.unlock{
+  width: 23px;
+  margin-left: auto;
+  margin-right: 4px;
+  
+
+
+}
+
+.lock {
+  width: 18px;
+  margin-left: auto;
+  margin-right: 8px;
+ 
+}
+.egg{
+  width: 20px;
+  margin-right:-10px;
+  margin-left: -2px;
+  margin-bottom: 10px;
+  margin-top: 66px;
+
+}
+.lock,.unlock{
+margin-bottom:9px ;
+margin-top:63px ;
+  
+}
+
+.progress {
+  margin-left:5px;
+  padding-left: 10px;
+  font-family: 'Instrument Serif',serif !important;
+  font-size:18px !important;
+  font-weight: small;
+  margin-bottom: -60px;
+  position: relative;
+
+}
+.html-icon{
+  height: 52px;
+  margin-right: 10px;
+}
+.css-icon{
+  height: 59px;
+  margin-right: 7px;
+  margin-left: -3px;
+}
+.js-icon{
+  height: 52px;
+  margin-left: -15px;
+  margin-right: -4px;
+}
+.profile{
+  margin-left: 900px;
+}
+.card.plain a, .module-btn span{
+  font-family: "Jaini Purva",cursive;
+  letter-spacing: 2px;
+  font-size: 42px;
+  font-weight: 100;
+  line-height: 1;
+}
+.menu{
+  cursor:pointer;
+  transition: content 0.3s;
+}
+.menu:hover{
+content: url(/images/white\ menu.png);
+height:19px ;
+padding-bottom: 5px;
+}
+.profile {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.profile-pic-wrapper {
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    overflow: hidden;
+    flex-shrink: 0;
+}
+
+#home-profile-pic {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+  
+.profile-name{
+  font-family:'Instrument Serif',serif ;
+  letter-spacing: 1px;
+  font-weight: small;
+  margin-top: 3px;
+}
+
+.sidebar {
+  position: fixed;
+  top: 0;
+  left: -300px;
+  width: 230px;
+  height: 100%;
+  background-color: #30234f;
+  color: #fff;
+  padding: 20px;
+  transition: 0.4s ease;
+  z-index: 999;
+}
+
+.sidebar.open {
+  left: 0;
+}
+
+.sidebar h2 {
+  font-size: 22px;
+  margin-bottom: 25px;
+  font-family: "Instrument Serif", serif;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+
+.sidebar ul {
+  list-style: none;
+  padding: 0;
+}
+
+.sidebar ul li {
+  margin: 18px 0;
+}
+
+.sidebar ul li a {
+  color: #dddddd;
+  text-decoration: none;
+  font-size: 18px;
+  font-family: "Instrument Serif", serif;
+}
+
+.sidebar ul li a:hover {
+  color: white;
+  text-decoration: underline;
+}
+
+
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(255, 255, 255, 0);
+  display: none;
+  z-index: 998;
+}
+
+.overlay.show {
+  display: block;
+}

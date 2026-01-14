@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <link rel="stylesheet" href="/css/jsLesson.css">
+  <link rel="stylesheet" href="/css/alert.css">
+
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Jacquarda+Bastarda+9&display=swap" rel="stylesheet">
+
+  <title>CSS Lesson</title>
+</head>
+<body>
+
+<nav class="navbar">
+  <div class="left">
+    <img src="/images/Group 119.png" class="menu-icon">
+  </div>
+
+  <div class="right">
+    <div class="point">
+      <img src="/images/Group 115.png">
+      <span id="point" class="point-span">00</span>
+    </div>
+    <div class="profile">Profile</div>
+  </div>
+</nav>
+
+<div class="header">
+  <h2 id="lesson-title"></h2>
+  <p id="lesson-desc"></p>
+</div>
+
+<div class="containers">
+
+  <div class="container1">
+    <div id="lesson-top"></div>
+    <div id="lesson-middle"></div>
+    <div id="lesson-bottom"></div>
+  </div>
+
+  <div class="container2">
+    <nav class="tryme-navbar">
+      <div class="left">TRY ME!</div>
+      <div class="right">
+        <button class="run-button" onclick="runJsCode()">Run</button>
+      </div>
+    </nav>
+
+    <textarea class="editor" id="editor"></textarea>
+    <iframe id="output" class="output"></iframe>
+  </div>
+
+</div>
+
+<div class="right-buttons">
+  <div class="button-wrapper">
+    <img src="/images/Group 96 (1).png" class="prev">
+    <button onclick="prevJsLesson()">PREV</button>
+  </div>
+
+  <div class="button-wrapper">
+    <img src="/images/Group 96 (1).png" class="next">
+    <button id="nextBtn" onclick="nextJsLesson()">NEXT</button>
+  </div>
+</div>
+
+<script src="/js/jsLesson.js"></script>
+</body>
+</html>

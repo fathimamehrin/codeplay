@@ -1,0 +1,46 @@
+.alert-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(28, 24, 68, 0.65);;
+  display: none;
+  z-index: 999;
+}
+.alert-box {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: #fafaff;;
+  padding: 25px 30px;
+  width: 340px;
+  text-align: center;
+  border-radius: 10px;
+  box-shadow: 0 20px 40px rgba(28, 24, 68, 0.35);
+  z-index: 1000;
+  border: 1px solid #e2e0ff;
+  display: none;
+
+}
+
+.alert-box p {
+  font-size: 15px;
+  line-height: 1.5;
+  color: #2f2f3a;
+}
+.alert-box button {
+  margin-top: 18px;
+  padding: 8px 22px;
+  background: #2e2950; /* matches your purple theme */
+  border: none;
+  color: white;
+  font-size: 14px;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.alert-box button:hover {
+  opacity: 0.9;
+}

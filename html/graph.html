@@ -3,45 +3,190 @@
 <head>
   <meta charset="UTF-8">
   <title>Galaxy Roadmap</title>
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="/css/graph.css">
 </head>
 <body>
+  <div class="sidebar" id="sidebar">
+  <h2>Menu</h2>
+  <ul>
+    <li><a href="/html/index.html">Home</a></li>
+    <li><a href="/html/index.html#features">About</a></li>
+    <li><a href="/html/home.html">Lessons</a></li>
 
-<div class="galaxy-bg"></div>
+    <!-- Studydeck -->
+    <li class="has-submenu">
+      <div class="menu-row">
+        <a href="/html/studydeck.html">Studydeck</a>
+        <span class="arrow studydeck-arrow">▸</span>
+      </div>
 
+      <ul class="submenu">
+
+        <!-- HTML -->
+        <li class="has-submenu">
+          <div class="menu-row">
+            <a href="/html/htmlnotes.html">HTML</a>
+            <span class="arrow tech-arrow">▸</span>
+          </div>
+          <ul class="sub-submenu">
+            <li><a href="/html/htmlnotes.html#1">Basic Structure Tags</a></li>
+            <li><a href="/html/htmlnotes.html#2">Text Formatting Tags</a></li>
+            <li><a href="/html/htmlnotes.html#4">Links & Images</a></li>
+            <li><a href="/html/htmlnotes.html#5">Containers & Layouts</a></li>
+            <li><a href="/html/htmlnotes.html#6">Lists</a></li>
+            <li><a href="/html/htmlnotes.html#7">Forms And Inputs</a></li>
+            <li><a href="/html/htmlnotes.html#8">Media Elements</a></li>
+            <li><a href="/html/htmlnotes.html#9">Scripting & Meta</a></li>
+          </ul>
+        </li>
+
+        <!-- CSS -->
+        <li class="has-submenu">
+          <div class="menu-row">
+            <a href="/html/cssnotes.html">CSS</a>
+            <span class="arrow tech-arrow">▸</span>
+          </div>
+          <ul class="sub-submenu">
+            <li><a href="/html/cssnotes.html#1">Basic CSS Structure</a></li>
+            <li><a href="/html/cssnotes.html#2">CSS Box Model</a></li>
+            <li><a href="/html/cssnotes.html#3">Colors & Background</a></li>
+            <li><a href="/html/cssnotes.html#4">Text & Fonts</a></li>
+            <li><a href="/html/cssnotes.html#5">Display & Position</a></li>
+            <li><a href="/html/cssnotes.html#6">Flexbox</a></li>
+            <li><a href="/html/cssnotes.html#7">Responsive Design</a></li>
+            <li><a href="/html/cssnotes.html#8">Effects & Animation</a></li>
+            <li><a href="/html/cssnotes.html#9">Border Property</a></li>
+          </ul>
+        </li>
+
+        <!-- JavaScript -->
+        <li class="has-submenu">
+          <div class="menu-row">
+            <a href="/html/jsnotes.html">JavaScript</a>
+            <span class="arrow tech-arrow">▸</span>
+          </div>
+          <ul class="sub-submenu">
+            <li><a href="/html/jsnotes.html#vars">Variables</a></li>
+            <li><a href="/html/jsnotes.html#types">Data Types</a></li>
+            <li><a href="/html/jsnotes.html#operators">Operators</a></li>
+            <li><a href="/html/jsnotes.html#conditions">Conditional Statements</a></li>
+            <li><a href="/html/jsnotes.html#loops">Loops</a></li>
+            <li><a href="/html/jsnotes.html#functions">Functions</a></li>
+            <li><a href="/html/jsnotes.html#JS1">DOM Manipulation</a></li>
+            <li><a href="/html/jsnotes.html#JS2">Events</a></li>
+            <li><a href="/html/jsnotes.html#JS3">Arrays</a></li>
+            <li><a href="/html/jsnotes.html#JS4">Objects</a></li>
+            <li><a href="/html/jsnotes.html#JS5">Local Storage</a></li>
+            <li><a href="/html/jsnotes.html#JS6">Error Handling</a></li>
+          </ul>
+        </li>
+
+      </ul>
+    </li>
+
+    <li><a href="/html/myaccount.html">My Account</a></li>
+    <li><a href="projects.html">Projects</a></li>
+    <li><a href="#" id="removeAccount">Log out</a></li>
+  </ul>
+</div>
+<div class="overlay" id="overlay"></div>
+
+
+<!-- BACKGROUND -->
+<div class="galaxy"></div>
+
+
+
+
+
+
+<!-- ROADMAP -->
 <div class="roadmap">
+  <!-- SVG CURVED PATH -->
+ <svg class="path-svg" viewBox="0 0 700 2200" preserveAspectRatio="none">
+    <path id="roadPath" pathLength="1"
+      d="
+        M350 2100
+        C80 1900, 620 1750, 350 1600
+        C80 1450, 620 1300, 350 1150
+        C80 1000, 620 850, 350 700
+        C80 550, 620 400, 350 250
+      "
+    />
+  </svg>
 
-  <!-- Character -->
-  <div id="character">🚀</div>
 
-  <!-- STAGE 1 -->
-  <div class="stage left" data-step="0">
-    <div class="planet star">⭐</div>
-    <span>HTML Basics</span>
-  </div>
 
-  <!-- STAGE 2 -->
-  <div class="stage right" data-step="1">
-    <div class="planet star">⭐</div>
-    <span>HTML Elements</span>
-  </div>
 
-  <!-- STAGE 3 -->
-  <div class="stage left" data-step="2">
-    <div class="planet star">⭐</div>
-    <span>CSS Basics</span>
-  </div>
+  <!-- STAGES -->
+  <div class="stage left" data-step="0"><div class="planet star">⭐</div><span>HTML</span></div>
+  <div class="stage right" data-step="1"><div class="planet star">⭐</div><span>&lt;h1&gt;...&lt;h6&gt;</span></div>
+  <div class="stage left" data-step="2"><div class="planet star">⭐</div><span>&lt;p&gt;</span></div>
+  <div class="stage right" data-step="3"><div class="planet star">⭐</div><span>&lt;br&gt;</span></div>
+  <div class="stage left" data-step="4"><div class="planet star">⭐</div><span>&lt;b&gt;</span></div>
+  <div class="stage right" data-step="5"><div class="planet star">⭐</div><span>&lt;strong&gt;</span></div>
+  <div class="stage left" data-step="6"><div class="planet star">⭐</div><span>&lt;i&gt;</span></div>
+  <div class="stage right" data-step="7"><div class="planet star">⭐</div><span>&lt;em&gt;</span></div>
+  <div class="stage left" data-step="8"><div class="planet star">⭐</div><span>&lt;u&gt;</span></div>
+  <div class="stage right" data-step="9"><div class="planet star">⭐</div><span>&lt;small&gt;</span></div>
+  <div class="stage left" data-step="10"><div class="planet star">⭐</div><span>&lt;sub&gt;</span></div>
+  <div class="stage right" data-step="11"><div class="planet star">⭐</div><span>&lt;sup&gt;</span></div>
+  <div class="stage left" data-step="12"><div class="planet star">⭐</div><span>&lt;a&gt;</span></div>
+  <div class="stage right" data-step="13"><div class="planet star">⭐</div><span>&lt;img&gt;</span></div>
+  <div class="stage left" data-step="14"><div class="planet star">⭐</div><span>&lt;table&gt;</span></div>
+  <div class="stage right" data-step="15"><div class="planet star">⭐</div><span>&lt;ul&gt;</span></div>
+  <div class="stage left" data-step="16"><div class="planet star">⭐</div><span>&lt;ol&gt;</span></div>
+  <div class="stage right" data-step="17"><div class="planet star">⭐</div><span>&lt;dl&gt;</span></div>
+  <div class="stage left" data-step="18"><div class="planet star">⭐</div><span>&lt;div&gt;</span></div>
+  <div class="stage right" data-step="19"><div class="planet star">⭐</div><span>class attribute</span></div>
+  <div class="stage left" data-step="20"><div class="planet star">⭐</div><span>id attribute</span></div>
+  <div class="stage right" data-step="21"><div class="planet star">⭐</div><span>Buttons</span></div>
+  <div class="stage left" data-step="22"><div class="planet star">⭐</div><span>Forms</span></div>
+  <div class="stage right" data-step="23"><div class="planet star">⭐</div><span>Label for</span></div>
+  <div class="stage left" data-step="24"><div class="planet star">⭐</div><span>Text fields</span></div>
+  <div class="stage right" data-step="25"><div class="planet star">⭐</div><span>Radio buttons</span></div>
+  <div class="stage left" data-step="26"><div class="planet star">⭐</div><span>Checkbox</span></div>
+ 
+  <div class="stage right project" data-step="27"><div class="planet moon">🌙</div><span>HTML Project</span></div>
 
-  <!-- STAGE 4 -->
-  <div class="stage right" data-step="3">
-    <div class="planet star">⭐</div>
-    <span>JavaScript</span>
-  </div>
+  <div class="stage left" data-step="28"><div class="planet star">⭐</div><span>CSS</span></div>
+  <div class="stage right" data-step="29"><div class="planet star">⭐</div><span>Text-Color</span></div>
+  <div class="stage left" data-step="30"><div class="planet star">⭐</div><span>Font-size</span></div>
+  <div class="stage right" data-step="31"><div class="planet star">⭐</div><span>Font-Family</span></div>
+  <div class="stage left" data-step="32"><div class="planet star">⭐</div><span>Font-weight</span></div>
+  <div class="stage right" data-step="33"><div class="planet star">⭐</div><span>Text-align</span></div>
+  <div class="stage left" data-step="34"><div class="planet star">⭐</div><span>Bg-color</span></div>
+  <div class="stage right" data-step="35"><div class="planet star">⭐</div><span>Border</span></div>
+  <div class="stage left" data-step="36"><div class="planet star">⭐</div><span>Border-Radius</span></div>
+  <div class="stage right" data-step="37"><div class="planet star">⭐</div><span>Height & Width</span></div>
+  <div class="stage left" data-step="38"><div class="planet star">⭐</div><span>Margin</span></div>
+  <div class="stage right" data-step="39"><div class="planet star">⭐</div><span>Padding</span></div>
+  <div class="stage left" data-step="40"><div class="planet star">⭐</div><span>Display</span></div>
 
-  <!-- PROJECT -->
-  <div class="stage center project" data-step="4">
-    <div class="planet moon">🌙</div>
-    <span>Final Project</span>
+  <div class="stage right project" data-step="41"><div class="planet moon">🌙</div><span>CSS Project</span></div>
+
+  <div class="stage left" data-step="42"><div class="planet star">⭐</div><span>Js</span></div>
+  <div class="stage right" data-step="43"><div class="planet star">⭐</div><span>Output</span></div>
+  <div class="stage left" data-step="45"><div class="planet star">⭐</div><span>Variables</span></div>
+  <div class="stage right" data-step="46"><div class="planet star">⭐</div><span>Operators</span></div>
+  <div class="stage left" data-step="47"><div class="planet star">⭐</div><span>Arithmetic</span></div>
+  <div class="stage right" data-step="48"><div class="planet star">⭐</div><span>Assignment</span></div>
+  <div class="stage left" data-step="49"><div class="planet star">⭐</div><span>Comparison</span></div>
+  <div class="stage right" data-step="50"><div class="planet star">⭐</div><span>If</span></div>
+  <div class="stage left" data-step="51"><div class="planet star">⭐</div><span>Else</span></div>
+  <div class="stage right" data-step="52"><div class="planet star">⭐</div><span>Else if</span></div>
+  <div class="stage left" data-step="53"><div class="planet star">⭐</div><span>For loop</span></div>
+  <div class="stage right" data-step="54"><div class="planet star">⭐</div><span>While loop</span></div>
+  <div class="stage left" data-step="55"><div class="planet star">⭐</div><span>Do while loop</span></div>
+  <div class="stage right" data-step="56"><div class="planet star">⭐</div><span>Data types</span></div>
+  <div class="stage left" data-step="57"><div class="planet star">⭐</div><span>Functions</span></div>
+  <div class="stage right" data-step="58"><div class="planet star">⭐</div><span>Events</span></div>
+
+  <div class="stage left project" data-step="59"><div class="planet moon">🌙</div><span>Js Project</span></div>
+
+  <div class="stage center final" data-step="60"><div class="planet final-moon">🌕</div>
+    <span>FINAL PROJECT</span>
   </div>
 
 </div>
@@ -49,3 +194,4 @@
 <script src="/js/graph.js"></script>
 </body>
 </html>
+

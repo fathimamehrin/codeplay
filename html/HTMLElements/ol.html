@@ -3,11 +3,11 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="/css/HTMLElements/div.css">
+  <link rel="stylesheet" href="/css/HTMLElements/listElements.css">
    <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Jacquarda+Bastarda+9&display=swap" rel="stylesheet"> 
 
-  <title>div</title>
+  <title>ol</title>
 </head>
 <body>
   <nav class="navbar">
@@ -16,7 +16,7 @@
     </div>
   <div class="right">
   <div class="point">
-    <img src="/images/Group 115.png"><span class="point-span">00</span>
+    <img src="/images/Group 115.png"><span class="point-span">00
   </div>
   <div class="profile">
     Profile
@@ -24,36 +24,33 @@
 </div>
 </nav>
 <div class="header">
-<h2>&lt;div&gt; tag</h2>
-<p>
-The &lt;div&gt; tag is a block-level container that is used to group related HTML elements together so they can be structured and styled as a single section on a webpage.
-</p>
+<h2>&lt;ol&gt;</h2>
+<p>Used to create a list of items with numbers or letters in order.</p>
 
   </div>
   <div class="containers">
     <div class="container1">
       <div class="top">
       &lt;html&gt;<br>
-       &lt;style&gt;<br>
-        <span class="highlight">
-        div { <br>
-        background-color:#FFF4A3 ; <br>
-        }<br>
-        </span>
-        &lt;/style&gt;<br>
       &lt;body&gt;<br>
       </div>
      
-      <div class="middle">
-       
-        &lt;h2&gt;HTML DIV Example&lt;/h2&gt;<br>
-    <span class="highlight">
-        &lt;div&gt; <br>
-        &lt;p&gt;Multiple elements are wrapped inside this div.&lt;/p&gt; <br>
-        &lt;p&gt;The div separates this block from other content.&lt;/p&gt;<br>
-        &lt;div&gt;
-    </span>
-        </div>
+    <div class="middle">   
+    <pre class="highlight-pre">
+&lt;h2&gt;An Ordered HTML List&lt;/h2&gt;
+      <span class="highlight">&lt;ol&gt;</span>
+        <span class="highlight">&lt;li&gt;</span>Coffee<span class="highlight">&lt;/li&gt;</span>
+        <span class="highlight">&lt;li&gt;</span>Tea<span class="highlight">&lt;/li&gt;</span>
+        <span class="highlight">&lt;li&gt;</span>Milk<span class="highlight">&lt;/li&gt;</span>
+      <span class="highlight">&lt;/ol&gt;</span>
+
+       <span class="highlight">&lt;ol type="A"&gt;</span>
+        <span class="highlight">&lt;li&gt;</span>Cola<span class="highlight">&lt;/li&gt;</span>
+        <span class="highlight">&lt;li&gt;</span>Sprite<span class="highlight">&lt;/li&gt;</span>
+        <span class="highlight">&lt;li&gt;</span>Lime<span class="highlight">&lt;/li&gt;</span>
+      <span class="highlight">&lt;/ol&gt;</span>
+    </pre>
+    </div>
         <div class="bottom">
       &lt;/body&gt;<br>
        &lt;/html&gt;<br>
@@ -75,16 +72,17 @@ The &lt;div&gt; tag is a block-level container that is used to group related HTM
     <textarea class="editor" id="editor"></textarea> 
     <iframe id="output" class="output" style="display:none;"></iframe>
 
-    </div>
   </div>
   <div class="right-buttons">
     <div class="button-wrapper">
     <img src="/images/Group 96 (1).png"class="prev">
-    <button onclick="location.href='/html/HTMLElements/dl.html'">PREV</button>
+    <button onclick="location.href='/html/HTMLElements/listElements.html'">PREV</button>
     </div>
      <div class="button-wrapper">
     <img src="/images/Group 96 (1).png" class="next">
-    <button id="nextBtn" data-next="class.html" onclick="goNext()">NEXT</button>
+    <button id="nextBtn" data-next="dl.html" onclick="goNext()">NEXT</button>
+
+    
     </div>
     </div>
 

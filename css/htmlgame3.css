@@ -1,0 +1,437 @@
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  background: radial-gradient(circle at top,  #241d4b,#211736);
+  color: white;
+  font-family:'Instrument Serif',serif;
+  text-align: center;
+  letter-spacing: 1px;
+
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-between; 
+  align-items: center;
+  background: #30234f;
+  padding: 10px 20px;
+  color: white;
+  margin-bottom: 50px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1000;
+  width: 97%;
+
+}
+.navbar .left {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+
+}
+
+
+.navbar .right {
+  display: flex;
+  align-items: center;
+ 
+}
+.navbar .right img{
+  padding-left: 0px;
+  
+}
+.points {
+  display: flex;
+  align-items: center;
+  position: relative;
+  cursor: pointer;
+}
+.graph{
+  cursor: pointer;
+  transition: filter 0.3s;
+
+}
+  
+
+.graph:hover{
+  filter: brightness(0) invert(1);
+}
+.notifications{
+  height: 27px;
+  cursor: pointer;
+
+}
+.notifications:hover{
+filter:brightness(100) ;
+}
+#points-count {
+  position: relative;
+  top: 1px;   
+  margin-left: 4px;
+  font-size: 19px;
+  font-family: 'Instrument Serif',serif;
+  letter-spacing: 0px;
+
+}
+
+
+.profile{
+  margin-left: 900px;
+}.menu{
+  cursor:pointer;
+  transition: content 0.3s;
+}
+.menu:hover{
+content: url(/images/white\ menu.png);
+height:19px ;
+padding-bottom: 5px;
+}
+.profile {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.profile-pic-wrapper {
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    overflow: hidden;
+    flex-shrink: 0;
+}
+
+#home-profile-pic {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+  
+.profile-name{
+  font-family:'Instrument Serif',serif ;
+  letter-spacing: 1px;
+  font-weight: small;
+  margin-top: 3px;
+}
+
+.sidebar {
+  position: fixed;
+  top: 0;
+  left: -300px;
+  width: 230px;
+  height: 100%;
+  background-color: #30234f;
+  color: #fff;
+  padding: 20px;
+  transition: 0.4s ease;
+  z-index: 999;
+
+  overflow-y: auto;
+}
+.sidebar::-webkit-scrollbar{
+  width: 5px;
+}
+.sidebar::-webkit-scrollbar-thumb{
+  background: rgba(255,255,255,0.3);
+  border-radius: 10px;
+}
+
+.sidebar.open {
+  left: 0;
+}
+
+.sidebar h2 {
+  font-size: 22px;
+  margin-bottom: 25px;
+  font-family: "Instrument Serif", serif;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+
+.sidebar ul {
+  list-style: none;
+  padding: 0;
+}
+
+.sidebar ul li {
+  margin: 18px 0;
+}
+
+.sidebar ul li a {
+  color: #dddddd;
+  text-decoration: none;
+  font-family: "Instrument Serif", serif;
+}
+
+.sidebar ul li a:hover {
+  color: white;
+  text-decoration: underline;
+}
+.menu-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+/* ---------------- FONT SIZE HIERARCHY ---------------- */
+
+/* Level 1: Main sidebar links (Home, Studydeck, etc.) */
+.sidebar > ul > li > a,
+.menu-row > a {
+  font-size: 20px;
+}
+
+/* Level 2: HTML, CSS, JavaScript (inside Studydeck) */
+.submenu > li > .menu-row > a {
+  font-size: 19px;
+  color: #d6d6d6;
+}
+
+/* Level 3: Subtopics (HTML/CSS/JS topics) */
+.sub-submenu li a {
+  font-size: 17px;
+  color: #bfbfbf;
+}
+
+/* Hover clarity */
+.submenu > li > .menu-row > a:hover,
+.sub-submenu li a:hover {
+  color: #ffffff;
+}
+
+
+.submenu,
+.sub-submenu {
+  list-style: none;
+  padding-left: 15px;
+  display: none;
+  
+}
+
+.submenu li,
+.sub-submenu li {
+  margin: 10px 0;
+}
+
+/* Submenu links */
+.submenu a,
+.sub-submenu a {
+  color: #cfcfcf;
+  text-decoration: none;
+}
+
+.submenu a:hover,
+.sub-submenu a:hover {
+  color: #ffffff;
+  text-decoration: underline;
+}
+
+/* Arrows */
+.arrow {
+  cursor: pointer;
+  font-size: 15px;
+  color: #cfcfcf;
+  user-select: none;
+}
+
+.arrow:hover {
+  color: #ffffff;
+}
+
+
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(255, 255, 255, 0);
+  display: none;
+  z-index: 998;
+}
+
+.overlay.show {
+  display: block;
+}
+
+
+
+.screen {
+  display: none;
+  padding: 40px 20px;
+  min-height: 100vh;
+}
+
+.screen.active {
+  display: block;
+}
+.title {
+  font-size: 38px;
+  margin-bottom: 43px;
+  font-family: "Jacques Francois Shadow", serif;
+  font-style: normal;
+  font-weight: 400;
+}
+
+/* GALAXY CONTAINER */
+.story-container {
+  max-width: 0px;
+  margin: auto;
+
+  padding: 40px;
+  background: url("/images/Group\ 209.png") no-repeat center center fixed;
+}
+
+
+/* SCREEN CONTROL */
+.screen {
+  display: none;
+  min-height: 100vh;
+  padding: 60px 20px;
+  font-family:"Jacques Francois Shadow", serif;
+  font-style: normal;
+  font-weight: lighter;
+}
+
+.screen.active {
+  display: block;
+}
+
+/* TITLE */
+.title {
+  font-size: 39px;
+  margin-bottom: 40px;
+  text-shadow: 0 0 10px rgba(255,255,255,0.3);
+}
+
+/* GALAXY CONTAINER */
+.story-container {
+  max-width: 900px;
+  margin: auto;
+  padding: 40px;
+  background: linear-gradient(
+    180deg,
+    rgba(255,255,255,0.08),
+    rgba(255,255,255,0.03)
+  );
+  border-radius: 20px;
+  box-shadow: 0 0 20px rgba(150,120,255,0.25),
+    inset 0 0 10px rgba(255,255,255,0.05);
+  position: relative;
+}
+
+/* STORY TEXT BOX */
+.story-box {
+  max-width: 800px;
+  margin: auto;
+  line-height: 1.5;
+  font-size: 20px;
+  opacity: 0.95;
+}
+
+/* ARROW BUTTON (IMAGE BASED) */
+.arrow-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  margin-top: 50px;
+}
+
+.arrow-btn img {
+  width: 60px;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  border-radius: 50%;
+}
+
+.arrow-btn img:hover {
+  transform: scale(1.1);
+  box-shadow: 0 0 25px rgba(180,150,255,0.8);
+}
+
+/* ---------------- GAME SCREEN ---------------- */
+
+.task {
+  margin-bottom: 20px;
+  font-size: 18px;
+  font-family: "instrument serif",serif;
+}
+
+.game-layout {
+  display: flex;
+  justify-content: center;
+  gap: 160px;
+  margin-top: 30px;
+  align-items: flex-start;
+}
+
+/* BILL IMAGE */
+.bill-img {
+  width: 220px;
+  height: 320px;
+  object-fit: contain;
+  border-radius: 12px;
+  border: 2px dashed #bfa7ff;
+  background: rgba(255,255,255,0.05);
+  padding: 20px;
+ 
+}
+
+/* CODE AREA */
+.editor {
+  width: 580px;
+  background: transparent;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+textarea {
+  width: 100%;
+  height: 160px;
+  background: #e6e6e6;
+  border: none;
+  border-radius: 8px;
+  padding: 12px;
+  font-family: monospace;
+  font-size: 14px;
+  resize: none;
+}
+/* RUN BUTTON IMAGE */
+.run-btn {
+  background: none;
+  border: none;
+  margin: 18px 0;
+  cursor: pointer;
+}
+.run-btn img {
+  width: 200px;
+  height: 53px;
+  margin-top: 1px;
+  margin-left: 60px;
+  transition: transform 0.2s ease;
+}
+
+.run-btn img:hover {
+  transform: scale(1.05);
+}
+
+/* OUTPUT AREA */
+.output {
+  width: 100%;
+  height: 140px;
+  background: #e6e6e6;
+  border-radius: 8px;
+  padding: 50px;
+  overflow: auto;
+  color: black;
+  margin-bottom: 20px;
+  font-family: Arial, Helvetica, sans-serif;
+}
+#preview {
+  background: white;
+  color: black;
+  padding: 10px;
+  margin-top: 10px;
+  border-radius: 6px;
+}

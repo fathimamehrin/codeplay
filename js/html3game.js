@@ -27,7 +27,16 @@ window.onload = function () {
 
   updateUI();
 };
-// ==================== SIDEBAR MENU FUNCTIONALITY ==================== //
+
+
+// ==================== VARIABLES ==================== //
+let points = 0;
+
+
+// Format points (00 style)
+function formatPoints(value) {
+  return value.toString().padStart(2, "0");
+}
 const menuBtn = document.getElementById("menu-btn");
 const sidebar = document.getElementById("sidebar");
 const overlay = document.getElementById("overlay");
@@ -56,24 +65,17 @@ removeAcc.addEventListener("click", (e) => {
 
   // ==================== CLEAR STORAGE ==================== //
   localStorage.clear();
-
-  // ==================== RESET ALL VALUES ==================== //
-  points = 0;
-  htmlProgress = 0;
-  cssProgress = 0;
-  jsProgress = 0;
-
-  // ==================== RESET PROFILE AREA ==================== //
+    // ==================== RESET ALL VALUES ==================== //
+   points = 0;
+// ==================== RESET PROFILE AREA ==================== //
   document.querySelector(".profile-name").textContent = "Profile";
 document.getElementById("home-profile-pic").src = "default.png";
-
-
-  // ==================== LOCK CSS & JS AGAIN ==================== //
+// ==================== LOCK CSS & JS AGAIN ==================== //
   document.getElementById("css-btn").classList.add("locked");
   document.getElementById("css-btn").style.pointerEvents = "none";
   document.getElementById("js-btn").classList.add("locked");
   document.getElementById("js-btn").style.pointerEvents = "none";
-
+ 
   // Refresh UI
   updateUI();
 
@@ -121,75 +123,51 @@ const studydeckArrow = document.querySelector(".studydeck-arrow");
   });
 
 
-let score = 0;
-let draggedTag = null;
-let correctCount = 0;
+const startBtn = document.getElementById("startGame");
+const storyScreen = document.getElementById("storyScreen");
+const gameScreen = document.getElementById("gameScreen");
 
-const dragItems = document.querySelectorAll(".drag-item");
-const dropBoxes = document.querySelectorAll(".drop-box");
-const scoreDisplay = document.getElementById("score");
-const popper = document.getElementById("popper");
-
-dragItems.forEach(item => {
-  item.addEventListener("dragstart", () => {
-    draggedTag = item.dataset.tag;
-  });
+startBtn.addEventListener("click", () => {
+  storyScreen.classList.remove("active");
+  gameScreen.classList.add("active");
 });
 
-dropBoxes.forEach(box => {
-  box.addEventListener("dragover", e => e.preventDefault());
+const runBtn = document.getElementById("run");
+const codeArea = document.getElementById("code");
+const preview = document.getElementById("preview");
+const message = document.getElementById("message");
+const task = document.getElementById("task");
 
-  box.addEventListener("drop", () => {
-    const correctTag = box.dataset.answer;
-    const symbol = box.querySelector("span");
+let level = 1;
 
-    // prevent re-scoring
-    if (box.classList.contains("done")) return;
+runBtn.addEventListener("click", () => {
+  const code = codeArea.value.toLowerCase();
 
-    if (draggedTag === correctTag) {
-      symbol.textContent = " ✅";
-      symbol.className = "correct";
-      score += 10;
-      correctCount++;
-      box.classList.add("done");
+  if (level === 1) {
+    if (code.includes("<table") && code.includes("<th")) {
+      preview.innerHTML = codeArea.value;
+      message.textContent = "✅ Good job! Headers added.";
+      message.className = "correct";
 
-      if (correctCount === dropBoxes.length) {
-        launchPopper();
-      }
+      task.textContent =
+        "Task 2: Add at least one product row using <tr> and <td>";
+      level = 2;
     } else {
-      symbol.textContent = " ❌";
-      symbol.className = "wrong";
+      message.textContent =
+        "❌ You need a <table> and <th> tags.";
+      message.className = "wrong";
     }
-
-    scoreDisplay.textContent = score;
-  });
-});
-
-function launchPopper() {
-  const centerX = window.innerWidth / 2;
-  const centerY = window.innerHeight / 2;
-
-  for (let i = 0; i < 120; i++) {
-    const confetti = document.createElement("div");
-    confetti.className = "confetti";
-
-    // start from center
-    confetti.style.left = centerX + "px";
-    confetti.style.top = centerY + "px";
-
-    // random burst direction
-    const x = (Math.random() - 0.5) * 600;
-    const y = (Math.random() - 0.5) * 600;
-
-    confetti.style.setProperty("--x", x + "px");
-    confetti.style.setProperty("--y", y + "px");
-
-    // random color
-    confetti.style.backgroundColor =
-      `hsl(${Math.random() * 360}, 100%, 60%)`;
-
-    popper.appendChild(confetti);
-
-    setTimeout(() => confetti.remove(), 1400);
   }
-}
+
+  else if (level === 2) {
+    if (code.includes("<td")) {
+      preview.innerHTML = codeArea.value;
+      message.textContent = "🎉 Bill Completed Successfully!";
+      message.className = "correct";
+    } else {
+      message.textContent =
+        "❌ Add product data using <td>.";
+      message.className = "wrong";
+    }
+  }
+});

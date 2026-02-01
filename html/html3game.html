@@ -2,14 +2,13 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Tag Hunt Game</title>
+  <title>supermarket bill</title>
   <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Jacques+Francois+Shadow&family=Jaini+Purva&display=swap" rel="stylesheet">
-
-  <link rel="stylesheet" href="/css/taghunt.css">
+  <link rel="stylesheet" href="/css/htmlgame3.css">
 </head>
 <body>
-    <!-- ====== SIDEBAR ====== -->
+  <!-- ====== SIDEBAR ====== -->
 <div class="sidebar" id="sidebar">
   <h2>Menu</h2>
   <ul>
@@ -126,51 +125,57 @@
       </div>
   </div>
 </nav>
+ 
 
-<h2 class="title">Tag Hunt – Drag The Correct Tag</h2>
+<!-- STORY SCREEN -->
+<div id="storyScreen" class="screen active">
+  <h1 class="title">🛒 Supermarket Bill Builder</h1>
 
-<p class="score">Score: <span id="score">0</span></p>
-
-<div class="drop-area">
-  <div class="drop-box" data-answer="h1">
-    This is the main heading <span></span>
+  <div class="story-container">
+  <div class="story-box" >
+   
+    <p>
+      The supermarket is crowded and the billing computer has stopped working.
+      Only a messy handwritten bill is left.
+    </p>
+    <p>
+      The cashier needs your help. Use HTML code to organize the products,
+      quantities, and prices into a proper table before customers get impatient.
+    </p>
+    <p><strong>Can you fix the bill and save the day?</strong></p>
   </div>
 
-  <div class="drop-box" data-answer="p">
-    This is the paragraph <span></span>
-  </div>
+  <button id="startGame" class="arrow-btn">
+    <img src="/images/Group 207.png" alt="arrow">
+  </button>
+</div>
+</div>
 
-  <div class="drop-box" data-answer="title">
-    This is the browser name <span></span>
-  </div>
+<!-- GAME SCREEN -->
+<div id="gameScreen" class="screen">
+ 
 
-  <div class="drop-box" data-answer="strong">
-    This shows important text <span></span>
-  </div>
+  <p class="task">
+    Task 1: Create a table with headers <b>Product, Quantity, Price</b>
+  </p>
 
-  <div class="drop-box" data-answer="sup">
-   This is a text above the line<span></span>
-  </div>
+  <div class="game-layout">
+    <!-- LEFT IMAGE -->
+    <img src="/images/ChatGPT Image Feb 1, 2026, 08_48_29 AM 1.png" class="bill-img" alt="Messy Bill">
 
-  <div class="drop-box" data-answer="br">
-    This creates a line break <span></span>
+    <!-- CODE AREA -->
+    <div class="editor">
+      
+      <textarea id="code" placeholder="Write your HTML code here..."></textarea>
+      <button id="run" class="run-btn"> 
+        <img src="/images/Group 211.png" alt="Run Code">
+      </button>
+      <div id="preview" class="output"></div>
+    </div>
   </div>
 </div>
 
 
-<div class="drag-area">
-  <div class="drag-item" draggable="true" data-tag="h1">&lt;h1&gt;</div>
-  <div class="drag-item" draggable="true" data-tag="sup">&lt;sup&gt;</div>
-  <div class="drag-item" draggable="true" data-tag="br">&lt;br&gt;</div>
-  <div class="drag-item" draggable="true" data-tag="p">&lt;p&gt;</div>
-  <div class="drag-item" draggable="true" data-tag="title">&lt;title&gt;</div>
-  <div class="drag-item" draggable="true" data-tag="strong">&lt;strong&gt;</div>
-</div>
-<!-- 🎉 Popper -->
-<div id="popper"></div>
-
-<script src="/js/taghunt.js"></script>
-
-
+<script src="/js/html3game.js"></script>
 </body>
 </html>

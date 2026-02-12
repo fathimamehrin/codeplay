@@ -2,39 +2,135 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>HTML Builder Game</title>
+  <title>HTML Swipe Quiz</title>
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Jacques+Francois+Shadow&family=Jaini+Purva&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="/css/html2game.css">
 </head>
 <body>
 
+<h1>🛠 Fix the Broken HTML</h1>
+<p class="task">Fill in the missing part to fix the code</p>
+
 <div class="game">
 
-  <h1>🏗 HTML Builder Game</h1>
-  <p>Click the correct tag to build the page</p>
-
-  <div class="task" id="task">
-    Task: Add a main heading
+  <!-- 1 -->
+  <div class="card active">
+<pre>
+&lt;____&gt;Click Me&lt;/button&gt;
+</pre>
+<input data-answer="button" placeholder="fill here">
+<button onclick="check()">Submit</button>
   </div>
 
+  <!-- 2 -->
+  <div class="card">
+<pre>
+&lt;div ____="main"&gt;Content&lt;/div&gt;
+</pre>
+<input data-answer="id" placeholder="fill here">
+<button onclick="check()">Submit</button>
+  </div>
 
-  <div class="output" id="output"></div>
+  <!-- 3 -->
+  <div class="card">
+<pre>
+&lt;p ____="text"&gt;Hello&lt;/p&gt;
+</pre>
+<input data-answer="class" placeholder="fill here">
+<button onclick="check()">Submit</button>
+  </div>
 
-  
- <div class="buttons">
-  <button data-tag="a">&lt;a&gt;</button>
-  <button data-tag="img">&lt;img&gt;</button>
-  <button data-tag="table">&lt;table&gt;</button>
-  <button data-tag="ol">&lt;ol&gt;</button>
-  <button data-tag="ul">&lt;ul&gt;</button>
-  <button data-tag="dl">&lt;dl&gt;</button>
-  <button data-tag="div">&lt;div&gt;</button>
+  <!-- 4 -->
+  <div class="card">
+<pre>
+&lt;____&gt;
+  &lt;input type="text"&gt;
+&lt;/form&gt;
+</pre>
+<input data-answer="form" placeholder="fill here">
+<button onclick="check()">Submit</button>
+  </div>
+
+  <!-- 5 -->
+  <div class="card">
+<pre>
+&lt;input type="____"&gt; I agree
+</pre>
+<input data-answer="text" placeholder="fill here">
+<button onclick="check()">Submit</button>
+  </div>
+
+  <!-- 6 -->
+  <div class="card">
+<pre>
+&lt;____&gt;Note&lt;/small&gt;
+</pre>
+<input data-answer="small" placeholder="fill here">
+<button onclick="check()">Submit</button>
+  </div>
+
+  <!-- 7 -->
+  <div class="card">
+<pre>
+x&lt;____&gt;2&lt;/sup&gt;
+</pre>
+<input data-answer="sup" placeholder="fill here">
+<button onclick="check()">Submit</button>
+  </div>
+
+  <!-- 8 -->
+  <div class="card">
+<pre>
+H&lt;____&gt;2&lt;/sub&gt;O
+</pre>
+<input data-answer="sub" placeholder="fill here">
+<button onclick="check()">Submit</button>
+  </div>
+
+  <!-- 9 -->
+  <div class="card">
+<pre>
+&lt;____&gt;Italic&lt;/i&gt;
+</pre>
+<input data-answer="i" placeholder="fill here">
+<button onclick="check()">Submit</button>
+  </div>
+
+  <!-- 10 -->
+  <div class="card">
+<pre>
+&lt;____&gt;Bold&lt;/b&gt;
+</pre>
+<input data-answer="b" placeholder="fill here">
+<button onclick="check()">Submit</button>
+  </div>
+
+  <!-- 11 -->
+  <div class="card">
+<pre>
+&lt;____&gt;Underline&lt;/u&gt;
+</pre>
+<input data-answer="u" placeholder="fill here">
+<button onclick="check()">Submit</button>
+  </div>
+
+  <!-- 12 -->
+  <div class="card">
+<pre>
+&lt;____&gt;Important&lt;/em&gt;
+</pre>
+<input data-answer="em" placeholder="fill here">
+<button onclick="check()">Submit</button>
+  </div>
+
+  <!-- Finish -->
+  <div class="card finish">
+🎉 All codes fixed successfully!
+  </div>
+
 </div>
 
-
-
-  <p id="message"></p>
-
-</div>
 
 <script src="/js/html2game.js"></script>
 </body>

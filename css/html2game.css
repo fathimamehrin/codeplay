@@ -1,67 +1,93 @@
 body {
-  font-family: Arial, sans-serif;
-  background: #1e1e2f;
+  background: url("/images/galaxyhd1.png") no-repeat center center fixed;
+  background-size: cover;
   color: white;
+  font-family: monospace;
   text-align: center;
-  margin: 0;
-  padding: 20px;
+  margin-top: 85px;
 }
-
+h1{
+  font-family:"Jacques Francois Shadow", serif ;
+  font-style:normal ;
+  font-weight: lighter;
+  font-size: 33px;
+}
+.task{
+  font-family: "instrument serif",serif;
+  font-size: 26px;
+}
 .game {
-  max-width: 600px;
-  margin: auto;
+  width: 450px;
+  margin: 40px auto;
+  position: relative;
+  height: 230px;
+  margin-top: 50px;
+  right: 15px;
+
 }
 
-.task {
-  background: #2f2f4f;
+.card {
+ background: rgba(71, 49, 104, 0.68); /* transparent purple */
+    backdrop-filter: blur(0px);
+    -webkit-backdrop-filter: blur(8px); /* Safari support */
+
+  padding: 20px;
+  border-radius: 12px;
+  position: absolute;
+  width: 100%;
+  height: 200px;
+  opacity: 0;
+  transform: translateX(120%);
+  transition: 0.4s;
+}
+
+.card.active {
+  opacity: 1;
+  transform: translateX(0);
+  
+}
+
+.card.exit {
+  transform: translateX(-120%);
+  opacity: 0;
+}
+
+pre {
+  background: #17082F;
+  padding: 30px;
+  border-radius: 12px;
+  color: #ffffff;
+  font-size: 20px;
+
+}
+
+input {
   padding: 15px;
-  border-radius: 10px;
-  margin-bottom: 20px;
-}
-
-.preview,
-.output {
-  background: white;
-  color: black;
-  padding: 15px;
-  border-radius: 10px;
-  min-height: 80px;
-  margin-bottom: 20px;
-}
-
-.buttons button {
-  padding: 10px 15px;
-  margin: 5px;
+  margin-top: 10px;
+  width: 130px;
+  text-align: center;
+  background:#ad86c9ad;
   border: none;
-  border-radius: 8px;
-  font-size: 16px;
+  color: rgb(249, 249, 249);
+  border-radius: 6px;
+  
+}
+
+button {
+  margin-top: 10px;
+  padding: 15px 22px;
   cursor: pointer;
+  width: 130px;
+  background: #ad86c9ad;
+  border: none;
+  border-radius: 6px;
+  color: white;
 }
 
-.correct {
-  color: #4CAF50;
+.finish {
+  font-size: 20px;
 }
-
-.wrong {
-  color: #f44336;
-}
-.game-img {
-  width: 120px;
-  display: block;
-  margin: 10px auto;
-}
-
-table {
-  margin: 10px auto;
-  border-collapse: collapse;
-}
-
-th, td {
-  padding: 6px 10px;
-}
-
-ol, ul, dl {
-  text-align: left;
-  margin: 10px auto;
-  max-width: 300px;
+input::placeholder {
+  color: #f6f6f696;   /* change to any color */
+  opacity: 1;       /* important for some browsers */
 }

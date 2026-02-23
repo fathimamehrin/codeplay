@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Project - Build Portfolio Structure</title>
+    <link rel="stylesheet" href="css/project.css">
+
+     <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Jacquarda+Bastarda+9&display=swap" rel="stylesheet"> 
+
+</head>
+<body>
+
+<!-- ================= NAVBAR ================= -->
+<nav class="navbar">
+
+    <!-- Left: Menu -->
+    <div class="menu">
+        <img src="/images/Group 119.png" alt="Menu" width="24">
+    </div>
+
+    <!-- Right Section -->
+    <div class="right">
+
+        <!-- Profile -->
+        <div class="profile">
+            <div class="profile-pic-wrapper">
+                <img id="home-profile-pic" src="/images/default.png" alt="Profile Picture">
+            </div>
+            <div id="home-username" class="profile-name">Username</div>
+        </div>
+
+        <!-- Points -->
+        <div class="points">
+            <img src="/images/Group 115.png" alt="Points" width="24">
+            <span id="points-count">00</span>
+        </div>
+
+        <!-- Graph -->
+        <div class="graph">
+            <img src="/images/Group 116.png" alt="Progress Graph" width="24">
+        </div>
+
+        <!-- Notifications -->
+        <div class="notifications">
+            <img src="/images/notifi.png" alt="Notifications" width="24">
+        </div>
+
+    </div>
+</nav>
+
+
+<!-- ================= MAIN CONTAINER ================= -->
+
+<div id="container">
+
+    <h2>PROJECT: BUILD YOUR PORTFOLIO STRUCTURE</h2>
+
+    <!-- Instructions -->
+    <div class="instructions">
+        <strong>Goal:</strong><br>
+        Create the structure of a personal profile page using only HTML.
+        <br><br>
+
+        <strong>Requirements:</strong>
+        <ul>
+            <li>Use &lt;html&gt;, &lt;head&gt;, &lt;body&gt;</li>
+            <li>Add:
+                <ul>
+                    <li>&lt;h1&gt; → Your Name</li>
+                    <li>&lt;p&gt; → Short bio</li>
+                    <li>&lt;img&gt; → Profile picture</li>
+                    <li>&lt;ul&gt; → Skills list</li>
+                    <li>&lt;a&gt; → Social media link</li>
+                </ul>
+            </li>
+            <li>Use proper nesting</li>
+            <li>Add alt attribute to image</li>
+        </ul>
+    </div>
+
+    <!-- Code Editor -->
+    <div class="editor">
+
+    <div class="editor-header">
+        <button class="run-btn" onclick="runCode()">Run</button>
+    </div>
+
+    <textarea id="codeInput" placeholder="Write your HTML code here..."></textarea>
+
+</div>
+
+    <!-- Output Area -->
+    <div class="output" id="output"></div>
+
+    <div class="button-wrapper">
+    <img src="/images/Group 96 (1).png" class="submit-icon">
+    <button id="submitBtn " class="submitBtn">SUBMIT</button>
+</div>
+</div>
+
+</div>
+
+
+<!-- ================= SCRIPT ================= -->
+<script src="script.js"></script>
+
+</body>
+</html>

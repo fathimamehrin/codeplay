@@ -61,6 +61,9 @@ function unlockCSS() {
   const btn = document.getElementById("css-btn");
   btn.classList.remove("locked");
   btn.style.pointerEvents = "auto";
+
+  const lockImg = document.getElementById("css-lock");
+  lockImg.src = "/images/unlock.png"; 
 }
 
 function unlockJS() {

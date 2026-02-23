@@ -12,18 +12,44 @@
   <title>h1</title>
 </head>
 <body>
-  <nav class="navbar">
-    <div class="left">
-     <img src="/images/Group 119.png" class="menu-icon">
-    </div>
+<nav class="navbar">
+
+  <!-- LEFT -->
+  <div class="menu" id="menu-btn">
+    <img src="/images/Group 119.png" id="menuIcon" class="menu-icon" alt="menu" width="24">
+  </div>
+
+  <!-- DROPDOWN -->
+  <div class="dropdown" id="dropdownMenu">
+    <h3 class="menu-title">HTML Lessons</h3>
+    <ul id="lessonList"></ul>
+  </div>
+
+  <!-- RIGHT -->
   <div class="right">
-  <div class="point">
-    <img src="/images/Group 115.png"><span id="point" class="point-span">00</span>
+
+    <div class="profile">
+      <div class="profile-pic">
+        <img id="home-profile-pic" src="/images/default.png" alt="profile">
+      </div>
+      <div id="home-username" class="profile-name">username</div>
+    </div>
+
+    <div class="point">
+      <img src="/images/Group 115.png" width="24">
+      <span id="point" class="point-span">00</span>
+    </div>
+
+    <div class="graph">
+      <img src="/images/Group 116.png" width="24">
+    </div>
+
+    <div class="notifications">
+      <img src="/images/notifi.png" width="24">
+    </div>
+
   </div>
-  <div class="profile">
-    Profile
-  </div>
-</div>
+
 </nav>
 <div class="header">
 <h2 id="lesson-title"></h2>

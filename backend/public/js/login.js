@@ -51,6 +51,8 @@ document.getElementById("form").addEventListener("submit", async (e)=>{
     .then(data => {
         if (data.success) {
             window.location.href = "welcome.html";
+
+            localStorage.setItem("username", data.username);
             
             localStorage.setItem("userEmail", data.email);
 

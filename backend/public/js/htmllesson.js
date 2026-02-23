@@ -3,8 +3,19 @@ const lessons = [
     title: "&lt;h1&gt; to &lt;h6&gt;",
     desc: "Displays headings. &lt;h1&gt; is the biggest, &lt;h6&gt; is the smallest.",
     top: "&lt;html&gt;<br>&lt;body&gt;<br>",
-    middle: "&lt;h1&gt;Try Me!&lt;/h1&gt;<br>&lt;h2&gt;Try Me!&lt;/h2&gt;<br>&lt;h3&gt;Try Me!&lt;/h3&gt;<br>&lt;h4&gt;Try Me!&lt;/h4&gt;<br>&lt;h5&gt;Try Me!&lt;/h5&gt;<br>&lt;h6&gt;Try Me!&lt;/h6&gt;<br>",
+    middle: `
+      <pre class="highlight-pre">
+      &lt;h1&gt;Try Me!&lt;/h1&gt;
+      &lt;h2&gt;Try Me!&lt;/h2&gt;
+      &lt;h3&gt;Try Me!&lt;/h3&gt;
+      &lt;h4&gt;Try Me!&lt;/h4&gt;
+      &lt;h5&gt;Try Me!&lt;/h5&gt;
+      &lt;h6&gt;Try Me!&lt;/h6&gt;
+        </pre>
+      `,
+
     bottom: "&lt;/body&gt;<br>&lt;/html&gt;"
+  
   },
   {
     title: "&lt;p&gt; tag",
@@ -45,6 +56,101 @@ const lessons = [
       &lt;p&gt;This is <span class="highlight">&lt;sup&gt;superscript&lt;/sup&gt;</span> text.&lt;/p&gt;
       </pre>
       `,    
+    bottom: "&lt;/body&gt;<br>&lt;/html&gt;"
+  },
+  {
+  title: "Bold Text",
+    desc: "The <b> tag is used to make text bold without adding any extra importance.",
+    top: "&lt;html&gt;<br>&lt;body&gt;<br>",
+    middle: `
+      <pre class="highlight-pre">
+      &lt;p&gt;<span class="highlight">&lt;b&gt;This text is bold.&lt;/b&gt;</span>&lt;/p&gt;
+      </pre>
+    `,
+    bottom: "&lt;/body&gt;<br>&lt;/html&gt;"
+  },
+
+  {
+    title: "Strong Text",
+    desc: "The <strong> tag is used to define important text. It appears bold by default.",
+    top: "&lt;html&gt;<br>&lt;body&gt;<br>",
+    middle: `
+      <pre class="highlight-pre">
+      &lt;p&gt;<span class="highlight">&lt;strong&gt;This text is important.&lt;/strong&gt;</span>&lt;/p&gt;
+      </pre>
+    `,
+    bottom: "&lt;/body&gt;<br>&lt;/html&gt;"
+  },
+
+  {
+    title: "Italic Text",
+    desc: "The <i> tag is used to display text in italic style.",
+    top: "&lt;html&gt;<br>&lt;body&gt;<br>",
+    middle: `
+      <pre class="highlight-pre">
+      &lt;p&gt;<span class="highlight">&lt;i&gt;This text is italic.&lt;/i&gt;</span>&lt;/p&gt;
+      </pre>
+    `,
+    bottom: "&lt;/body&gt;<br>&lt;/html&gt;"
+  },
+
+  {
+    title: "Emphasized Text",
+    desc: "The <em> tag is used to emphasize text. It usually appears in italic.",
+    top: "&lt;html&gt;<br>&lt;body&gt;<br>",
+    middle: `
+      <pre class="highlight-pre">
+      &lt;p&gt;<span class="highlight">&lt;em&gt;This text is emphasized.&lt;/em&gt;</span>&lt;/p&gt;
+      </pre>
+    `,
+    bottom: "&lt;/body&gt;<br>&lt;/html&gt;"
+  },
+
+  {
+    title: "Underlined Text",
+    desc: "The <u> tag is used to underline text.",
+    top: "&lt;html&gt;<br>&lt;body&gt;<br>",
+    middle: `
+      <pre class="highlight-pre">
+      &lt;p&gt;<span class="highlight">&lt;u&gt;This text is underlined.&lt;/u&gt;</span>&lt;/p&gt;
+      </pre>
+    `,
+    bottom: "&lt;/body&gt;<br>&lt;/html&gt;"
+  },
+
+  {
+    title: "Small Text",
+    desc: "The <small> tag is used to display smaller text.",
+    top: "&lt;html&gt;<br>&lt;body&gt;<br>",
+    middle: `
+      <pre class="highlight-pre">
+      &lt;p&gt;<span class="highlight">&lt;small&gt;This is smaller text.&lt;/small&gt;</span>&lt;/p&gt;
+      </pre>
+    `,
+    bottom: "&lt;/body&gt;<br>&lt;/html&gt;"
+  },
+
+  {
+    title: "Subscript Text",
+    desc: "The <sub> tag is used to display subscript text.",
+    top: "&lt;html&gt;<br>&lt;body&gt;<br>",
+    middle: `
+      <pre class="highlight-pre">
+      &lt;p&gt;This is <span class="highlight">&lt;sub&gt;subscript&lt;/sub&gt;</span> text.&lt;/p&gt;
+      </pre>
+    `,
+    bottom: "&lt;/body&gt;<br>&lt;/html&gt;"
+  },
+
+  {
+    title: "Superscript Text",
+    desc: "The <sup> tag is used to display superscript text.",
+    top: "&lt;html&gt;<br>&lt;body&gt;<br>",
+    middle: `
+      <pre class="highlight-pre">
+      &lt;p&gt;This is <span class="highlight">&lt;sup&gt;superscript&lt;/sup&gt;</span> text.&lt;/p&gt;
+      </pre>
+    `,
     bottom: "&lt;/body&gt;<br>&lt;/html&gt;"
   },
   {
@@ -122,6 +228,68 @@ const lessons = [
       `,
     bottom: `&lt;/body&gt;<br>&lt;/html&gt;`
   },
+
+  {
+    title: "Unordered List",
+    desc: "The &lt;ol&gt; tag is Used to create a list of items with bullet points (no numbers).r.",
+    top: "&lt;html&gt;<br>&lt;body&gt;<br>",
+    middle: `
+      <pre class="highlight-pre">
+      &lt;h2&gt;An Unordered HTML List&lt;/h2&gt;
+
+      <span class="highlight">&lt;ul&gt;</span>
+      <span class="highlight">&lt;li&gt;</span>Coffee<span class="highlight">&lt;/li&gt;</span>
+      <span class="highlight">&lt;li&gt;</span>Tea<span class="highlight">&lt;/li&gt;</span>
+      <span class="highlight">&lt;li&gt;</span>Milk<span class="highlight">&lt;/li&gt;</span>
+      <span class="highlight">&lt;/ul&gt;</span>
+      </pre>
+    `,
+    bottom: "&lt;/body&gt;<br>&lt;/html&gt;"
+  },
+
+  {
+    title: "Ordered List",
+    desc: "The &lt;ol&gt; tag is used to create a list of items in order.",
+    top: "&lt;html&gt;<br>&lt;body&gt;<br>",
+    middle: `
+      <pre class="highlight-pre">
+&lt;h2&gt;An Ordered HTML List&lt;/h2&gt;
+
+<span class="highlight">&lt;ol&gt;</span>
+  <span class="highlight">&lt;li&gt;</span>Coffee<span class="highlight">&lt;/li&gt;</span>
+  <span class="highlight">&lt;li&gt;</span>Tea<span class="highlight">&lt;/li&gt;</span>
+  <span class="highlight">&lt;li&gt;</span>Milk<span class="highlight">&lt;/li&gt;</span>
+<span class="highlight">&lt;/ol&gt;</span>
+
+
+      </pre>
+    `,
+    bottom: "&lt;/body&gt;<br>&lt;/html&gt;"
+  },
+
+  {
+    title: "Description List",
+    desc: "The &lt;dl&gt; tag is used to show a term and its explanation.",
+    top: "&lt;html&gt;<br>&lt;body&gt;<br>",
+    middle: `
+      <pre class="highlight-pre">
+&lt;h2&gt;A Description HTML List&lt;/h2&gt;
+<span class="highlight">&lt;dl&gt;</span> 
+  <span class="highlight">&lt;dt&gt;</span>HTML<span class="highlight">&lt;/dt&gt;</span>
+  <span class="highlight">&lt;dd&gt;</span>used to give structure to web pages.<span class="highlight">&lt;/dd&gt;</span>
+
+  <span class="highlight">&lt;dt&gt;</span>CSS<span class="highlight">&lt;/dt&gt;</span>
+  <span class="highlight">&lt;dd&gt;</span>used to style web pages.<span class="highlight">&lt;/dd&gt;</span>
+
+  <span class="highlight">&lt;dt&gt;</span>JAVASCRIPT<span class="highlight">&lt;/dt&gt;</span>
+  <span class="highlight">&lt;dd&gt;</span>used to make web pages interactive.<span class="highlight">&lt;/dd&gt;</span>
+<span class="highlight">&lt;/dl&gt;</span>
+      </pre>
+    `,
+    bottom: "&lt;/body&gt;<br>&lt;/html&gt;"
+  },
+
+  
   {
     title: "&lt;div&gt; tag",
     desc: "Used to group multiple HTML elements into one block.",
@@ -393,14 +561,170 @@ let canGoNext = false;
 let points = 0;
 let completedLessons = {}; // lessonIndex : true
 
+function applyBackendData(data) {
+  points = data.points || 0;
+  document.getElementById("point").textContent = points;
+
+  // Mark completed lessons (1 lesson = 2 points)
+  completedLessons = {};
+  const completedCount = Math.floor(points / 2);
+  for (let i = 0; i < completedCount; i++) {
+    completedLessons[i] = true;
+  }
+
+  console.log("✅ Points restored:", points);
+  console.log("✅ Completed lessons restored:", completedLessons);
+}
+
 // ==========================
 // PAGE LOAD
 // ==========================
 window.onload = async () => {
+
+  const username = localStorage.getItem("username");
+  const email = localStorage.getItem("userEmail");
+  const profilePic = localStorage.getItem("profilePic");
+
+  // ---------- PROFILE ----------
+  document.getElementById("home-username").textContent =
+    username || "Username";
+
+   const profileEl = document.getElementById("home-profile-pic");
+  profileEl.src = profilePic || "/images/default.png";
+  profileEl.style.width = "40px";      // Set size
+  profileEl.style.height = "40px";     // Set size
+  profileEl.style.borderRadius = "50%"; // Make circular
+  // ---------- FETCH USER DATA ----------
+  if (!email) return;
+
+  try {
+    const res = await fetch(`/get-progress?email=${email}`);
+    const data = await res.json();
+    
+    console.log("Fetched user data:", data);
+    applyBackendData(data);
+  } catch (err) {
+    console.error("Failed to load user data", err);
+  }
+
+
   await loadAlert();
   await restoreProgressFromBackend();
   loadLesson(0);
 };
+
+const menuIcon = document.getElementById("menuIcon");
+const dropdownMenu = document.getElementById("dropdownMenu");
+const lessonList = document.getElementById("lessonList");
+
+/* MENU ITEMS → Direct lesson mapping */
+const menuItems = [
+  { name: "h1 to h6", index: 0 },
+  { name: "p ", index: 1 },
+  { name: "br", index: 2 },
+  { name: "a", index: 3 },
+  { name: "HTML Formatting Elements",
+    
+    submenu: [
+      { name: "Formating Elements", index: 4 },
+      { name: "Bold Text (<b>)", index: 5 },
+      { name: "Important Text (<strong>)", index: 6 },
+      { name: "Italic Text (<i>)", index: 7 },
+      { name: "Emphasized Text (<em>)", index: 8 },
+      { name: "Underlined Text (<u>)", index: 9 },
+      { name: "Small Text (<small>)", index: 10 },
+      { name: "Subscript (<sub>)", index: 11 },
+      { name: "Superscript (<sup>)", index: 12 }
+    ]
+  },
+
+  { name: "img tag", index: 13 },
+  { name: "table", index: 14 },
+  { name: "HTML Lists", 
+    submenu: [
+      { name: "List Elements", index: 15 },
+      { name: "Unordered List", index: 16 },
+      { name: "Ordered List", index: 17 },
+      { name: "Definition List", index: 18 },
+
+    ]
+     },
+  { name: "div", index: 19 },
+  { name: "class", index: 20 },
+   
+  { name: "ID", index: 21 },
+  { name: "Button", index: 22 },
+
+  {
+    name: "HTML Forms" , 
+    submenu: [
+      { name: "HTML Forms", index: 23 },
+      { name: "form tag", index: 24 },
+      { name: "textfield", index: 25 },
+      { name: "radiobutton", index: 26 },
+      { name: "checkbox", index: 27 }
+    ]
+  }
+
+];
+
+/* BUILD MENU */
+/* BUILD MENU */
+lessonList.innerHTML = "";
+
+menuItems.forEach(item => {
+  const li = document.createElement("li");
+  li.textContent = item.name;
+
+  /* NORMAL MENU ITEM */
+  if (!item.submenu) {
+    li.addEventListener("click", () => {
+      loadLesson(item.index);
+      dropdownMenu.classList.remove("show");
+    });
+  }
+
+  /* MENU WITH SUBMENU */
+  else {
+    li.classList.add("has-submenu");
+
+    const subUl = document.createElement("ul");
+    subUl.classList.add("submenu");
+
+    item.submenu.forEach(sub => {
+      const subLi = document.createElement("li");
+      subLi.textContent = sub.name;
+
+      subLi.addEventListener("click", (e) => {
+        e.stopPropagation();   // prevent parent toggle
+        loadLesson(sub.index);
+        dropdownMenu.classList.remove("show");
+      });
+
+      subUl.appendChild(subLi);
+    });
+
+    li.appendChild(subUl);
+
+    li.addEventListener("click", (e) => {
+      e.stopPropagation();
+      li.classList.toggle("submenu-open");
+    });
+  }
+
+  lessonList.appendChild(li);
+});
+
+/* TOGGLE MENU */
+menuIcon.addEventListener("click", (e) => {
+  e.stopPropagation();
+  dropdownMenu.classList.toggle("show");
+});
+
+/* CLOSE WHEN CLICK OUTSIDE */
+document.addEventListener("click", () => {
+  dropdownMenu.classList.remove("show");
+});
 
 // ==========================
 // RESTORE PROGRESS FROM BACKEND
@@ -521,6 +845,8 @@ function closeAlert() {
   document.getElementById("customAlert").style.display = "none";
   document.getElementById("alertOverlay").style.display = "none";
 }
+
+
 
 // ==========================
 // BACKEND UPDATE

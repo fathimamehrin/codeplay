@@ -1,0 +1,103 @@
+body {
+  margin: 0;
+  min-height: 100vh;
+  background: url("/images/galaxyhd1.png") no-repeat center center fixed;
+  background-size: cover;
+  font-family: 'Segoe UI', sans-serif;
+  color: white;
+}
+
+/* Main game card */
+.game-container {
+  max-width: 450px;
+  margin: 80px auto;
+  padding: 25px;
+  background: rgba(20, 10, 40, 0.6);
+  backdrop-filter: blur(10px);
+  border-radius: 16px;
+  box-shadow: 0 0 30px rgba(138, 92, 255, 0.5);
+}
+
+
+.game-title {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  margin-bottom: 20px;
+  
+}
+
+.game-title img {
+  width: 50px;
+  height: 50px;
+
+  filter: drop-shadow(0 0 6px rgba(138, 92, 255, 0.8));
+}
+.game-container h2 {
+  text-align: center;
+  color: #e6dcff;
+  text-shadow: 0 0 10px rgba(186, 85, 211, 0.6);
+}
+
+/* Prompt */
+.prompt-box {
+  background: rgba(0, 0, 0, 0.4);
+  padding: 8px;
+  border-left: 4px solid #b084ff;
+  border-radius: 8px;
+  margin-bottom: 15px;
+  margin-top: -10px;
+  
+}
+
+/* Preview area */
+.preview-box {
+  background: white;
+  color: black;
+  padding: 16px;
+  border-radius: 10px;
+  margin-bottom: 15px;
+  box-shadow: 0 0 15px rgba(255, 255, 255, 0.2);
+}
+
+/* CSS editor */
+#editor {
+  width: 95%;
+  height: 100px;
+  background: #0c0620;
+  color: #6ffcff;
+  border: 1px solid #8a5cff;
+  border-radius: 8px;
+  padding: 12px;
+  font-family: monospace;
+  font-size: 14px;
+  box-shadow: inset 0 0 10px rgba(138, 92, 255, 0.4);
+}
+
+/* Button */
+button {
+  width: 100%;
+  margin-top: 12px;
+  padding: 10px;
+  background: linear-gradient(90deg,  #30234f,#833fbf);
+  border: none;
+  border-radius: 10px;
+  color: white;
+  font-size: 16px;
+  cursor: pointer;
+  box-shadow: 0 0 15px rgba(113, 50, 169, 0.6);
+}
+
+button:hover {
+  transform: scale(1.03);
+}
+
+/* Result message */
+#result {
+  margin-top: 12px;
+  text-align: center;
+  font-weight: bold;
+}
+
+

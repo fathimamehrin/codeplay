@@ -14,20 +14,46 @@
 </head>
 <body>
 
-<nav class="navbar">
-  <div class="left">
-    <img src="/images/Group 119.png" class="menu-icon">
+  <nav class="navbar">
+
+  <!-- LEFT -->
+  <div class="menu" id="menu-btn">
+    <img src="/images/Group 119.png" id="menuIcon" class="menu-icon" alt="menu" width="24">
   </div>
 
+  <!-- DROPDOWN -->
+  <div class="dropdown" id="dropdownMenu">
+    <h3 class="menu-title">HTML Lessons</h3>
+    <ul id="lessonList"></ul>
+  </div>
+
+  <!-- RIGHT -->
   <div class="right">
+
+    <div class="profile">
+      <div class="profile-pic-wrapper">
+        <img id="home-profile-pic" src="/images/default.png" alt="profile">
+      </div>
+      <div id="home-username" class="profile-name">Username</div>
+    </div>
+
     <div class="point">
-      <img src="/images/Group 115.png">
+      <img src="/images/Group 115.png" width="24">
       <span id="point" class="point-span">00</span>
     </div>
-    <div class="profile">Profile</div>
-  </div>
-</nav>
 
+    <div class="graph">
+      <img src="/images/Group 116.png" width="24">
+    </div>
+
+    <div class="notifications">
+      <img src="/images/notifi.png" width="24">
+    </div>
+
+  </div>
+  </nav>
+
+<section id="lessonSection">
 <div class="header">
   <h2 id="lesson-title"></h2>
   <p id="lesson-desc"></p>
@@ -49,7 +75,7 @@
       </div>
     </nav>
 
-    <textarea class="editor" id="editor"></textarea>
+    <textarea class="lesson-editor" id="lesson-editor"></textarea>
     <iframe id="output" class="output"></iframe>
   </div>
 
@@ -66,6 +92,9 @@
     <button id="nextBtn" onclick="nextCssLesson()">NEXT</button>
   </div>
 </div>
+</section>
+
+<iframe id="gameFrame" class="game-frame" style="display:none;"></iframe>
 
 <script src="/js/cssLesson.js"></script>
 </body>

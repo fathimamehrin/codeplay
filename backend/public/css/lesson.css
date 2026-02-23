@@ -2,38 +2,194 @@ body{
   background-color: #2b2457;
   margin: 0px;
   font-family:'Instrument Serif',serif ;
+  background: url("/images/galaxyhd1.png") no-repeat center center fixed;
+  background-size: cover;
   font-weight:100;
   
 }
-.navbar{
-  background-color:#30234f;
+.navbar {
   display: flex;
   justify-content: space-between;
-  align-items: center; 
+  align-items: center;
+  background: #30234f;
+  padding: 12px 20px;
   color: white;
-  padding: 10px;
-}
-.navbar img{
-  width: 25px;
+  margin-bottom: 50px;
 }
 
-
- .point{
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: center;
- }
-
- .point-span{
-  margin-top: 5px;
-  margin-left: 5px;
- }
-.navbar .right{
+/* LEFT SECTION */
+.navbar .left {
   display: flex;
   align-items: center;
-  gap: 60px;
+  cursor: pointer;
 }
+
+.menu-icon {
+  width: 24px;
+  cursor: pointer;
+}
+
+/* RIGHT SECTION */
+.navbar .right {
+  display: flex;
+  align-items: center;
+   gap: 82px; /* spacing between icons */
+}
+
+.navbar .right img {
+  padding-left: 0px;
+}
+
+/* PROFILE */
+.profile {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.profile-pic img {
+  width: 35px;
+  height: 35px;
+  border-radius: 50%;
+  overflow: hidden;
+  flex-shrink: 0;
+}
+
+#home-profile-pic {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+  
+.profile-name{
+  font-family:'Instrument Serif',serif ;
+  letter-spacing: 1px;
+  font-weight: small;
+  margin-top: 3px;
+}
+
+/* POINTS */
+.point {
+  display: flex;
+  align-items: center;
+  position: relative;
+  cursor: pointer;
+}
+
+.point-span {
+  position: relative;
+  margin-left: 4px;
+   top: 1px; 
+  font-size: 19px;
+  font-family: 'Instrument Serif', serif;
+  letter-spacing: 0px;
+}
+
+/* GRAPH */
+.graph {
+  transition: filter 0.3s;
+  cursor: pointer;
+}
+
+.graph:hover {
+  filter: brightness(0) invert(1);
+}
+
+.notifications{
+  height: 27px;
+  cursor: pointer;
+
+}
+
+/* NOTIFICATIONS */
+.notifications:hover {
+  filter: brightness(100);
+}
+
+/* ===================== */
+/* DROPDOWN SIDE MENU */
+/* ===================== */
+
+.dropdown {
+  position: fixed;
+  top: 0;
+  left: -260px;     /* hidden */
+  width: 250px;
+  height: 100%;
+  background-color: #30234f;
+  color: white;
+  z-index: 1000;
+  transition: left 0.3s ease;
+  overflow-y: auto;
+  padding-top: 15px;
+}
+
+/* Show animation */
+.dropdown.show {
+  left: 0;
+}
+
+/* MENU TITLE */
+.menu-title {
+  font-size: 22px;
+  font-weight: bold;
+  padding: 10px 15px;
+  margin: 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+/* MENU LIST */
+.dropdown ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.dropdown ul li {
+  padding: 10px 15px;
+  cursor: pointer;
+  transition: background 0.2s;
+  font-size: 18px;
+  font-family: "Instrument Serif", serif;
+}
+
+/* Hover underline */
+.dropdown ul li:hover {
+  text-decoration: underline;
+  background: rgba(255, 255, 255, 0.05);
+}
+
+/* ===================== */
+/* SUBMENU */
+/* ===================== */
+
+.submenu {
+  display: none;
+  padding-left: 15px;
+  background-color: #2a1f46;
+}
+
+.submenu li {
+  font-size: 18px;
+  padding: 8px 15px;
+}
+
+/* Show submenu */
+.submenu-open .submenu {
+  display: block;
+}
+
+/* Arrow */
+.has-submenu::after {
+  content: "▸";
+  float: right;
+}
+
+.submenu-open.has-submenu::after {
+  content: "▾";
+}
+
 
 .header{
   color: white;

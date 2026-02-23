@@ -131,7 +131,7 @@ removeAcc.addEventListener("click", (e) => {
 
   // ==================== RESET PROFILE AREA ==================== //
   document.querySelector(".profile-name").textContent = "Profile";
-document.getElementById("home-profile-pic").src = "default.png";
+  ``````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````1document.getElementById("home-profile-pic").src = "default.png";
 
 
   // ==================== LOCK CSS & JS AGAIN ==================== //

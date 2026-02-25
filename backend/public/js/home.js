@@ -18,6 +18,30 @@ window.onload = async () => {
   document.getElementById("home-profile-pic").src =
     profilePic || "/images/default.png";
 
+ // ---------- STUDYDECK SUBMENU TOGGLE ----------
+    const studydeckArrow = document.querySelector(".studydeck-arrow");
+  if (studydeckArrow) {
+    studydeckArrow.addEventListener("click", (e) => {
+      e.stopPropagation();
+      const submenu = studydeckArrow.parentElement.nextElementSibling;
+
+      submenu.style.display =
+        submenu.style.display === "block" ? "none" : "block";
+    });
+  }
+
+   /* ---------------- HTML / CSS / JS TOGGLES ---------------- */
+
+  document.querySelectorAll(".tech-arrow").forEach((arrow) => {
+    arrow.addEventListener("click", (e) => {
+      e.stopPropagation();
+      const submenu = arrow.parentElement.nextElementSibling;
+
+      submenu.style.display =
+        submenu.style.display === "block" ? "none" : "block";
+    });
+  });
+
   // ---------- FETCH USER DATA ----------
   if (!email) return;
 
@@ -111,3 +135,4 @@ document.getElementById("js-btn").addEventListener("click", e => {
     alert("Earn 50 points to unlock JavaScript");
   }
 });
+

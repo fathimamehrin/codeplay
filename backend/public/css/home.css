@@ -14,20 +14,18 @@ body {
   padding: 10px 20px;
   color: white;
   margin-bottom: 50px;
-
 }
-
 
 
 .navbar .right {
   display: flex;
   align-items: center;
- 
 }
+
 .navbar .right img{
-  padding-left: 0px;
-  
+  padding-left: 0px;  
 }
+
 .points {
   display: flex;
   align-items: center;
@@ -61,8 +59,6 @@ filter:brightness(100) ;
   letter-spacing: 0px;
 
 }
-
-
 
 
 .card {
@@ -191,7 +187,7 @@ margin-top:63px ;
   transition: content 0.3s;
 }
 .menu:hover{
-content: url(/images/white\ menu.png);
+
 height:19px ;
 padding-bottom: 5px;
 }
@@ -235,6 +231,15 @@ padding-bottom: 5px;
   padding: 20px;
   transition: 0.4s ease;
   z-index: 999;
+  overflow-y: auto;
+}
+
+.sidebar::-webkit-scrollbar{
+  width: 5px;
+}
+.sidebar::-webkit-scrollbar-thumb{
+  background: rgba(255,255,255,0.3);
+  border-radius: 10px;
 }
 
 .sidebar.open {
@@ -269,6 +274,78 @@ padding-bottom: 5px;
   color: white;
   text-decoration: underline;
 }
+
+.menu-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+/* ---------------- FONT SIZE HIERARCHY ---------------- */
+
+/* Level 1: Main sidebar links (Home, Studydeck, etc.) */
+.sidebar > ul > li > a,
+.menu-row > a {
+  font-size: 20px;
+}
+
+/* Level 2: HTML, CSS, JavaScript (inside Studydeck) */
+.submenu > li > .menu-row > a {
+  font-size: 19px;
+  color: #d6d6d6;
+}
+
+/* Level 3: Subtopics (HTML/CSS/JS topics) */
+.sub-submenu li a {
+  font-size: 17px;
+  color: #bfbfbf;
+  
+}
+
+/* Hover clarity */
+.submenu > li > .menu-row > a:hover,
+.sub-submenu li a:hover {
+  color: #ffffff;
+}
+
+
+.submenu,
+.sub-submenu {
+  list-style: none;
+  padding-left: 15px;
+  display: none;
+  
+}
+
+.submenu li,
+.sub-submenu li {
+  margin: 10px 0;
+}
+
+/* Submenu links */
+.submenu a,
+.sub-submenu a {
+  color: #cfcfcf;
+  text-decoration: none;
+}
+
+.submenu a:hover,
+.sub-submenu a:hover {
+  color: #ffffff;
+  text-decoration: underline;
+}
+
+/* Arrows */
+.arrow {
+  cursor: pointer;
+  font-size: 15px;
+  color: #cfcfcf;
+  user-select: none;
+}
+
+.arrow:hover {
+  color: #ffffff;
+}
+
 
 
 .overlay {

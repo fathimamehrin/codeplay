@@ -35,10 +35,10 @@ const prompts = [
 
 let level = 0;
 
-const promptEl = document.getElementById("prompt");
-const editor = document.getElementById("editor");
+const promptEl = document.getElementById("game1-prompt");
+const editor = document.getElementById("game1-editor");
 const target = document.getElementById("target-text");
-const result = document.getElementById("result");
+const result = document.getElementById("game1-result");
 
 
 function loadLevel() {
@@ -90,6 +90,9 @@ function checkCSS() {
       setTimeout(loadLevel, 1200);
     } else {
       result.textContent = "🎉All Levels Completed!";
+      setTimeout(() => {
+    finishGame();
+  }, 1500);
     }
   } else {
     result.textContent = "❌ Try again. Follow the prompt!";
@@ -97,4 +100,10 @@ function checkCSS() {
   }
 }
 
+function finishGame() {
+  if (localStorage.getItem("game1Completed")) return;
+
+  localStorage.setItem("game1Completed", "true");
+  window.parent.postMessage("GAME_COMPLETE", "*");
+}
 loadLevel();

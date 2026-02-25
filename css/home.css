@@ -197,6 +197,7 @@ content: url(/images/white\ menu.png);
 height:19px ;
 padding-bottom: 5px;
 }
+
 .profile {
     display: flex;
     align-items: center;
@@ -236,7 +237,6 @@ padding-bottom: 5px;
   padding: 20px;
   transition: 0.4s ease;
   z-index: 999;
-
   overflow-y: auto;
 }
 .sidebar::-webkit-scrollbar{
@@ -301,6 +301,7 @@ padding-bottom: 5px;
 .sub-submenu li a {
   font-size: 17px;
   color: #bfbfbf;
+  
 }
 
 /* Hover clarity */

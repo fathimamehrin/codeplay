@@ -452,21 +452,14 @@ let canGoNextCss = false;
 let cssPoints = 0;
 let completedCssLessons = {};
 
-function applyBackendData(data) {
-  points = data.points || 0;
-  document.getElementById("point").textContent = points;
 
-  // Mark completed lessons (1 lesson = 2 points)
-  completedLessons = {};
-  const completedCount = Math.floor(points / 2);
-  for (let i = 0; i < completedCount; i++) {
-    completedLessons[i] = true;
-  }
+let currentGameIndex = 0;
 
-  console.log("✅ Points restored:", points);
-  console.log("✅ Completed lessons restored:", completedLessons);
-}
-
+const games = [
+  "/htmlgame1.html",
+  "htmlgame2.html",
+  "htmlgame3.html"
+];
 // ==========================
 // PAGE LOAD
 // ==========================
@@ -482,8 +475,8 @@ window.addEventListener("load", async () => {
 
    const profileEl = document.getElementById("home-profile-pic");
   profileEl.src = profilePic || "/images/default.png";
-  profileEl.style.width = "40px";      // Set size
-  profileEl.style.height = "40px";     // Set size
+  profileEl.style.width = "35px";      // Set size
+  profileEl.style.height = "35px";     // Set size
   profileEl.style.borderRadius = "50%"; // Make circular
   // ---------- FETCH USER DATA ----------
   if (!email) return;
@@ -493,7 +486,7 @@ window.addEventListener("load", async () => {
     const data = await res.json();
     
     console.log("Fetched user data:", data);
-    applyBackendData(data);
+    
   } catch (err) {
     console.error("Failed to load user data", err);
   }
@@ -544,7 +537,7 @@ menuItems.forEach(item => {
   /* NORMAL MENU ITEM */
   if (!item.submenu) {
     li.addEventListener("click", () => {
-      loadLesson(item.index);
+      loadCssLesson(item.index);
       dropdownMenu.classList.remove("show");
     });
   }
@@ -562,7 +555,7 @@ menuItems.forEach(item => {
 
       subLi.addEventListener("click", (e) => {
         e.stopPropagation();   // prevent parent toggle
-        loadLesson(sub.index);
+        loadCssLesson(sub.index);
         dropdownMenu.classList.remove("show");
       });
 
@@ -618,19 +611,29 @@ async function restoreCssProgress() {
   }
 }
 
+
 // ==========================
 // SHOW / HIDE LESSON & GAME
 // ==========================
 function showLessonUI() {
   document.getElementById("lessonSection").style.display = "block";
-  document.getElementById("gameFrame").style.display = "none";
+  document.getElementById("gameContainer").style.display = "none";
 }
 
-function showGame(gameFile) {
+function showGame() {
+  console.log("🎮 showGame() triggered");
+
   document.getElementById("lessonSection").style.display = "none";
-  const frame = document.getElementById("gameFrame");
-  frame.style.display = "block";
-  frame.src = gameFile;
+  document.getElementById("gameContainer").style.display = "block";
+
+  gameContainer.style.display = "block";
+  gameContainer.style.background = "red"; // DEBUG
+
+
+  const gameFrame = document.getElementById("gameFrame");
+  gameFrame.src = games[currentGameIndex];
+
+  console.log("Launching Game:", games[currentGameIndex]);
 }
 
 
@@ -682,10 +685,10 @@ function runCssCode() {
     completedCssLessons[currentCssLesson] = true;
     cssPoints += 2;
     document.getElementById("point").innerText = cssPoints;
-    updateCssProgressToBackend(2);
+    updateCssProgressToBackend();
   }
 
-  canGoNextCss = true;
+  
 
 }
 
@@ -699,11 +702,13 @@ function nextCssLesson() {
     return;
   }
 
-  // Show game after lesson 4
-  if (currentCssLesson === 3) {
-    showGame("/htmlgame1.html"); // adjust path
+
+  // 🎮 Show game after every 4 lessons
+  if ((currentCssLesson + 1) % 4 === 0) {
+    showGame();
     return;
   }
+
 
   if (currentCssLesson < cssLessons.length - 1) {
     loadCssLesson(currentCssLesson + 1);
@@ -768,11 +773,17 @@ window.addEventListener("message", function(event) {
   if (event.data === "GAME_COMPLETE") {
     cssPoints += 5;
     document.getElementById("point").innerText = cssPoints;
-    updateCssProgressToBackend(5);
+    updateCssProgressToBackend();
+
+     // 🔁 Rotate next game
+    currentGameIndex = (currentGameIndex + 1) % games.length;
 
     alert("🎉 Game Completed! +5 Points");
 
     showLessonUI();
-    loadCssLesson(currentCssLesson + 1);
+
+    if (currentCssLesson < cssLessons.length - 1) {
+      loadCssLesson(currentCssLesson + 1);
+    }
   }
 });

@@ -5,16 +5,17 @@ body {
   background: url("/images/galaxyhd1.png") no-repeat center center fixed;
   background-size: cover;
   font-family: 'Instrument Serif', serif;
-  color: white;
-  
+  color: white; 
 }
+
+
 
 .navbar {
   display: flex;
   justify-content: space-between;
   align-items: center;
   background: #30234f;
-  padding: 12px 20px;
+  padding: 8px 20px;
   color: white;
   margin-bottom: 50px;
 }
@@ -230,6 +231,15 @@ body {
   line-height: 26px; 
   overflow: auto;
   border-radius: 8px;
+}
+
+.container1::-webkit-scrollbar{
+  width: 5px;
+}
+
+.container1::-webkit-scrollbar-thumb{
+  background-color: #2a1f46;
+  border-radius: 10px;
 }
 
 .top , .middle{

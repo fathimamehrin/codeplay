@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Style It Right | CodePlay</title>
+  <link rel="stylesheet" href="/css/cssgame1.css">
+</head>
+<body>
+  <nav class="navbar">
+
+  <!-- LEFT -->
+  <div class="menu" id="menu-btn">
+    <img src="/images/Group 119.png" id="menuIcon" class="menu-icon" alt="menu" width="24">
+  </div>
+
+  <!-- DROPDOWN -->
+  <div class="dropdown" id="dropdownMenu">
+    <h3 class="menu-title">HTML Lessons</h3>
+    <ul id="lessonList"></ul>
+  </div>
+
+  <!-- RIGHT -->
+  <div class="right">
+
+    <div class="profile">
+      <div class="profile-pic-wrapper">
+        <img id="home-profile-pic" src="/images/default.png" alt="profile">
+      </div>
+      <div id="home-username" class="profile-name">Username</div>
+    </div>
+
+    <div class="point">
+      <img src="/images/Group 115.png" width="24">
+      <span id="point" class="point-span">00</span>
+    </div>
+
+    <div class="graph">
+      <img src="/images/Group 116.png" width="24">
+    </div>
+
+    <div class="notifications">
+      <img src="/images/notifi.png" width="24">
+    </div>
+
+  </div>
+  </nav>
+
+  <div class="game-container1">
+    <div class="game1-title">
+    <img src="/images/image 5 (1).png">
+    <h2> Style It Right</h2>
+    </div>
+
+    <div class="prompt-box">
+      <p id="game1-prompt"></p>
+    </div>
+
+    <div class="preview-box">
+      <p id="target-text">Hello, Space Coder 🚀</p>
+    </div>
+
+    <textarea id="game1-editor" placeholder="Write your CSS here..."></textarea>
+
+    <button onclick="checkCSS()" class="game1-button">Check</button>
+
+    <p id="game1-result"></p>
+
+    <div class="right-buttons">
+  <div class="button-wrapper">
+    <img src="/images/Group 96 (1).png" class="prev">
+    <button onclick="prevCssLesson()">PREV</button>
+  </div>
+
+  <div class="button-wrapper">
+    <img src="/images/Group 96 (1).png" class="next">
+    <button id="nextBtn" onclick="nextCssLesson()">NEXT</button>
+  </div>
+</div>
+  </div>
+
+  <script src="/js/cssgame1.js"></script>
+</body>
+</html>

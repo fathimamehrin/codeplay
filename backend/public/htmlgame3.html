@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>HTML Swipe Quiz</title>
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Jacques+Francois+Shadow&family=Jaini+Purva&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/css/htmlgame3.css">
+</head>
+<body>
+  <div class="sidebar" id="sidebar">
+  <h2>Menu</h2>
+  <ul>
+    <li><a href="/html/index.html">Home</a></li>
+    <li><a href="/html/index.html#features">About</a></li>
+    <li><a href="/html/home.html">Lessons</a></li>
+    <li class="has-submenu">
+  <li class="has-submenu">
+  <div class="menu-row">
+    <a href="/html/studydeck.html">Studydeck</a>
+    <span class="arrow studydeck-arrow">▸</span>
+  </div>
+
+  <ul class="submenu">
+
+    <!-- HTML -->
+    <li class="has-submenu">
+      <div class="menu-row">
+        <a href="/html/htmlnotes.html">HTML</a>
+        <span class="arrow tech-arrow">▸</span>
+      </div>
+      <ul class="sub-submenu">
+        <li><a href="/html/htmlnotes.html#1">Basic Structure Tags</a></li>
+        <li><a href="/html/htmlnotes.html#2">Text Formatting Tags</a></li>
+        <li><a href="/html/htmlnotes.html#4">Links & Images</a></li>
+        <li><a href="/html/htmlnotes.html#5">Containers & Layouts</a></li>
+        <li><a href="/html/htmlnotes.html#6">Lists</a></li>
+        <li><a href="/html/htmlnotes.html#7">Forms And Inputs</a></li>
+        <li><a href="/html/htmlnotes.html#8">Media Elements</a></li>
+        <li><a href="/html/htmlnotes.html#9">Scripting & Meta</a></li>
+      </ul>
+    </li>
+
+    <!-- CSS -->
+    <li class="has-submenu">
+      <div class="menu-row">
+        <a href="/html/cssnotes.html">CSS</a>
+        <span class="arrow tech-arrow">▸</span>
+      </div>
+      <ul class="sub-submenu">
+        <li><a href="/html/cssnotes.html#1">Basic CSS Structure</a></li>
+        <li><a href="/html/cssnotes.html#2">CSS Box Model</a></li>
+        <li><a href="/html/cssnotes.html#3">Colors & Background</a></li>
+        <li><a href="/html/cssnotes.html#4">Text & Fonts</a></li>
+        <li><a href="/html/cssnotes.html#5">Display & Position</a></li>
+        <li><a href="/html/cssnotes.html#6">Flexbox(Modern Layout)</a></li>
+        <li><a href="/html/cssnotes.html#7">Responsive Design</a></li>
+        <li><a href="/html/cssnotes.html#8">Effects & Animation</a></li>
+        <li><a href="/html/cssnotes.html#9">Border Property</a></li>
+      </ul>
+    </li>
+
+    <!-- JavaScript -->
+    <li class="has-submenu">
+      <div class="menu-row">
+        <a href="/html/jsnotes.html">JavaScript</a>
+        <span class="arrow tech-arrow">▸</span>
+      </div>
+      <ul class="sub-submenu">
+      <li><a href="/html/jsnotes.html#vars">Variables</a></li>
+      <li><a href="/html/jsnotes.html#types">Data Types</a></li>
+      <li><a href="/html/jsnotes.html#operators">Operators</a></li>
+      <li><a href="/html/jsnotes.html#conditions">Conditional Statements</a></li>
+      <li><a href="/html/jsnotes.html#loops">Loops</a></li>
+      <li><a href="/html/jsnotes.html#functions">Functions</a></li>
+      <li><a href="/html/jsnotes.html#JS1">Dom Manipulation</a></li>
+      <li><a href="/html/jsnotes.html#JS2">Events</a></li>
+      <li><a href="/html/jsnotes.html#JS3">Arrays</a></li>
+      <li><a href="/html/jsnotes.html#JS4">Objects</a></li>
+      <li><a href="/html/jsnotes.html#JS5">Local Storage</a></li>
+      <li><a href="/html/jsnotes.html#JS6">Error Handling</a></li>
+      </ul>
+    </li>
+
+  </ul>
+</li>
+
+
+    
+    <li><a href="/html/myaccount.html">My Account</a></li>
+    <li><a href="projects.html">Projects</a></li>
+    <li><a href="#" id="removeAccount">Log out</a></li>
+  </ul>
+</div>
+<div class="overlay" id="overlay"></div>
+
+  <nav class="navbar">
+  <div class="menu" id="menu-btn">
+      <img src="/images/Group 119.png" alt="menu" width="24">
+  </div>
+
+  <div class="right">
+    <div class="profile">
+        <div class="profile-pic-wrapper">
+            <img id="home-profile-pic" src="default.png" alt="profile">
+        </div>
+        <div id="home-username" class="profile-name">Username</div>
+    </div>
+</div>
+
+
+      <div class="point">
+          <img src="/images/Group 115.png" width="24">
+          <span id="point" class="point-span">00</span>
+      </div>
+
+      <div class="graph">
+          <img src="/images/Group 116.png" width="24">
+      </div>
+
+      <div class="notifications">
+          <img src="/images/notifi.png" width="24">
+      </div>
+  </div>
+</nav>
+
+<h1>🛠 Fix the Broken HTML</h1>
+<p class="task">Fill in the missing part to fix the code</p>
+
+<div class="game">
+
+  <!-- 1 -->
+  <div class="card active">
+<pre>
+&lt;____&gt;Click Me&lt;/button&gt;
+</pre>
+<input data-answer="button" placeholder="fill here">
+<button onclick="check()" class="checkbutton">Submit</button>
+  </div>
+
+  <!-- 2 -->
+  <div class="card">
+<pre>
+&lt;div ____="main"&gt;Content&lt;/div&gt;
+</pre>
+<input data-answer="id" placeholder="fill here">
+<button onclick="check()" class="checkbutton">Submit</button>
+  </div>
+
+  <!-- 3 -->
+  <div class="card">
+<pre>
+&lt;p ____="text"&gt;Hello&lt;/p&gt;
+</pre>
+<input data-answer="class" placeholder="fill here">
+<button onclick="check()" class="checkbutton">Submit</button>
+  </div>
+
+  <!-- 4 -->
+  <div class="card">
+<pre>
+&lt;____&gt;
+  &lt;input type="text"&gt;
+&lt;/form&gt;
+</pre>
+<input data-answer="form" placeholder="fill here">
+<button onclick="check()" class="checkbutton">Submit</button>
+  </div>
+
+  <!-- 5 -->
+  <div class="card">
+<pre>
+&lt;input type="____"&gt; I agree
+</pre>
+<input data-answer="text" placeholder="fill here">
+<button onclick="check()" class="checkbutton">Submit</button>
+  </div>
+
+  <!-- 6 -->
+  <div class="card">
+<pre>
+&lt;____&gt;Note&lt;/small&gt;
+</pre>
+<input data-answer="small" placeholder="fill here">
+<button onclick="check()" class="checkbutton">Submit</button>
+  </div>
+
+  <!-- 7 -->
+  <div class="card">
+<pre>
+x&lt;____&gt;2&lt;/sup&gt;
+</pre>
+<input data-answer="sup" placeholder="fill here">
+<button onclick="check()" class="checkbutton">Submit</button>
+  </div>
+
+  <!-- 8 -->
+  <div class="card">
+<pre>
+H&lt;____&gt;2&lt;/sub&gt;O
+</pre>
+<input data-answer="sub" placeholder="fill here">
+<button onclick="check()" class="checkbutton">Submit</button>
+  </div>
+
+  <!-- 9 -->
+  <div class="card">
+<pre>
+&lt;____&gt;Italic&lt;/i&gt;
+</pre>
+<input data-answer="i" placeholder="fill here">
+<button onclick="check()" class="checkbutton">Submit</button>
+  </div>
+
+  <!-- 10 -->
+  <div class="card">
+<pre>
+&lt;____&gt;Bold&lt;/b&gt;
+</pre>
+<input data-answer="b" placeholder="fill here">
+<button onclick="check()" class="checkbutton">Submit</button>
+  </div>
+
+  <!-- 11 -->
+  <div class="card">
+<pre>
+&lt;____&gt;Underline&lt;/u&gt;
+</pre>
+<input data-answer="u" placeholder="fill here">
+<button onclick="check()" class="checkbutton">Submit</button>
+  </div>
+
+  <!-- 12 -->
+  <div class="card">
+<pre>
+&lt;____&gt;Important&lt;/em&gt;
+</pre>
+<input data-answer="em" placeholder="fill here">
+<button onclick="check()" class="checkbutton">Submit</button>
+  </div>
+
+  <!-- Finish -->
+  <div class="card finish">
+🎉 All codes fixed successfully!
+  </div>
+
+</div>
+
+<div class="right-buttons">
+    <div class="button-wrapper">
+      <img src="/images/Group 96 (1).png"class="prev">
+      <button onclick="prevLesson()">PREV</button>
+    </div>
+    <div class="button-wrapper">
+      <img src="/images/Group 96 (1).png" class="next">
+      <a href="/htmlproject.html">
+  <button id="nextBtn">NEXT</button>
+</a>
+    </div>
+  </div>
+
+  <div id="completion-message" style="display:none;">
+🎉 Game Completed! +5 Points
+</div>
+
+<script src="/js/htmlgame3.js"></script>
+</body>
+</html>

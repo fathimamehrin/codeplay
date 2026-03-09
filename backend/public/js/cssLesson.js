@@ -447,165 +447,111 @@ a {<br>
 
 ];
 
+// ==========================
+// GLOBAL VARIABLES
+// ==========================
 let currentCssLesson = 0;
 let canGoNextCss = false;
 let cssPoints = 0;
 let completedCssLessons = {};
-
-
 let currentGameIndex = 0;
 
-const games = [
-  "/htmlgame1.html",
-  "htmlgame2.html",
-  "htmlgame3.html"
-];
+completedCssLessons =
+  JSON.parse(localStorage.getItem("completedCssLessons")) || {};
+
+const lessonGames = {
+  5: "/cssgame1.html",
+  14: "/cssgame2.html"
+};
+
+
+// DOM
 // ==========================
-// PAGE LOAD
-// ==========================
-window.addEventListener("load", async () => {
-
-    const username = localStorage.getItem("username");
-  const email = localStorage.getItem("userEmail");
-  const profilePic = localStorage.getItem("profilePic");
-
-  // ---------- PROFILE ----------
-  document.getElementById("home-username").textContent =
-    username || "Username";
-
-   const profileEl = document.getElementById("home-profile-pic");
-  profileEl.src = profilePic || "/images/default.png";
-  profileEl.style.width = "35px";      // Set size
-  profileEl.style.height = "35px";     // Set size
-  profileEl.style.borderRadius = "50%"; // Make circular
-  // ---------- FETCH USER DATA ----------
-  if (!email) return;
-
-  try {
-    const res = await fetch(`/get-progress?email=${email}`);
-    const data = await res.json();
-    
-    console.log("Fetched user data:", data);
-    
-  } catch (err) {
-    console.error("Failed to load user data", err);
-  }
-
-  
-  await loadAlert();
-  await restoreCssProgress();
-  loadCssLesson(currentCssLesson);
-  showLessonUI();
-});
-
-
-
 const menuIcon = document.getElementById("menuIcon");
 const dropdownMenu = document.getElementById("dropdownMenu");
 const lessonList = document.getElementById("lessonList");
-
-/* MENU ITEMS → Direct lesson mapping */
-const menuItems = [
-  { name: "CSS Text Color", index: 0 },
-  { name: "CSS Font-Size ", index: 1 },
-  { name: "CSS Font Family", index: 2 },
-  { name: "CSS Font Weight", index: 3 },
-  { name: "CSS Text Align", index: 4 },
-  { name: "CSS Background Color", index: 5 },
-  { name: "CSS Border", index: 6 },
-  { name: "CSS Border Radius",  index: 7 },
-  { name: "CSS Height and Width", index: 8 },
-  { name: "CSS Margin", index: 9 },
-  { name: "CSS Padding", index: 10 },
-  { name: "CSS Display", index: 11 },
-  { name: "CSS Display Inline", index: 12 },
-  { name: "CSS Display Block", index: 13 },
-  { name: "CSS Display None", index: 14 },
+const gameContainer = document.getElementById("gameContainer");
 
 
-    
-];
+// ==========================
+// PAGE LOAD
+// ==========================
+window.onload = async () => {
 
-/* BUILD MENU */
-/* BUILD MENU */
-lessonList.innerHTML = "";
+  const username = localStorage.getItem("username");
+  const email = localStorage.getItem("userEmail");
+  const profilePic = localStorage.getItem("profilePic");
 
-menuItems.forEach(item => {
-  const li = document.createElement("li");
-  li.textContent = item.name;
+  document.getElementById("home-username").textContent =
+    username || "Username";
 
-  /* NORMAL MENU ITEM */
-  if (!item.submenu) {
-    li.addEventListener("click", () => {
-      loadCssLesson(item.index);
-      dropdownMenu.classList.remove("show");
+  const profileEl = document.getElementById("home-profile-pic");
+  profileEl.src = profilePic || "/images/default.png";
+  profileEl.style.width = "35px";
+  profileEl.style.height = "35px";
+  profileEl.style.borderRadius = "50%";
+
+  if (!email) return;
+
+  await loadAlert();
+  await restoreCssProgressFromBackend();
+
+    // ==========================
+  // GAME REWARD CHECK ✅
+  // ==========================
+  const gameResult = localStorage.getItem("cssGameResult");
+const gameRewarded = localStorage.getItem("cssGameRewarded");
+
+if (gameResult === "complete" && !gameRewarded) {
+
+    cssPoints += 5;
+    document.getElementById("point").innerText = cssPoints;
+
+    await fetch("/update-progress", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        email,
+        subject: "css",
+        value: 5
+      })
     });
+
+    localStorage.setItem("cssGameRewarded", "true");
+
+  await restoreCssProgressFromBackend();
+
+  localStorage.removeItem("cssGameResult");
+
+  console.log("🎉 Game reward applied");
   }
 
-  /* MENU WITH SUBMENU */
-  else {
-    li.classList.add("has-submenu");
+  const params = new URLSearchParams(window.location.search);
+const lessonFromUrl = params.get("cssLesson");
 
-    const subUl = document.createElement("ul");
-    subUl.classList.add("submenu");
+if (lessonFromUrl !== null) {
+  currentCssLesson = Number(lessonFromUrl);
+}
 
-    item.submenu.forEach(sub => {
-      const subLi = document.createElement("li");
-      subLi.textContent = sub.name;
-
-      subLi.addEventListener("click", (e) => {
-        e.stopPropagation();   // prevent parent toggle
-        loadCssLesson(sub.index);
-        dropdownMenu.classList.remove("show");
-      });
-
-      subUl.appendChild(subLi);
-    });
-
-    li.appendChild(subUl);
-
-    li.addEventListener("click", (e) => {
-      e.stopPropagation();
-      li.classList.toggle("submenu-open");
-    });
-  }
-
-  lessonList.appendChild(li);
-});
-
-/* TOGGLE MENU */
-menuIcon.addEventListener("click", (e) => {
-  e.stopPropagation();
-  dropdownMenu.classList.toggle("show");
-});
-
-/* CLOSE WHEN CLICK OUTSIDE */
-document.addEventListener("click", () => {
-  dropdownMenu.classList.remove("show");
-});
+  loadCssLesson(currentCssLesson);
+};
 
 // ==========================
 // RESTORE PROGRESS
 // ==========================
-async function restoreCssProgress() {
+async function restoreCssProgressFromBackend() {
+
   const email = localStorage.getItem("userEmail");
   if (!email) return;
 
   try {
-    const res = await fetch(`/get-progress?email=${email}`);
+    const res = await fetch(`/get-progress?email=${email}&subject=css`);
     const data = await res.json();
 
-    cssPoints = data.progress?.css || 0;
-
-    completedCssLessons = {};
-    const completedCount = Math.floor(cssPoints / 2);
-    for (let i = 0; i < completedCount; i++) {
-      completedCssLessons[i] = true;
-    }
+    cssPoints = data.points || 0;
 
     document.getElementById("point").innerText = cssPoints;
 
-    console.log("✅ CSS points restored:", cssPoints);
   } catch (err) {
     console.error("❌ Restore failed", err);
   }
@@ -613,36 +559,14 @@ async function restoreCssProgress() {
 
 
 // ==========================
-// SHOW / HIDE LESSON & GAME
-// ==========================
-function showLessonUI() {
-  document.getElementById("lessonSection").style.display = "block";
-  document.getElementById("gameContainer").style.display = "none";
-}
-
-function showGame() {
-  console.log("🎮 showGame() triggered");
-
-  document.getElementById("lessonSection").style.display = "none";
-  document.getElementById("gameContainer").style.display = "block";
-
-  gameContainer.style.display = "block";
-  gameContainer.style.background = "red"; // DEBUG
-
-
-  const gameFrame = document.getElementById("gameFrame");
-  gameFrame.src = games[currentGameIndex];
-
-  console.log("Launching Game:", games[currentGameIndex]);
-}
-
-
-
-// ==========================
 // LOAD LESSON
 // ==========================
 function loadCssLesson(index) {
+
+  if (!cssLessons[index]) return;
+
   currentCssLesson = index;
+
   const lesson = cssLessons[index];
 
   document.getElementById("lesson-title").innerHTML = lesson.title;
@@ -656,18 +580,20 @@ function loadCssLesson(index) {
   editor.style.display = "block";
   document.getElementById("output").style.display = "none";
 
-  canGoNextCss = !!completedCssLessons[currentCssLesson];
+  canGoNextCss = !!completedCssLessons[index];
 }
+
 
 // ==========================
 // RUN CODE
 // ==========================
-function runCssCode() {
+async function runCssCode() {
+
   const editor = document.getElementById("lesson-editor");
   const iframe = document.getElementById("output");
   const code = editor.value.trim();
 
-  if (!code) {
+  if (code === "") {
     showAlert();
     return;
   }
@@ -675,56 +601,79 @@ function runCssCode() {
   editor.style.display = "none";
   iframe.style.display = "block";
 
-  iframe.contentDocument.open();
-  iframe.contentDocument.write(`<!DOCTYPE html><html><body>${code}</body></html>`);
-  iframe.contentDocument.close();
+  const doc = iframe.contentDocument || iframe.contentWindow.document;
+  doc.open();
+  doc.write(code);
+  doc.close();
 
   canGoNextCss = true;
 
   if (!completedCssLessons[currentCssLesson]) {
-    completedCssLessons[currentCssLesson] = true;
-    cssPoints += 2;
-    document.getElementById("point").innerText = cssPoints;
-    updateCssProgressToBackend();
-  }
 
-  
+  completedCssLessons[currentCssLesson] = true;
 
+  cssPoints += 2;
+  document.getElementById("point").innerText = cssPoints;
+
+  localStorage.setItem(
+    "completedCssLessons",
+    JSON.stringify(completedCssLessons)
+  );
+
+  updateCssProgressToBackend();
+}
 }
 
-// ==========================
-// NAVIGATION
-// ==========================
 
+// ========================
+// NEXT BUTTON
+// ==========================
 function nextCssLesson() {
+
   if (!canGoNextCss) {
     showAlert();
     return;
   }
 
+  // If this lesson has a game
+  if (lessonGames[currentCssLesson]) {
 
-  // 🎮 Show game after every 4 lessons
-  if ((currentCssLesson + 1) % 4 === 0) {
-    showGame();
-    return;
+    const gameDone = localStorage.getItem("cssGameResult");
+
+    if (gameDone !== "complete") {
+
+      localStorage.removeItem("cssGameRewarded");
+      // go to game
+      window.location.href =
+        `${lessonGames[currentCssLesson]}?cssLesson=${currentCssLesson}`;
+
+      return;
+    }
+
+    // remove after completion
+    localStorage.removeItem("cssGameResult");
   }
 
-
+  // Go to next lesson
   if (currentCssLesson < cssLessons.length - 1) {
-    loadCssLesson(currentCssLesson + 1);
+    window.location.href =
+      `cssLesson.html?cssLesson=${currentCssLesson + 1}`;
   }
 }
 
+  
+// ==========================
+// PREV BUTTON
+// ==========================
 function prevCssLesson() {
   if (currentCssLesson > 0) {
-    loadCssLesson(currentCssLesson - 1);
+     window.location.href = `cssLesson.html?cssLesson=${currentCssLesson - 1}`;
+     } else {
+
+    window.location.href = "cssIntro.html";
+
   }
-};
-
-
-
-
-  
+  }
 
 
 function loadAlert() {
@@ -732,7 +681,9 @@ function loadAlert() {
     .then(res => res.text())
     .then(html => document.body.insertAdjacentHTML("beforeend", html));
 }
-
+// ==========================
+// ALERT
+// ==========================
 function showAlert() {
   document.getElementById("customAlert").style.display = "block";
   document.getElementById("alertOverlay").style.display = "block";
@@ -744,11 +695,11 @@ function closeAlert() {
 }
 
 
-
-
-//final
-
+// ==========================
+// SAVE PROGRESS
+// ==========================
 async function updateCssProgressToBackend() {
+
   const email = localStorage.getItem("userEmail");
   if (!email) return;
 
@@ -759,31 +710,11 @@ async function updateCssProgressToBackend() {
       body: JSON.stringify({
         email,
         subject: "css",
-        value: cssPoints
+        value: 2
       })
     });
 
-    console.log("✅ CSS progress saved");
   } catch (err) {
     console.error("❌ Save failed", err);
   }
 }
-
-window.addEventListener("message", function(event) {
-  if (event.data === "GAME_COMPLETE") {
-    cssPoints += 5;
-    document.getElementById("point").innerText = cssPoints;
-    updateCssProgressToBackend();
-
-     // 🔁 Rotate next game
-    currentGameIndex = (currentGameIndex + 1) % games.length;
-
-    alert("🎉 Game Completed! +5 Points");
-
-    showLessonUI();
-
-    if (currentCssLesson < cssLessons.length - 1) {
-      loadCssLesson(currentCssLesson + 1);
-    }
-  }
-});

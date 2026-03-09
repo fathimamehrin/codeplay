@@ -1,86 +1,55 @@
-document.getElementById("form").addEventListener("submit", async  (e)=> {
+const form = document.getElementById("form");
+
+form.addEventListener("submit", async (e) => {
     e.preventDefault();
 
-    const userInput = document.getElementById("name");
-    const emailInput = document.getElementById("email");
-    const passInput = document.getElementById("pass");
-    const cpassInput = document.getElementById("cpass");
+    const username = document.getElementById("name").value.trim();
+    const email = document.getElementById("email").value.trim();
+    const password = document.getElementById("pass").value.trim();
+    const cpassword = document.getElementById("cpass").value.trim();
 
-    const userError = document.getElementById("userError");
-    const emailError = document.getElementById("emailError");
-    const passwordError = document.getElementById("passwordError");
-    const cpassError = document.getElementById("cpassError");
-
-    const username = userInput.value.trim();
-    const email = emailInput.value.trim();
-    const password = passInput.value.trim();
-    const cpassword = cpassInput.value.trim();
-
-    // clear errors
-    userError.innerHTML = "";
-    emailError.innerHTML = "";
-    passwordError.innerHTML = "";
-    cpassError.innerHTML = "";
+    // Clear previous errors
+    document.getElementById("userError").textContent = "";
+    document.getElementById("emailError").textContent = "";
+    document.getElementById("passwordError").textContent = "";
+    document.getElementById("cpassError").textContent = "";
+    document.getElementById("serverError").textContent = "";
 
     let valid = true;
 
-    // username check
-    if (username === "") {
-        userError.innerHTML = "Username is required";
-        valid = false;
-    }
-
-    // email check
-    if (email === "") {
-        emailError.innerHTML = "Email is required";
-        valid = false;
-    } else if (!/^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/.test(email)) {
-        emailError.innerHTML = "Enter a valid email";
-        valid = false;
-    }
-
-    // password check
-    if (password === "") {
-        passwordError.innerHTML = "Password is required";
-        valid = false;
-    } else if (password.length < 8) {
-        passwordError.innerHTML = "Password must be at least 8 characters";
-        valid = false;
-    }
-
-    // confirm password check
-    if (cpassword === "") {
-        cpassError.innerHTML = "Confirm your password";
-        valid = false;
-    } else if (password !== cpassword) {
-        cpassError.innerHTML = "Passwords do not match";
-        valid = false;
-    }
+    // Validation
+    if (!username) { document.getElementById("userError").textContent = "Username required"; valid = false; }
+    if (!email) { document.getElementById("emailError").textContent = "Email required"; valid = false; }
+    else if (!/^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/.test(email)) { document.getElementById("emailError").textContent = "Enter valid email"; valid = false; }
+    if (!password) { document.getElementById("passwordError").textContent = "Password required"; valid = false; }
+    else if (password.length < 8) { document.getElementById("passwordError").textContent = "At least 8 characters"; valid = false; }
+    if (!cpassword) { document.getElementById("cpassError").textContent = "Confirm password"; valid = false; }
+    else if (password !== cpassword) { document.getElementById("cpassError").textContent = "Passwords do not match"; valid = false; }
 
     if (!valid) return;
 
-    // 🔵 SIGNUP REQUEST
-    fetch("/register", {
-        method: "POST",
-        headers: {
-            "Content-Type": "application/json"
-        },
-        body: JSON.stringify({
-            username: username,
-            email: email,
-            password: password
-        })
-    })
-    .then(res => res.text())
-    .then(data => {
-        if (data === "User registered successfully") {
-            window.location.href = "login.html";
+    console.log("Sending signup:", { username, email, password });
+
+    try {
+        const res = await fetch("/register", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({ username, email, password })
+        });
+
+        const data = await res.json();
+        console.log("Server response:", data);
+
+        if (data.success) {
+            alert("Signup successful!");
+            window.location.href = "login.html"; // redirect to login
         } else {
-            emailError.innerHTML = data;
+            // Show server message (duplicate email, etc.)
+            document.getElementById("serverError").textContent = data.message;
         }
-    })
-    .catch(err => {
-        console.error(err);
-        emailError.innerHTML = "Server error. Try again.";
-    });
+
+    } catch (err) {
+        console.error("Signup error:", err);
+        document.getElementById("serverError").textContent = "Server error. Try again.";
+    }
 });

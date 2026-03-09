@@ -1,6 +1,8 @@
 /* ================= PROGRESS ================= */
 
-let currentStep = 0; // lesson progress
+let currentStep = localStorage.getItem("lessonProgress")
+  ? parseInt(localStorage.getItem("lessonProgress"))
+  : 0;
 
 const stages = document.querySelectorAll(".stage");
 const path = document.getElementById("roadPath");
@@ -8,51 +10,71 @@ const path = document.getElementById("roadPath");
 /* ================= UPDATE ROADMAP ================= */
 
 function updateRoadmap() {
+
   stages.forEach((stage, index) => {
+
     stage.classList.remove("completed", "current");
 
     if (index < currentStep) {
       stage.classList.add("completed");
-    } 
+    }
+
     else if (index === currentStep) {
       stage.classList.add("current");
     }
-  });
-  setTimeout(completeCurrentLevel, 2500);
 
+  });
 
   updatePathGlow();
+
+}
+
+/* ================= COMPLETE CURRENT STAGE ================= */
+
+function completeCurrentLevel() {
+
+  if (currentStep < stages.length - 1) {
+
+    currentStep++;
+
+    localStorage.setItem("lessonProgress", currentStep);
+
+    updateRoadmap();
+
+  }
 
 }
 
 /* ================= PATH GLOW ================= */
 
 function updatePathGlow() {
+  if (!path) return;
+
+  // Get the actual path length
+  const pathLength = path.getTotalLength();
+
+  // Total stages minus 1 (because first stage is 0)
   const totalSteps = stages.length - 1;
+
+  // Progress from 0 → 1
   const progress = Math.min(currentStep / totalSteps, 1);
 
-  /* pathLength="1"
-     1 → hidden
-     0 → fully visible */
-  path.style.strokeDashoffset = 1 - progress;
+  // Set strokeDasharray & strokeDashoffset based on actual path length
+  path.style.strokeDasharray = pathLength;
+
+  // Stroke offset: full length → hidden, 0 → fully visible
+  path.style.strokeDashoffset = pathLength * (1 - progress);
+
+  // Optional smooth transition
+  path.style.transition = "stroke-dashoffset 1s ease";
 }
+/* ================= LOAD PROGRESS ================= */
 
-/* ================= COMPLETE CURRENT STAGE ================= */
-/* Call this when user clicks "Next Lesson" */
+document.addEventListener("DOMContentLoaded", () => {
 
-function completeCurrentLevel() {
-  if (currentStep < stages.length - 1) {
-    currentStep++;
-    updateRoadmap();
-  }
-}
+  updateRoadmap();
 
-/* ================= INITIAL LOAD ================= */
-
-updateRoadmap();
-
-/* ================= DEMO (REMOVE LATER) ================= */
-/* Auto progress every 2.5s just for testing */
+});
 
 
 
@@ -72,7 +94,7 @@ removeAcc.addEventListener("click", (e) => {
   localStorage.clear();
 
   alert("Account Removed Successfully!");
-  window.location.href = "/html/index.html";
+  window.location.href = "about.html";
 });
 
 /* ================= STUDYDECK TOGGLE ================= */

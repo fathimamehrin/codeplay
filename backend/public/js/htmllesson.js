@@ -554,27 +554,30 @@ const lessons = [
  
 ];
 
-
+// ==========================
+// STATE
+// ==========================
 let currentLesson = 0;
 let canGoNext = false;
 
 let points = 0;
 let completedLessons = {}; // lessonIndex : true
 
-function applyBackendData(data) {
-  points = data.points || 0;
-  document.getElementById("point").textContent = points;
+let currentGameIndex = 0;
 
-  // Mark completed lessons (1 lesson = 2 points)
-  completedLessons = {};
-  const completedCount = Math.floor(points / 2);
-  for (let i = 0; i < completedCount; i++) {
-    completedLessons[i] = true;
-  }
+const games = [
+  "/htmlgame1.html",
+  "/htmlgame2.html",
+  "/htmlgame3.html"
+];
 
-  console.log("✅ Points restored:", points);
-  console.log("✅ Completed lessons restored:", completedLessons);
-}
+// ==========================
+// DOM
+// ==========================
+const menuIcon = document.getElementById("menuIcon");
+const dropdownMenu = document.getElementById("dropdownMenu");
+const lessonList = document.getElementById("lessonList");
+const gameContainer = document.getElementById("gameContainer");
 
 // ==========================
 // PAGE LOAD
@@ -589,42 +592,64 @@ window.onload = async () => {
   document.getElementById("home-username").textContent =
     username || "Username";
 
-   const profileEl = document.getElementById("home-profile-pic");
+  const profileEl = document.getElementById("home-profile-pic");
   profileEl.src = profilePic || "/images/default.png";
-  profileEl.style.width = "40px";      // Set size
-  profileEl.style.height = "40px";     // Set size
-  profileEl.style.borderRadius = "50%"; // Make circular
-  // ---------- FETCH USER DATA ----------
+  profileEl.style.width = "40px";
+  profileEl.style.height = "40px";
+  profileEl.style.borderRadius = "50%";
+
   if (!email) return;
-
-  try {
-    const res = await fetch(`/get-progress?email=${email}`);
-    const data = await res.json();
-    
-    console.log("Fetched user data:", data);
-    applyBackendData(data);
-  } catch (err) {
-    console.error("Failed to load user data", err);
-  }
-
 
   await loadAlert();
   await restoreProgressFromBackend();
-  loadLesson(0);
+
+  // ==========================
+  // GAME REWARD CHECK ✅
+  // ==========================
+  const gameResult = localStorage.getItem("htmlGameResult");
+
+  if (gameResult === "complete") {
+
+    points += 5;
+    document.getElementById("point").innerText = points;
+
+    await fetch("/update-progress", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        email,
+        subject: "html",
+        value: 5
+      })
+    });
+
+    
+    localStorage.removeItem("htmlGameResult");
+
+    console.log("🎉 Game reward applied");
+  }
+
+  const params = new URLSearchParams(window.location.search);
+  const lessonFromUrl = params.get("lesson") || params.get("from");
+
+if (lessonFromUrl !== null) {
+  currentLesson = Number(lessonFromUrl) ;
+}
+
+  loadLesson(currentLesson);
 };
 
-const menuIcon = document.getElementById("menuIcon");
-const dropdownMenu = document.getElementById("dropdownMenu");
-const lessonList = document.getElementById("lessonList");
-
-/* MENU ITEMS → Direct lesson mapping */
+// ==========================
+// MENU CONFIG
+// ==========================
 const menuItems = [
   { name: "h1 to h6", index: 0 },
   { name: "p ", index: 1 },
   { name: "br", index: 2 },
   { name: "a", index: 3 },
-  { name: "HTML Formatting Elements",
-    
+
+  {
+    name: "HTML Formatting Elements",
     submenu: [
       { name: "Formating Elements", index: 4 },
       { name: "Bold Text (<b>)", index: 5 },
@@ -640,23 +665,24 @@ const menuItems = [
 
   { name: "img tag", index: 13 },
   { name: "table", index: 14 },
-  { name: "HTML Lists", 
+
+  {
+    name: "HTML Lists",
     submenu: [
       { name: "List Elements", index: 15 },
       { name: "Unordered List", index: 16 },
       { name: "Ordered List", index: 17 },
-      { name: "Definition List", index: 18 },
-
+      { name: "Definition List", index: 18 }
     ]
-     },
+  },
+
   { name: "div", index: 19 },
   { name: "class", index: 20 },
-   
   { name: "ID", index: 21 },
   { name: "Button", index: 22 },
 
   {
-    name: "HTML Forms" , 
+    name: "HTML Forms",
     submenu: [
       { name: "HTML Forms", index: 23 },
       { name: "form tag", index: 24 },
@@ -665,27 +691,23 @@ const menuItems = [
       { name: "checkbox", index: 27 }
     ]
   }
-
 ];
 
-/* BUILD MENU */
-/* BUILD MENU */
+// ==========================
+// BUILD MENU
+// ==========================
 lessonList.innerHTML = "";
 
 menuItems.forEach(item => {
   const li = document.createElement("li");
   li.textContent = item.name;
 
-  /* NORMAL MENU ITEM */
   if (!item.submenu) {
     li.addEventListener("click", () => {
       loadLesson(item.index);
       dropdownMenu.classList.remove("show");
     });
-  }
-
-  /* MENU WITH SUBMENU */
-  else {
+  } else {
     li.classList.add("has-submenu");
 
     const subUl = document.createElement("ul");
@@ -696,7 +718,7 @@ menuItems.forEach(item => {
       subLi.textContent = sub.name;
 
       subLi.addEventListener("click", (e) => {
-        e.stopPropagation();   // prevent parent toggle
+        e.stopPropagation();
         loadLesson(sub.index);
         dropdownMenu.classList.remove("show");
       });
@@ -715,19 +737,20 @@ menuItems.forEach(item => {
   lessonList.appendChild(li);
 });
 
-/* TOGGLE MENU */
+// ==========================
+// MENU TOGGLE
+// ==========================
 menuIcon.addEventListener("click", (e) => {
   e.stopPropagation();
   dropdownMenu.classList.toggle("show");
 });
 
-/* CLOSE WHEN CLICK OUTSIDE */
 document.addEventListener("click", () => {
   dropdownMenu.classList.remove("show");
 });
 
 // ==========================
-// RESTORE PROGRESS FROM BACKEND
+// RESTORE PROGRESS
 // ==========================
 async function restoreProgressFromBackend() {
   const email = localStorage.getItem("userEmail");
@@ -739,17 +762,15 @@ async function restoreProgressFromBackend() {
 
     points = data.points || 0;
 
-    // Restore completed lessons (1 lesson = 2 points)
     completedLessons = {};
     const completedCount = Math.floor(points / 2);
+
     for (let i = 0; i < completedCount; i++) {
       completedLessons[i] = true;
     }
 
     document.getElementById("point").innerText = points;
 
-    console.log("✅ Restored points:", points);
-    console.log("✅ Completed lessons:", completedLessons);
   } catch (err) {
     console.error("❌ Failed to restore progress", err);
   }
@@ -774,7 +795,6 @@ function loadLesson(index) {
   editor.style.display = "block";
   document.getElementById("output").style.display = "none";
 
-  // allow next only if already completed
   canGoNext = !!completedLessons[currentLesson];
 }
 
@@ -802,7 +822,6 @@ function runCode() {
 
   canGoNext = true;
 
-  // Give points only once per lesson
   if (!completedLessons[currentLesson]) {
     completedLessons[currentLesson] = true;
     points += 2;
@@ -816,19 +835,51 @@ function runCode() {
 // NAVIGATION
 // ==========================
 function nextLesson() {
+
   if (!canGoNext) {
     showAlert();
     return;
   }
-  if (currentLesson < lessons.length - 1) loadLesson(currentLesson + 1);
+
+  /* ⭐ UPDATE ROADMAP PROGRESS */
+  let progress = localStorage.getItem("lessonProgress")
+    ? parseInt(localStorage.getItem("lessonProgress"))
+    : 0;
+
+  progress++;
+  localStorage.setItem("lessonProgress", progress);
+
+
+  // 🎮 GAME CONDITIONS (SPECIFIC INDEXES)
+
+  if (currentLesson === 12) {
+   window.location.href = `${games[0]}?from=12`;
+    return;
+  }
+
+  if (currentLesson === 14) {
+    window.location.href = `${games[1]}?from=14`;
+    return;
+  }
+
+  if (currentLesson === 27) {
+    window.location.href = `${games[2]}?from=27`;
+    return;
+  }
+
+  // 👉 Normal lesson navigation
+  if (currentLesson < lessons.length - 1) {
+    loadLesson(currentLesson + 1);
+  }
 }
 
 function prevLesson() {
-  if (currentLesson > 0) loadLesson(currentLesson - 1);
+  if (currentLesson > 0)
+    loadLesson(currentLesson - 1);
 }
 
 // ==========================
-// CUSTOM ALERT
+// ALERT
 // ==========================
 function loadAlert() {
   return fetch("alert.html")
@@ -845,8 +896,6 @@ function closeAlert() {
   document.getElementById("customAlert").style.display = "none";
   document.getElementById("alertOverlay").style.display = "none";
 }
-
-
 
 // ==========================
 // BACKEND UPDATE
@@ -866,8 +915,11 @@ async function updateProgressToBackend() {
       })
     });
 
-    console.log("✅ Progress saved to backend");
   } catch (err) {
     console.error("❌ Failed to save progress", err);
   }
 }
+
+
+
+

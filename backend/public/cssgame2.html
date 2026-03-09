@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CSS Detective</title>
+
+<link rel="stylesheet" href="/css/cssgame2.css">
+</head>
+
+<body>
+
+    <nav class="navbar">
+
+  <!-- LEFT -->
+  <div class="menu" id="menu-btn">
+    <img src="/images/Group 119.png" id="menuIcon" class="menu-icon" alt="menu" width="24">
+  </div>
+
+  <!-- DROPDOWN -->
+  <div class="dropdown" id="dropdownMenu">
+    <h3 class="menu-title">HTML Lessons</h3>
+    <ul id="lessonList"></ul>
+  </div>
+
+  <!-- RIGHT -->
+  <div class="right">
+
+    <div class="profile">
+      <div class="profile-pic-wrapper">
+        <img id="home-profile-pic" src="/images/default.png" alt="profile">
+      </div>
+      <div id="home-username" class="profile-name">Username</div>
+    </div>
+
+    <div class="point">
+      <img src="/images/Group 115.png" width="24">
+      <span id="point" class="point-span">00</span>
+    </div>
+
+    <div class="graph">
+      <img src="/images/Group 116.png" width="24">
+    </div>
+
+    <div class="notifications">
+      <img src="/images/notifi.png" width="24">
+    </div>
+
+  </div>
+  </nav>
+  <div class="container">
+
+<div class="game-container">
+
+<h1>🕵️ CSS Detective</h1>
+
+<div class="top-bar">
+<span id="case"></span>
+</div>
+
+<h3 id="question"></h3>
+
+<div id="preview-box">
+CodePlay
+</div>
+
+<div id="options"></div>
+
+<div id="result"></div>
+
+<div id="game-over">
+<h2>🎉 You solved all CSS cases!</h2>
+<button onclick="restartGame()">Play Again</button>
+</div>
+
+</div>
+
+<div class="right-buttons">
+  <div class="button-wrapper">
+    <img src="/images/Group 96 (1).png" class="prev">
+    <button onclick="prevCssLesson()">PREV</button>
+  </div>
+
+  <div class="button-wrapper">
+    <img src="/images/Group 96 (1).png" class="next">
+    <a href="/cssproject.html">
+    <button id="nextBtn" >NEXT</button>
+    </a>
+  </div>
+</div>
+</div>
+
+
+<script src="js/cssgame2.js"></script>
+
+</body>
+</html>

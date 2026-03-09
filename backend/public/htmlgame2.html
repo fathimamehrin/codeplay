@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>supermarket bill</title>
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Jacques+Francois+Shadow&family=Jaini+Purva&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/css/htmlgame2.css">
+</head>
+<body>
+  <!-- ====== SIDEBAR ====== -->
+<div class="sidebar" id="sidebar">
+  <h2>Menu</h2>
+  <ul>
+    <li><a href="/html/index.html">Home</a></li>
+    <li><a href="/html/index.html#features">About</a></li>
+    <li><a href="/html/home.html">Lessons</a></li>
+    <li class="has-submenu">
+  <li class="has-submenu">
+  <div class="menu-row">
+    <a href="/html/studydeck.html">Studydeck</a>
+    <span class="arrow studydeck-arrow">▸</span>
+  </div>
+
+  <ul class="submenu">
+
+    <!-- HTML -->
+    <li class="has-submenu">
+      <div class="menu-row">
+        <a href="/html/htmlnotes.html">HTML</a>
+        <span class="arrow tech-arrow">▸</span>
+      </div>
+      <ul class="sub-submenu">
+        <li><a href="/html/htmlnotes.html#1">Basic Structure Tags</a></li>
+        <li><a href="/html/htmlnotes.html#2">Text Formatting Tags</a></li>
+        <li><a href="/html/htmlnotes.html#4">Links & Images</a></li>
+        <li><a href="/html/htmlnotes.html#5">Containers & Layouts</a></li>
+        <li><a href="/html/htmlnotes.html#6">Lists</a></li>
+        <li><a href="/html/htmlnotes.html#7">Forms And Inputs</a></li>
+        <li><a href="/html/htmlnotes.html#8">Media Elements</a></li>
+        <li><a href="/html/htmlnotes.html#9">Scripting & Meta</a></li>
+      </ul>
+    </li>
+
+    <!-- CSS -->
+    <li class="has-submenu">
+      <div class="menu-row">
+        <a href="/html/cssnotes.html">CSS</a>
+        <span class="arrow tech-arrow">▸</span>
+      </div>
+      <ul class="sub-submenu">
+        <li><a href="/html/cssnotes.html#1">Basic CSS Structure</a></li>
+        <li><a href="/html/cssnotes.html#2">CSS Box Model</a></li>
+        <li><a href="/html/cssnotes.html#3">Colors & Background</a></li>
+        <li><a href="/html/cssnotes.html#4">Text & Fonts</a></li>
+        <li><a href="/html/cssnotes.html#5">Display & Position</a></li>
+        <li><a href="/html/cssnotes.html#6">Flexbox(Modern Layout)</a></li>
+        <li><a href="/html/cssnotes.html#7">Responsive Design</a></li>
+        <li><a href="/html/cssnotes.html#8">Effects & Animation</a></li>
+        <li><a href="/html/cssnotes.html#9">Border Property</a></li>
+      </ul>
+    </li>
+
+    <!-- JavaScript -->
+    <li class="has-submenu">
+      <div class="menu-row">
+        <a href="/html/jsnotes.html">JavaScript</a>
+        <span class="arrow tech-arrow">▸</span>
+      </div>
+      <ul class="sub-submenu">
+      <li><a href="/html/jsnotes.html#vars">Variables</a></li>
+      <li><a href="/html/jsnotes.html#types">Data Types</a></li>
+      <li><a href="/html/jsnotes.html#operators">Operators</a></li>
+      <li><a href="/html/jsnotes.html#conditions">Conditional Statements</a></li>
+      <li><a href="/html/jsnotes.html#loops">Loops</a></li>
+      <li><a href="/html/jsnotes.html#functions">Functions</a></li>
+      <li><a href="/html/jsnotes.html#JS1">Dom Manipulation</a></li>
+      <li><a href="/html/jsnotes.html#JS2">Events</a></li>
+      <li><a href="/html/jsnotes.html#JS3">Arrays</a></li>
+      <li><a href="/html/jsnotes.html#JS4">Objects</a></li>
+      <li><a href="/html/jsnotes.html#JS5">Local Storage</a></li>
+      <li><a href="/html/jsnotes.html#JS6">Error Handling</a></li>
+      </ul>
+    </li>
+
+  </ul>
+</li>
+
+
+    
+    <li><a href="/html/myaccount.html">My Account</a></li>
+    <li><a href="projects.html">Projects</a></li>
+    <li><a href="#" id="removeAccount">Log out</a></li>
+  </ul>
+</div>
+<div class="overlay" id="overlay"></div>
+
+<!-- ====== NAVBAR ====== -->
+<nav class="navbar">
+  <div class="menu" id="menu-btn">
+      <img src="/images/Group 119.png" alt="menu" width="24">
+  </div>
+
+  <div class="right">
+    <div class="profile">
+        <div class="profile-pic-wrapper">
+            <img id="home-profile-pic" src="default.png" alt="profile">
+        </div>
+        <div id="home-username" class="profile-name">Username</div>
+    </div>
+</div>
+
+
+      <div class="point">
+          <img src="/images/Group 115.png" width="24">
+          <span id="point" class="point-span">00</span>
+      </div>
+
+      <div class="graph">
+          <img src="/images/Group 116.png" width="24">
+      </div>
+
+      <div class="notifications">
+          <img src="/images/notifi.png" width="24">
+      </div>
+  </div>
+</nav>
+ 
+
+<!-- STORY SCREEN -->
+<div id="storyScreen" class="screen active">
+  <h1 class="title">🛒 Supermarket Bill Builder</h1>
+
+  <div class="story-container">
+  <div class="story-box" >
+   
+    <p>
+      The supermarket is crowded and the billing computer has stopped working.
+      Only a messy handwritten bill is left.
+    </p>
+    <p>
+      The cashier needs your help. Use HTML code to organize the products,
+      quantities, and prices into a proper table before customers get impatient.
+    </p>
+    <p><strong>Can you fix the bill and save the day?</strong></p>
+  </div>
+
+  <button id="startGame" class="arrow-btn">
+    <img src="/images/Group 207.png" alt="arrow">
+  </button>
+</div>
+</div>
+
+<!-- GAME SCREEN -->
+<div id="gameScreen" class="screen">
+ 
+
+  <p class="task">
+    Task 1: Create a table with headers <b>Product, Quantity, Price</b>
+  </p>
+
+  <div class="game-layout">
+    <!-- LEFT IMAGE -->
+    <img src="/images/ChatGPT Image Feb 1, 2026, 08_48_29 AM 1.png" class="bill-img" alt="Messy Bill">
+
+    <!-- CODE AREA -->
+    <div class="editor">
+      
+      <textarea id="code" placeholder="Write your HTML code here..."></textarea>
+      <button id="run" class="run-btn"> 
+        <img src="/images/Group 211.png" alt="Run Code">
+      </button>
+      <div id="preview" class="output"></div>
+    </div>
+  </div>
+</div>
+
+<div class="right-buttons">
+    <div class="button-wrapper">
+      <img src="/images/Group 96 (1).png"class="prev">
+      <button onclick="prevLesson()">PREV</button>
+    </div>
+    <div class="button-wrapper">
+      <img src="/images/Group 96 (1).png" class="next">
+      <button id="nextBtn" onclick="nextLesson()" >NEXT</button>
+    </div>
+  </div>
+
+
+<script src="/js/htmlgame2.js"></script>
+</body>
+</html>

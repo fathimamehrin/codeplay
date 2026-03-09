@@ -1,109 +1,188 @@
+// ==========================
+// GLOBAL POINTS
+// ==========================
+let points = 0;
+const params = new URLSearchParams(window.location.search);
+const fromLesson = Number(params.get("lesson") || params.get("from")) || 0;
 
-const prompts = [
-  {
-    text: "Make the text blue",
-    rules : {
-      "color" : "blue"
+// ==========================
+// RESTORE FROM BACKEND
+// ==========================
+async function restoreProgressFromBackend() {
+  const email = localStorage.getItem("userEmail");
+  if (!email) return;
+
+  try {
+    const response = await fetch(`/get-progress?email=${email}&subject=html`);
+    const data = await response.json();
+
+    points = Number(data.points) || 0;
+
+    const pointEl = document.getElementById("point");
+    if (pointEl) {
+      pointEl.innerText = points;
     }
-  },
-  {
-    text: "Increase the font size to 24px",
-    rules : {
-      "font-size" : "24px"
-    }
-  },
-  {
-    text: "Change the font family to Arial",
-    rules : {
-      "font-family" : "arial"
-    }
-  },
-  {
-    text: "Make the text bold",
-    rules : {
-      "font-weight" : "bold"
-    }
-  },
-  {
-    text: "Make the text red and bold",
-    rules : {
-      "color" : "red",
-      "font-weight" : "bold"
-    }
+
+  } catch (err) {
+    console.error("❌ Failed to restore progress", err);
   }
-];
-
-let level = 0;
-
-const promptEl = document.getElementById("game1-prompt");
-const editor = document.getElementById("game1-editor");
-const target = document.getElementById("target-text");
-const result = document.getElementById("game1-result");
-
-
-function loadLevel() {
-  promptEl.textContent = prompts[level].text;
-  editor.value = "";
-  target.style = "";
-  result.textContent = "";
 }
 
-function getCSSValue(property, css) {
-  const regex = new RegExp(property + "\\s*:\\s*([^;]+);", "i");
-  const match = css.match(regex);
-  return match ? match[1].trim().toLowerCase() : null;
+// ==========================
+// UPDATE BACKEND
+// ==========================
+async function updateProgressToBackend(value) {
+  const email = localStorage.getItem("userEmail");
+  if (!email) return;
+
+  try {
+    const response = await fetch("/update-progress", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        email,
+        subject: "html",
+        value: value,
+        game: "htmlGame1"
+      })
+    });
+
+    if (!response.ok) {
+      throw new Error("Server error");
+    }
+
+    await restoreProgressFromBackend();
+
+  } catch (err) {
+    console.error("❌ Failed to update progress", err);
+  }
 }
 
+// ==========================
+// WINDOW LOAD
+// ==========================
+window.onload = async function () {
+  const username = localStorage.getItem("username");
+  const profilePic = localStorage.getItem("profilePic");
 
+  const profileNameEl = document.querySelector(".profile-name");
+  const profileIconEl = document.getElementById("home-profile-pic");
 
-function checkCSS() {
-  const css = editor.value;
-  const rules = prompts[level].rules;
+  profileNameEl.textContent = username?.trim() || "Profile";
+  profileIconEl.src = profilePic?.trim() || "/images/Ellipse 1.png";
 
-  let isCorrect = true;
+  await restoreProgressFromBackend();
+  loadLevel();
+};
 
-   for (let prop in rules) {
-    const expectedValue = rules[prop];
-    const actualValue = getCSSValue(prop, css);
+// ==========================
+// SIDEBAR SAFETY
+// ==========================
+const menuBtn = document.getElementById("menu-btn");
+const sidebar = document.getElementById("sidebar");
+const overlay = document.getElementById("overlay");
 
-    // property missing
-    if (!actualValue) {
-      isCorrect = false;
-      break;
-    }
+if (menuBtn && sidebar && overlay) {
+  menuBtn.addEventListener("click", () => {
+    sidebar.classList.add("open");
+    overlay.classList.add("show");
+  });
 
-    // value mismatch
-    if (actualValue !== expectedValue) {
-      isCorrect = false;
-      break;
-    }
-  }
+  overlay.addEventListener("click", () => {
+    sidebar.classList.remove("open");
+    overlay.classList.remove("show");
+  });
+}
 
-  if (isCorrect) {
-    target.style.cssText = css;
-    result.textContent = "✅ Level Cleared!";
-    result.style.color = "#57535a";
+// ==========================
+// DRAG GAME LOGIC
+// ==========================
+let draggedTag = null;
+let correctCount = 0;
 
-    level++;
+const dragItems = document.querySelectorAll(".drag-item");
+const dropBoxes = document.querySelectorAll(".drop-box");
+const popper = document.getElementById("popper");
 
-    if (level < prompts.length) {
-      setTimeout(loadLevel, 1200);
+dragItems.forEach(item => {
+  item.addEventListener("dragstart", () => {
+    draggedTag = item.dataset.tag;
+  });
+});
+
+dropBoxes.forEach(box => {
+  box.addEventListener("dragover", e => e.preventDefault());
+
+  box.addEventListener("drop", async () => {
+    const correctTag = box.dataset.answer;
+    const symbol = box.querySelector("span");
+
+    if (box.classList.contains("done")) return;
+
+    if (draggedTag === correctTag) {
+      symbol.textContent = " ✅";
+      symbol.className = "correct";
+
+      correctCount++;
+      box.classList.add("done");
+
+      if (correctCount === dropBoxes.length) {
+        await launchPopper();
+      }
+
     } else {
-      result.textContent = "🎉All Levels Completed!";
-      setTimeout(() => {
-    finishGame();
-  }, 1500);
+      symbol.textContent = " ❌";
+      symbol.className = "wrong";
     }
-  } else {
-    result.textContent = "❌ Try again. Follow the prompt!";
-    result.style.color = "#ff6b6b";
+  });
+});
+
+// ==========================
+// GAME COMPLETE
+// ==========================
+async function launchPopper() {
+
+  // Prevent double reward
+  const alreadyCompleted = sessionStorage.getItem("htmlGameCompleted");
+  if (alreadyCompleted) return;
+
+  sessionStorage.setItem("htmlGameCompleted", "true");
+
+  const centerX = window.innerWidth / 2;
+  const centerY = window.innerHeight / 2;
+
+  for (let i = 0; i < 120; i++) {
+    const confetti = document.createElement("div");
+    confetti.className = "confetti";
+
+    confetti.style.left = centerX + "px";
+    confetti.style.top = centerY + "px";
+
+    const x = (Math.random() - 0.5) * 600;
+    const y = (Math.random() - 0.5) * 600;
+
+    confetti.style.setProperty("--x", x + "px");
+    confetti.style.setProperty("--y", y + "px");
+
+    confetti.style.backgroundColor =
+      `hsl(${Math.random() * 360}, 100%, 60%)`;
+
+    popper.appendChild(confetti);
+    setTimeout(() => confetti.remove(), 1400);
+  }
+
+  document.getElementById("completion-message").style.display = "block";
+
+  // ✅ Add 5 points from backend
+  await updateProgressToBackend(5);
+}
+
+function prevLesson() {
+  if (fromLesson > 0) {
+    window.location.href = `lesson.html?lesson=${fromLesson - 1}`;
   }
 }
 
-function finishGame() {
-  if (localStorage.getItem("game1Completed")) return;
-
-  localStorage.setItem("game1Completed", "true");
-  window.parent.postMessage("GAME_COMPLETE", "*");
+function nextLesson() {
+  window.location.href = `lesson.html?lesson=${fromLesson + 1}`;
 }
-loadLevel();

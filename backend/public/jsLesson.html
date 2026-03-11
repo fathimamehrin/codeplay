@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <link rel="stylesheet" href="/css/jsLesson.css">
+  <link rel="stylesheet" href="css/jsLesson.css">
   <link rel="stylesheet" href="/css/alert.css">
 
   <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif&display=swap" rel="stylesheet">
@@ -14,19 +14,37 @@
 </head>
 <body>
 
-<nav class="navbar">
-  <div class="left">
-    <img src="/images/Group 119.png" class="menu-icon">
+  <nav class="navbar">
+  <div class="menu" id="menu-btn">
+      <img src="/images/Group 119.png" id="menuIcon" class="menu-icon" alt="menu" width="24">
   </div>
-
+  <!-- RIGHT -->
   <div class="right">
+
+    <div class="profile">
+      <div class="profile-pic-wrapper">
+        <img id="home-profile-pic" src="/images/default.png" alt="profile">
+      </div>
+      <div id="home-username" class="profile-name">Username</div>
+    </div>
+
     <div class="point">
-      <img src="/images/Group 115.png">
+      <img src="/images/Group 115.png" width="24">
       <span id="point" class="point-span">00</span>
     </div>
-    <div class="profile">Profile</div>
+
+    <a href="graph.html">
+    <div class="graph">
+      <img src="/images/Group 116.png" width="24">
+    </div>
+    </a>
+
+    <div class="notifications">
+      <img src="/images/notifi.png" width="24">
+    </div>
+
   </div>
-</nav>
+  </nav>
 
 <div class="header">
   <h2 id="lesson-title"></h2>
@@ -68,5 +86,6 @@
 </div>
 
 <script src="/js/jsLesson.js"></script>
+<script src="/js/progress.js"></script>
 </body>
 </html>

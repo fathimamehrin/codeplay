@@ -280,11 +280,16 @@ font-size:18px;
 position:relative;
 display:inline-block;
 margin-left: 1200px;
+margin-top: 20px;
 }
 
 .next-img{
 width:150px; 
 height: 50px;  /* adjust if needed */
+}
+
+.alert-box{
+  display: none;
 }
 
 #nextBtn{

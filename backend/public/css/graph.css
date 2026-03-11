@@ -187,7 +187,21 @@ body {
 
 
 
+.progress-container{
+  width: 80%;
+  height: 10px;
+  background: #2a2a2a;
+  margin: 20px auto;
+  border-radius: 10px;
+  overflow: hidden;
+}
 
+.progress-bar{
+  height: 100%;
+  width: 0%;
+  background: gold;
+  transition: width 0.5s ease;
+}
 
 /* Glowing completed path */
 .path-active {

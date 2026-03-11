@@ -1,122 +1,64 @@
-/* ================= PROGRESS ================= */
+//////////////////////////////////////////
+// 1️⃣ Fetch and display completed lessons
+//////////////////////////////////////////
 
-let currentStep = localStorage.getItem("lessonProgress")
-  ? parseInt(localStorage.getItem("lessonProgress"))
-  : 0;
+async function fetchCompletedLessons() {
+  try {
+    const response = await fetch('/user/completed-lessons'); // replace with your API endpoint
+    if (!response.ok) throw new Error('Network response was not ok');
 
-const stages = document.querySelectorAll(".stage");
-const path = document.getElementById("roadPath");
+    const data = await response.json();
+    const completedLessons = data.completedLessons.map(Number); // ensure numbers
 
-/* ================= UPDATE ROADMAP ================= */
-
-function updateRoadmap() {
-
-  stages.forEach((stage, index) => {
-
-    stage.classList.remove("completed", "current");
-
-    if (index < currentStep) {
-      stage.classList.add("completed");
-    }
-
-    else if (index === currentStep) {
-      stage.classList.add("current");
-    }
-
-  });
-
-  updatePathGlow();
-
-}
-
-/* ================= COMPLETE CURRENT STAGE ================= */
-
-function completeCurrentLevel() {
-
-  if (currentStep < stages.length - 1) {
-
-    currentStep++;
-
-    localStorage.setItem("lessonProgress", currentStep);
-
-    updateRoadmap();
-
+    // Add glow to each completed stage
+    completedLessons.forEach(step => {
+      const stage = document.querySelector(`.stage[data-step="${step}"]`);
+      if (stage) stage.classList.add('completed');
+    });
+  } catch (err) {
+    console.error('Failed to fetch completed lessons:', err);
   }
-
 }
 
-/* ================= PATH GLOW ================= */
+// Call on page load
+fetchCompletedLessons();
 
-function updatePathGlow() {
-  if (!path) return;
+//////////////////////////////////////////
+// 2️⃣ Mark lesson as completed
+//////////////////////////////////////////
 
-  // Get the actual path length
-  const pathLength = path.getTotalLength();
+async function completeLesson(step) {
+  try {
+    const response = await fetch('/user/complete-lesson', { // replace with your API endpoint
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ step })
+    });
 
-  // Total stages minus 1 (because first stage is 0)
-  const totalSteps = stages.length - 1;
-
-  // Progress from 0 → 1
-  const progress = Math.min(currentStep / totalSteps, 1);
-
-  // Set strokeDasharray & strokeDashoffset based on actual path length
-  path.style.strokeDasharray = pathLength;
-
-  // Stroke offset: full length → hidden, 0 → fully visible
-  path.style.strokeDashoffset = pathLength * (1 - progress);
-
-  // Optional smooth transition
-  path.style.transition = "stroke-dashoffset 1s ease";
-}
-/* ================= LOAD PROGRESS ================= */
-
-document.addEventListener("DOMContentLoaded", () => {
-
-  updateRoadmap();
-
-});
-
-
-
-/* ================= SIDEBAR & ACCOUNT ================= */
-
-const sidebar = document.getElementById("sidebar");
-const overlay = document.getElementById("overlay");
-const removeAcc = document.getElementById("removeAccount");
-
-removeAcc.addEventListener("click", (e) => {
-  e.preventDefault();
-
-  const confirmed = confirm("Are you sure you want to remove your account?");
-  if (!confirmed) return;
-
-  /* CLEAR STORAGE */
-  localStorage.clear();
-
-  alert("Account Removed Successfully!");
-  window.location.href = "about.html";
-});
-
-/* ================= STUDYDECK TOGGLE ================= */
-
-const studydeckArrow = document.querySelector(".studydeck-arrow");
-
-if (studydeckArrow) {
-  studydeckArrow.addEventListener("click", () => {
-    const submenu = studydeckArrow.parentElement.nextElementSibling;
-    submenu.style.display =
-      submenu.style.display === "block" ? "none" : "block";
-  });
+    if (response.ok) {
+      // Add glow locally immediately
+      const stage = document.querySelector(`.stage[data-step="${step}"]`);
+      if (stage) stage.classList.add('completed');
+    } else {
+      console.error('Backend failed to save completed lesson');
+    }
+  } catch (err) {
+    console.error('Failed to complete lesson:', err);
+  }
 }
 
-/* ================= HTML / CSS / JS SUBMENUS ================= */
+//////////////////////////////////////////
+// 3️⃣ Example usage
+//////////////////////////////////////////
 
-document.querySelectorAll(".tech-arrow").forEach((arrow) => {
-  arrow.addEventListener("click", () => {
-    const submenu = arrow.parentElement.nextElementSibling;
-    submenu.style.display =
-      submenu.style.display === "block" ? "none" : "block";
-  });
-});
+// When a user finishes lesson 5, call:
+/// completeLesson(5);
 
+// Optional: automatically mark the last lesson as current (highlight without glow)
+function setCurrentLesson(step) {
+  // Remove any previous current
+  document.querySelectorAll('.stage.current').forEach(s => s.classList.remove('current'));
 
+  const stage = document.querySelector(`.stage[data-step="${step}"]`);
+  if (stage) stage.classList.add('current');
+}

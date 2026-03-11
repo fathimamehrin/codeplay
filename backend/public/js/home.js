@@ -57,7 +57,7 @@ window.onload = async () => {
 };
 
 // ====================== APPLY BACKEND DATA ====================== //
-function applyBackendData(data) {
+async function applyBackendData(data) {
   points = data.points;
   htmlProgress = data.progress?.html;
   cssProgress = data.progress?.css;
@@ -135,4 +135,6 @@ document.getElementById("js-btn").addEventListener("click", e => {
     alert("Earn 50 points to unlock JavaScript");
   }
 });
+
+
 

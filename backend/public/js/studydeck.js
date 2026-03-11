@@ -1,31 +1,40 @@
-window.onload = function () {
+window.onload = async function () {
+
   const username = localStorage.getItem("username");
+  const email = localStorage.getItem("userEmail");
   const profilePic = localStorage.getItem("profilePic");
 
   const profileNameEl = document.querySelector(".profile-name");
   const profileIconEl = document.getElementById("home-profile-pic");
 
-  // If there's a saved username, show it; otherwise show "Profile"
   if (username && username.trim() !== "") {
     profileNameEl.textContent = username;
   } else {
     profileNameEl.textContent = "Profile";
   }
 
-  // If there's a saved profile pic, use it; otherwise use a default purple dot
   if (profilePic && profilePic.trim() !== "") {
     profileIconEl.src = profilePic;
   } else {
-    // default icon (replace with your real default icon if you have one)
     profileIconEl.src = "/images/Ellipse 1.png";
-    // if you want the default to be a small circle, you could set a CSS class instead
   }
 
-  // Ensure the profile area uses the default visual state (not hidden, etc.)
   profileNameEl.style.opacity = "1";
   profileIconEl.style.opacity = "1";
 
-  updateUI();
+  // ================= FETCH POINTS FROM BACKEND =================
+  if (!email) return;
+
+  try {
+    const res = await fetch(`/get-progress?email=${email}`);
+    const data = await res.json();
+
+    points = data.points || 0;
+
+    updateUI();
+  } catch (err) {
+    console.error("Failed to load points", err);
+  }
 };
 
 
@@ -36,6 +45,14 @@ let points = 0;
 // Format points (00 style)
 function formatPoints(value) {
   return value.toString().padStart(2, "0");
+}
+
+function updateUI() {
+  const pointsEl = document.getElementById("points-count");
+
+  if (pointsEl) {
+    pointsEl.textContent = formatPoints(points);
+  }
 }
 
 
@@ -62,65 +79,50 @@ overlay.addEventListener("click", () => {
 removeAcc.addEventListener("click", (e) => {
   e.preventDefault();
 
-  // Confirmation box before removing the account
   const confirmed = confirm("Are you sure you want to remove your account?");
+  if (!confirmed) return;
 
-  if (!confirmed) {
-    return; // If user clicks Cancel, stop here
-  }
-
-  // ==================== CLEAR STORAGE ==================== //
   localStorage.clear();
 
-  // ==================== RESET ALL VALUES ==================== //
   points = 0;
-  htmlProgress = 0;
-  cssProgress = 0;
-  jsProgress = 0;
+  updateUI();
 
-  // ==================== RESET PROFILE AREA ==================== //
   document.querySelector(".profile-name").textContent = "Profile";
-document.getElementById("home-profile-pic").src = "default.png";
+  document.getElementById("home-profile-pic").src = "default.png";
 
-// ==================== LOCK CSS & JS AGAIN ==================== //
   document.getElementById("css-btn").classList.add("locked");
   document.getElementById("css-btn").style.pointerEvents = "none";
   document.getElementById("js-btn").classList.add("locked");
   document.getElementById("js-btn").style.pointerEvents = "none";
- 
-  // Refresh UI
-  updateUI();
 
   alert("Account Removed Successfully!");
 
-  // ==================== REDIRECT TO FIRST PAGE ==================== //
-  window.location.href = "/html/index.html";
-  window.onload = function () {
-    
-
-    // Update username if element exists
-    const nameElement = document.getElementById("home-username");
-    if (savedName && nameElement) {
-        nameElement.innerText = savedName;
-    }
-
-    // Update profile picture if element exists
-    const picElement = document.getElementById("home-profile-pic");
-    if (savedPic && picElement) {
-        picElement.src = savedPic;
-    }
-};
+  window.location.href = "/html/about.html";
 });
-const studydeckArrow = document.querySelector(".studydeck-arrow");
-  if (studydeckArrow) {
-    studydeckArrow.addEventListener("click", (e) => {
-      e.stopPropagation();
-      const submenu = studydeckArrow.parentElement.nextElementSibling;
 
-      submenu.style.display =
-        submenu.style.display === "block" ? "none" : "block";
-    });
-  }
+  
+ 
+const studydeckArrow = document.querySelector(".studydeck-arrow");
+
+if (studydeckArrow) {
+  studydeckArrow.addEventListener("click", (e) => {
+    e.stopPropagation();
+    const submenu = studydeckArrow.parentElement.nextElementSibling;
+
+    submenu.style.display =
+      submenu.style.display === "block" ? "none" : "block";
+  });
+}
+
+document.querySelectorAll(".tech-arrow").forEach((arrow) => {
+  arrow.addEventListener("click", (e) => {
+    e.stopPropagation();
+    const submenu = arrow.parentElement.nextElementSibling;
+
+    submenu.style.display =
+      submenu.style.display === "block" ? "none" : "block";
+  });
+});
 
   /* ---------------- HTML / CSS / JS TOGGLES ---------------- */
 

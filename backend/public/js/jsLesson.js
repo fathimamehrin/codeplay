@@ -691,42 +691,91 @@ bottom: `
 
 ];
 
+// ==========================
+// GLOBAL VARIABLES
+// ==========================
 let currentJsLesson = 0;
 let canGoNextJs = false;
-let JsPoints = 0;
+let jsPoints = 0;
 let completedJsLessons = {};
+let currentGameIndex = 0;
+
+completedJsLessons =
+  JSON.parse(localStorage.getItem("completedJsLessons")) || {};
+
+const lessonGames = {
+  2: "/jsgame1.html", // Game after lesson 2
+  5: "/jsgame2.html"  // Game after lesson 5
+};
 
 // ==========================
-// PAGE LOAD (SAFE)
+// PAGE LOAD
 // ==========================
-window.addEventListener("load", async () => {
+window.onload = async () => {
+  const username = localStorage.getItem("username");
+  const email = localStorage.getItem("userEmail");
+  const profilePic = localStorage.getItem("profilePic");
+
+  document.getElementById("home-username").textContent =
+    username || "Username";
+
+  const profileEl = document.getElementById("home-profile-pic");
+  profileEl.src = profilePic || "/images/default.png";
+  profileEl.style.width = "35px";
+  profileEl.style.height = "35px";
+  profileEl.style.borderRadius = "50%";
+
+  if (!email) return;
+
   await loadAlert();
-  await restoreJsProgress();
-  loadJsLesson(0);
-});
+  await restoreJsProgressFromBackend();
+
+  // GAME REWARD CHECK
+  const gameResult = localStorage.getItem("jsGameResult");
+  const gameRewarded = localStorage.getItem("jsGameRewarded");
+
+  if (gameResult === "complete" && !gameRewarded) {
+    jsPoints += 5;
+    document.getElementById("point").innerText = jsPoints;
+
+    await fetch("/update-progress", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        email,
+        subject: "js",
+        value: 5
+      })
+    });
+
+    localStorage.setItem("jsGameRewarded", "true");
+    localStorage.removeItem("jsGameResult");
+  }
+
+  const params = new URLSearchParams(window.location.search);
+  const lessonFromUrl = params.get("jsLesson");
+
+  if (lessonFromUrl !== null) {
+    currentJsLesson = Number(lessonFromUrl);
+  }
+
+  loadJsLesson(currentJsLesson);
+};
 
 // ==========================
 // RESTORE PROGRESS
 // ==========================
-async function restoreJsProgress() {
+async function restoreJsProgressFromBackend() {
   const email = localStorage.getItem("userEmail");
   if (!email) return;
 
   try {
-    const res = await fetch(`/get-progress?email=${email}`);
+    const res = await fetch(`/get-progress?email=${email}&subject=js`);
     const data = await res.json();
 
-    JsPoints = data.progress?.css || 0;
+    jsPoints = data.points || 0;
+    document.getElementById("point").innerText = jsPoints;
 
-    completedJsLessons = {};
-    const completedCount = Math.floor(JsPoints / 2);
-    for (let i = 0; i < completedCount; i++) {
-      completedJsLessons[i] = true;
-    }
-
-    document.getElementById("point").innerText = JsPoints;
-
-    console.log("✅ Js points restored:", jsPoints);
   } catch (err) {
     console.error("❌ Restore failed", err);
   }
@@ -736,7 +785,10 @@ async function restoreJsProgress() {
 // LOAD LESSON
 // ==========================
 function loadJsLesson(index) {
+  if (!jsLessons[index]) return;
+
   currentJsLesson = index;
+
   const lesson = jsLessons[index];
 
   document.getElementById("lesson-title").innerHTML = lesson.title;
@@ -745,23 +797,23 @@ function loadJsLesson(index) {
   document.getElementById("lesson-middle").innerHTML = lesson.middle;
   document.getElementById("lesson-bottom").innerHTML = lesson.bottom;
 
-  const editor = document.getElementById("editor");
+  const editor = document.getElementById("lesson-editor");
   editor.value = "";
   editor.style.display = "block";
   document.getElementById("output").style.display = "none";
 
-  canGoNextJs = !!completedJsLessons[currentJsLesson];
+  canGoNextJs = !!completedJsLessons[index];
 }
 
 // ==========================
 // RUN CODE
 // ==========================
 function runJsCode() {
-  const editor = document.getElementById("editor");
+  const editor = document.getElementById("lesson-editor");
   const iframe = document.getElementById("output");
   const code = editor.value.trim();
 
-  if (!code) {
+  if (code === "") {
     showAlert();
     return;
   }
@@ -769,39 +821,70 @@ function runJsCode() {
   editor.style.display = "none";
   iframe.style.display = "block";
 
-  iframe.contentDocument.open();
-  iframe.contentDocument.write(`<!DOCTYPE html><html><body>${code}</body></html>`);
-  iframe.contentDocument.close();
+  const doc = iframe.contentDocument || iframe.contentWindow.document;
+  doc.open();
+  doc.write(`<script>${code}<\/script>`);
+  doc.close();
 
   canGoNextJs = true;
 
   if (!completedJsLessons[currentJsLesson]) {
     completedJsLessons[currentJsLesson] = true;
-    JsPoints += 2;
-    document.getElementById("point").innerText = JsPoints;
+    jsPoints += 2;
+    document.getElementById("point").innerText = jsPoints;
+
+    localStorage.setItem(
+      "completedJsLessons",
+      JSON.stringify(completedJsLessons)
+    );
+
     updateJsProgressToBackend();
   }
 }
 
 // ==========================
-// NAVIGATION
+// NEXT BUTTON
 // ==========================
 function nextJsLesson() {
   if (!canGoNextJs) {
     showAlert();
     return;
   }
+
+  // Check for game
+  if (lessonGames[currentJsLesson]) {
+    const gameDone = localStorage.getItem("jsGameResult");
+
+    if (gameDone !== "complete") {
+      localStorage.removeItem("jsGameRewarded");
+      window.location.href =
+        `${lessonGames[currentJsLesson]}?jsLesson=${currentJsLesson}`;
+      return;
+    }
+
+    localStorage.removeItem("jsGameResult");
+  }
+
   if (currentJsLesson < jsLessons.length - 1) {
-    loadJsLesson(currentJsLesson + 1);
+    window.location.href =
+      `jsLesson.html?jsLesson=${currentJsLesson + 1}`;
   }
 }
 
+// ==========================
+// PREV BUTTON
+// ==========================
 function prevJsLesson() {
   if (currentJsLesson > 0) {
-    loadCssLesson(currentJsLesson - 1);
+    window.location.href = `jsLesson.html?jsLesson=${currentJsLesson - 1}`;
+  } else {
+    window.location.href = "jsIntro.html";
   }
 }
 
+// ==========================
+// ALERT
+// ==========================
 function loadAlert() {
   return fetch("alert.html")
     .then(res => res.text())
@@ -819,9 +902,9 @@ function closeAlert() {
 }
 
 // ==========================
-// BACKEND UPDATE
+// SAVE PROGRESS
 // ==========================
-async function updateCssProgressToBackend() {
+async function updateJsProgressToBackend() {
   const email = localStorage.getItem("userEmail");
   if (!email) return;
 
@@ -831,13 +914,13 @@ async function updateCssProgressToBackend() {
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({
         email,
-        subject: "css",
+        subject: "js",
         value: 2
       })
     });
 
-    console.log("✅ js progress saved");
   } catch (err) {
     console.error("❌ Save failed", err);
   }
 }
+

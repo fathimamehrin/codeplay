@@ -557,13 +557,26 @@ const lessons = [
 // ==========================
 // STATE
 // ==========================
+/*let currentLesson = 0;
+let canGoNext = false;
+let points = 0;
+let completedLessons = {};
+let currentGameIndex = 0;
+
+let completedLessons = JSON.parse(localStorage.getItem("completedLessons")) || {};
+
+
+let currentGameIndex = 0;*/
+
 let currentLesson = 0;
 let canGoNext = false;
-
-let points = 0;
-let completedLessons = {}; // lessonIndex : true
-
+let Points = 0;
+let completedLessons = {};
 let currentGameIndex = 0;
+
+completedLessons =
+  JSON.parse(localStorage.getItem("completedLessons")) || {};
+
 
 const games = [
   "/htmlgame1.html",
@@ -600,7 +613,12 @@ window.onload = async () => {
 
   if (!email) return;
 
-  await loadAlert();
+   loadAlert();
+
+   const savedLessons = localStorage.getItem("completedLessons");
+if (savedLessons) {
+  completedLessons = JSON.parse(savedLessons);
+}
   await restoreProgressFromBackend();
 
   // ==========================
@@ -630,10 +648,10 @@ window.onload = async () => {
   }
 
   const params = new URLSearchParams(window.location.search);
-  const lessonFromUrl = params.get("lesson") || params.get("from");
+  const lessonFromUrl = params.get("lesson");
 
 if (lessonFromUrl !== null) {
-  currentLesson = Number(lessonFromUrl) ;
+  currentLesson = Number(lessonFromUrl);
 }
 
   loadLesson(currentLesson);
@@ -642,6 +660,7 @@ if (lessonFromUrl !== null) {
 // ==========================
 // MENU CONFIG
 // ==========================
+
 const menuItems = [
   { name: "h1 to h6", index: 0 },
   { name: "p ", index: 1 },
@@ -757,19 +776,14 @@ async function restoreProgressFromBackend() {
   if (!email) return;
 
   try {
-    const res = await fetch(`/get-progress?email=${email}`);
+    const res = await fetch(`/get-progress?email=${email}&subject=html`);
     const data = await res.json();
 
-    points = data.points || 0;
-
-    completedLessons = {};
-    const completedCount = Math.floor(points / 2);
-
-    for (let i = 0; i < completedCount; i++) {
-      completedLessons[i] = true;
-    }
+    points = data.points  || 0;
 
     document.getElementById("point").innerText = points;
+
+   
 
   } catch (err) {
     console.error("❌ Failed to restore progress", err);
@@ -780,6 +794,8 @@ async function restoreProgressFromBackend() {
 // LOAD LESSON
 // ==========================
 function loadLesson(index) {
+
+  if (!lessons[index]) return;
   currentLesson = index;
 
   const lesson = lessons[index];
@@ -795,7 +811,7 @@ function loadLesson(index) {
   editor.style.display = "block";
   document.getElementById("output").style.display = "none";
 
-  canGoNext = !!completedLessons[currentLesson];
+  canGoNext = !!completedLessons[index] ;
 }
 
 // ==========================
@@ -806,7 +822,7 @@ function runCode() {
   const iframe = document.getElementById("output");
   const code = editor.value.trim();
 
-  if (code === "") {
+  if (code === "" || !code.includes("<")) {
     showAlert();
     return;
   }
@@ -824,13 +840,43 @@ function runCode() {
 
   if (!completedLessons[currentLesson]) {
     completedLessons[currentLesson] = true;
+
     points += 2;
     document.getElementById("point").innerText = points;
 
-    updateProgressToBackend();
-  }
-}
+    let progress = localStorage.getItem("lessonProgress")
+      ? parseInt(localStorage.getItem("lessonProgress"))
+      : 0;
 
+    progress++;
+    localStorage.setItem("lessonProgress", progress);
+
+    localStorage.setItem(
+      "completedLessons",
+      JSON.stringify(completedLessons)
+    );
+
+    const email = localStorage.getItem("userEmail");
+
+    if (email) {
+      fetch("/update-progress", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          email,
+          subject: "html",
+          value: 2,
+          completedLessons: { [currentLesson]: true }
+        })
+      })
+      .then(res => res.json())
+      .then(data => console.log("✅ Lesson progress synced", data))
+      .catch(err => console.error("❌ Failed to sync", err));
+    }
+  }
+
+  
+}
 // ==========================
 // NAVIGATION
 // ==========================
@@ -841,19 +887,9 @@ function nextLesson() {
     return;
   }
 
-  /* ⭐ UPDATE ROADMAP PROGRESS */
-  let progress = localStorage.getItem("lessonProgress")
-    ? parseInt(localStorage.getItem("lessonProgress"))
-    : 0;
-
-  progress++;
-  localStorage.setItem("lessonProgress", progress);
-
-
-  // 🎮 GAME CONDITIONS (SPECIFIC INDEXES)
-
+  // 🎮 GAME CONDITIONS
   if (currentLesson === 12) {
-   window.location.href = `${games[0]}?from=12`;
+    window.location.href = `${games[0]}?from=12`;
     return;
   }
 
@@ -867,9 +903,10 @@ function nextLesson() {
     return;
   }
 
-  // 👉 Normal lesson navigation
+  // 👉 move to next lesson
   if (currentLesson < lessons.length - 1) {
-    loadLesson(currentLesson + 1);
+    currentLesson++;            // ⭐ ADD THIS LINE
+    loadLesson(currentLesson);  // load next lesson
   }
 }
 
@@ -911,7 +948,8 @@ async function updateProgressToBackend() {
       body: JSON.stringify({
         email,
         subject: "html",
-        value: 2
+        value: 2,
+        completedLessons: { [currentLesson]: true }
       })
     });
 

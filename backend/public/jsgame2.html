@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Lesson Adventure Game</title>
+  <link rel="stylesheet" href="css/jsgame2.css">
+</head>
+<body>
+  <h1>Lesson Adventure</h1>
+  <div class="game-container">
+
+    <div class="instructions">
+      <h2>Level <span id="level-number">1</span></h2>
+      <p id="level-instruction">Instruction goes here...</p>
+      <button id="show-hint">Show Hint</button>
+      <p id="hint-text" class="hint"></p>
+    </div>
+
+    <div class="code-editor">
+      <textarea id="code-input" placeholder="Write your answer here..."></textarea>
+      <button id="run-code">Submit Answer</button>
+      <p id="feedback"></p>
+    </div>
+
+    <div class="score-board">
+      <p>Score: <span id="score">0</span>/10</p>
+    </div>
+
+  </div>
+
+  <script src="js/jsgame2.js"></script>
+</body>
+</html>

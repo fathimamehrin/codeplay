@@ -56,7 +56,10 @@ const userSchema = new mongoose.Schema({
   htmlGame1: { type: Boolean, default: false },
   htmlGame2: { type: Boolean, default: false },
   htmlGame3: { type: Boolean, default: false }
-}
+},
+
+  profilePic: { type: String, default: "default.png" } ,
+  lastVisited: { type: String, default: "home.html" } 
 });
 
 const User = mongoose.model("User", userSchema);
@@ -142,7 +145,7 @@ app.post("/set-level", async (req, res) => {
     const user = await User.findOneAndUpdate(
       { email },
       { level },
-      { new: true }
+      { returnDocument: "after" }
     );
 
     if (!user) {
@@ -164,12 +167,22 @@ app.post("/set-level", async (req, res) => {
 // ================= Update Progress =================
 app.post("/update-progress", async (req, res) => {
   try {
-    const { email, subject, value , game } = req.body;
+    const { email, username, profilePic, subject, value , game, completedLessons,lastVisited } = req.body;
 
     const user = await User.findOne({ email });
 
     if (!user) {
       return res.status(404).json({ message: "User not found" });
+    }
+
+    if (username) user.username = username;
+
+    // Update profile picture
+    if (profilePic) user.profilePic = profilePic;
+
+    if (subject && ["html", "css", "js"].includes(subject)) {
+      user.progress[subject] += Number(value);
+      user.points += Number(value);
     }
 
     if (game) {
@@ -185,23 +198,56 @@ app.post("/update-progress", async (req, res) => {
       user.completedGames[game] = true;
     }
 
-    if (["html", "css", "js"].includes(subject)) {
-      user.progress[subject] += Number(value);
-      user.points += Number(value);
+     if (completedLessons && subject) {
+      if (!user.completedLessons) user.completedLessons = {};
+      if (!user.completedLessons[subject]) user.completedLessons[subject] = {};
+
+      // Merge new lessons into existing ones
+      Object.assign(user.completedLessons[subject], completedLessons);
     }
+
+    
 
     // 🔓 Unlock Logic
     if (user.points >= 30) user.unlocked.css = true;
     if (user.points >= 50) user.unlocked.js = true;
 
+    // ---------- STREAK LOGIC ----------
+    const today = new Date().toDateString();
+    const lastDate = user.streak?.lastDate ? user.streak.lastDate.toDateString() : null;
+
+    if (!user.streak) user.streak = { count: 0, lastDate: null };
+
+    if (lastDate === today) {
+      // Already updated today → do nothing
+    } else if (lastDate === new Date(Date.now() - 86400000).toDateString()) {
+      // Last activity was yesterday → increment streak
+      user.streak.count += 1;
+      user.streak.lastDate = new Date();
+    } else {
+      // Missed a day → reset streak
+      user.streak.count = 1;
+      user.streak.lastDate = new Date();
+
+      
+    }
+
+     if (lastVisited) user.lastVisited = lastVisited;
+
+
     await user.save();
 
     res.json({
       message: "Progress updated",
+      username: user.username,
+      profilePic: user.profilePic,
       progress: user.progress,
       points: user.points,
       unlocked: user.unlocked,
-      completedGames: user.completedGames
+      completedGames: user.completedGames,
+      completedLessons: user.completedLessons,
+      streak: user.streak.count,
+      lastVisited: user.lastVisited
     });
 
   } catch (err) {
@@ -229,7 +275,13 @@ app.get("/get-progress", async (req, res) => {
       return res.json({
         points: user.progress[subject],
         progress: user.progress,
-        unlocked: user.unlocked
+        unlocked: user.unlocked,
+        username: user.username,       // ✅ add username
+        profilePic: user.profilePic ,
+        completedGames: user.completedGames,
+      completedLessons: user.completedLessons,
+      streak: user.streak?.count || 0,
+      lastVisited: user.lastVisited
       });
 
     }
@@ -238,7 +290,13 @@ app.get("/get-progress", async (req, res) => {
     res.json({
       points: user.points,
       progress: user.progress,
-      unlocked: user.unlocked
+      unlocked: user.unlocked,
+      username: user.username,       // ✅ add username
+      profilePic: user.profilePic,
+      completedGames: user.completedGames,
+      completedLessons: user.completedLessons,
+      streak: user.streak?.count || 0,
+      lastVisited: user.lastVisited
     });
 
   } catch (err) {
@@ -247,6 +305,84 @@ app.get("/get-progress", async (req, res) => {
   }
 });
 
+app.post("/admin-login", (req,res)=>{
+
+    const {email,password} = req.body;
+
+    if(email === "admin@gmail.com" && password === "12345"){
+        res.json({message:"Login successful"});
+    }
+    else{
+        res.status(401).json({message:"Invalid admin credentials"});
+    }
+
+});
+
+// ================= Total Users =================
+app.get("/total-users", async (req,res)=>{
+
+  try{
+
+    const count = await User.countDocuments();
+
+    res.json({total:count});
+
+  }catch(err){
+    console.error(err);
+    res.status(500).json({message:"Server error"});
+  }
+
+});
+
+// ================= Get All Users =================
+app.get("/users", async (req,res)=>{
+
+  try{
+
+    const users = await User.find();
+
+    res.json(users);
+
+  }catch(err){
+    console.error(err);
+    res.status(500).json({message:"Server error"});
+  }
+
+});
+
+// ================= Delete User =================
+app.delete("/delete-user/:id", async (req,res)=>{
+
+  try{
+
+    await User.findByIdAndDelete(req.params.id);
+
+    res.json({message:"User deleted"});
+
+  }catch(err){
+    console.error(err);
+    res.status(500).json({message:"Server error"});
+  }
+
+});
+
+// ================= Leaderboard =================
+app.get("/leaderboard", async (req,res)=>{
+
+  try{
+
+    const users = await User.find()
+      .sort({points:-1})
+      .limit(5);
+
+    res.json(users);
+
+  }catch(err){
+    console.error(err);
+    res.status(500).json({message:"Server error"});
+  }
+
+});
 
 // ================= Home =================
 app.get("/", (req, res) => {

@@ -50,7 +50,6 @@ document.getElementById("form").addEventListener("submit", async (e)=>{
     .then(res => res.json())
     .then(data => {
         if (data.success) {
-            window.location.href = "welcome.html";
 
             localStorage.setItem("username", data.username);
             
@@ -60,6 +59,8 @@ document.getElementById("form").addEventListener("submit", async (e)=>{
 
             localStorage.setItem("email", email);
             localStorage.setItem("profilePic", "/images/Ellipse 1.png");
+
+            window.location.href = "welcome.html";
             
         } else {
             passwordError.innerHTML = data.message; // show backend error

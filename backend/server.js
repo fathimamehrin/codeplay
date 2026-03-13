@@ -13,11 +13,10 @@ app.use(express.static(path.join(__dirname, "public")));
 
 // ================= MongoDB Connection =================
 mongoose.connect(
-  "mongodb+srv://fathimamehrin:fath1604@cluster-1.jstp8gw.mongodb.net/codeplay"
+"mongodb+srv://fathimamehrin:fath1604@cluster-1.jstp8gw.mongodb.net/codeplay"
 )
 .then(() => console.log("✅ MongoDB connected"))
 .catch(err => console.log("❌ MongoDB Error:", err));
-
 
 // ================= User Schema =================
 const userSchema = new mongoose.Schema({

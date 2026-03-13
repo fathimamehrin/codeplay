@@ -36,10 +36,14 @@ Total Users
     <tr>
       <th>Username</th>
       <th>Email</th>
+      <th>Level</th>
       <th>Points</th>
       <th>HTML</th>
       <th>CSS</th>
       <th>JS</th>
+      <th>CSS Unlocked</th>
+      <th>JS Unlocked</th>
+
       <th>Action</th>
     </tr>
   </thead>
@@ -56,10 +60,39 @@ Total Users
 
 </table>
 
+<h3>Add Lesson</h3>
+<form id="lessonForm">
+  <select name="course" required>
+    <option value="">Select Course</option>
+    <option value="HTML">HTML</option>
+    <option value="CSS">CSS</option>
+    <option value="JS">JS</option>
+  </select>
+  <input type="text" name="title" placeholder="Lesson Title" required>
+  <textarea name="content" placeholder="Lesson Content" required></textarea>
+  <input type="number" name="points" placeholder="Points" value="0">
+  <button type="submit">Add Lesson</button>
+</form>
 
-<h2>Leaderboard</h2>
+<h3>Add Game</h3>
+<form id="gameForm">
+  <select name="course" required>
+    <option value="">Select Course</option>
+    <option value="HTML">HTML</option>
+    <option value="CSS">CSS</option>
+    <option value="JS">JS</option>
+  </select>
+  <input type="text" name="title" placeholder="Game Title" required>
+  <select name="type" required>
+    <option value="">Select Type</option>
+    <option value="quiz">Quiz</option>
+    <option value="puzzle">Puzzle</option>
+  </select>
+  <input type="number" name="points" placeholder="Points" value="0">
+  <button type="submit">Add Game</button>
+</form>
 
-<div id="leaderboard"></div>
+
 
 
 <script src="/js/admin-dashboard.js"></script>

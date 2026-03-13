@@ -554,20 +554,6 @@ const lessons = [
  
 ];
 
-// ==========================
-// STATE
-// ==========================
-/*let currentLesson = 0;
-let canGoNext = false;
-let points = 0;
-let completedLessons = {};
-let currentGameIndex = 0;
-
-let completedLessons = JSON.parse(localStorage.getItem("completedLessons")) || {};
-
-
-let currentGameIndex = 0;*/
-
 let currentLesson = 0;
 let canGoNext = false;
 let Points = 0;
@@ -607,8 +593,8 @@ window.onload = async () => {
 
   const profileEl = document.getElementById("home-profile-pic");
   profileEl.src = profilePic || "/images/default.png";
-  profileEl.style.width = "40px";
-  profileEl.style.height = "40px";
+  profileEl.style.width = "35px";
+  profileEl.style.height = "35px";
   profileEl.style.borderRadius = "50%";
 
   if (!email) return;
@@ -911,9 +897,15 @@ function nextLesson() {
 }
 
 function prevLesson() {
-  if (currentLesson > 0)
+  if (currentLesson > 0) {
     loadLesson(currentLesson - 1);
+  } else {
+    // If on the first lesson, go back to htmlintro.html
+    window.location.href = "/htmlintro.html";
+  }
 }
+  
+
 
 // ==========================
 // ALERT

@@ -1,64 +1,94 @@
-//////////////////////////////////////////
-// 1️⃣ Fetch and display completed lessons
-//////////////////////////////////////////
+/* ================= PROGRESS ================= */
 
-async function fetchCompletedLessons() {
-  try {
-    const response = await fetch('/user/completed-lessons'); // replace with your API endpoint
-    if (!response.ok) throw new Error('Network response was not ok');
+let currentStep = localStorage.getItem("lessonProgress")
+  ? parseInt(localStorage.getItem("lessonProgress"))
+  : 0;
 
-    const data = await response.json();
-    const completedLessons = data.completedLessons.map(Number); // ensure numbers
+const stages = document.querySelectorAll(".stage");
+const path = document.getElementById("roadPath");
 
-    // Add glow to each completed stage
-    completedLessons.forEach(step => {
-      const stage = document.querySelector(`.stage[data-step="${step}"]`);
-      if (stage) stage.classList.add('completed');
-    });
-  } catch (err) {
-    console.error('Failed to fetch completed lessons:', err);
-  }
-}
+/* ================= UPDATE ROADMAP ================= */
 
-// Call on page load
-fetchCompletedLessons();
+function updateRoadmap() {
+  stages.forEach((stage, index) => {
+    stage.classList.remove("completed", "current");
 
-//////////////////////////////////////////
-// 2️⃣ Mark lesson as completed
-//////////////////////////////////////////
-
-async function completeLesson(step) {
-  try {
-    const response = await fetch('/user/complete-lesson', { // replace with your API endpoint
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ step })
-    });
-
-    if (response.ok) {
-      // Add glow locally immediately
-      const stage = document.querySelector(`.stage[data-step="${step}"]`);
-      if (stage) stage.classList.add('completed');
-    } else {
-      console.error('Backend failed to save completed lesson');
+    if (index < currentStep) {
+      stage.classList.add("completed");
+    } else if (index === currentStep) {
+      stage.classList.add("current");
     }
-  } catch (err) {
-    console.error('Failed to complete lesson:', err);
+  });
+
+  // Update path glow every time roadmap changes
+  updatePathGlow();
+}
+
+/* ================= COMPLETE CURRENT STAGE ================= */
+
+function completeCurrentLevel() {
+  if (currentStep < stages.length - 1) {
+    currentStep++;
+    localStorage.setItem("lessonProgress", currentStep);
+    updateRoadmap();
   }
 }
 
-//////////////////////////////////////////
-// 3️⃣ Example usage
-//////////////////////////////////////////
+/* ================= PATH GLOW ================= */
 
-// When a user finishes lesson 5, call:
-/// completeLesson(5);
+function updatePathGlow() {
+  if (!path) return;
 
-// Optional: automatically mark the last lesson as current (highlight without glow)
-function setCurrentLesson(step) {
-  // Remove any previous current
-  document.querySelectorAll('.stage.current').forEach(s => s.classList.remove('current'));
+  const pathLength = path.getTotalLength();
+  const totalSteps = stages.length - 1;
+  const progress = Math.min(currentStep / totalSteps, 1);
 
-  const stage = document.querySelector(`.stage[data-step="${step}"]`);
-  if (stage) stage.classList.add('current');
+  path.style.strokeDasharray = pathLength;
+  
+  // Animate the stroke offset smoothly
+  path.style.transition = "stroke-dashoffset 1s ease-in-out";
+  path.style.strokeDashoffset = pathLength * (1 - progress);
 }
+
+/* ================= LOAD PROGRESS ================= */
+
+document.addEventListener("DOMContentLoaded", () => {
+  updateRoadmap(); // This also triggers path glow on load
+});
+
+/* ================= SIDEBAR & ACCOUNT ================= */
+
+const sidebar = document.getElementById("sidebar");
+const overlay = document.getElementById("overlay");
+const removeAcc = document.getElementById("removeAccount");
+
+removeAcc.addEventListener("click", (e) => {
+  e.preventDefault();
+  const confirmed = confirm("Are you sure you want to remove your account?");
+  if (!confirmed) return;
+
+  localStorage.clear();
+  alert("Account Removed Successfully!");
+  window.location.href = "about.html";
+});
+
+/* ================= STUDYDECK TOGGLE ================= */
+
+const studydeckArrow = document.querySelector(".studydeck-arrow");
+if (studydeckArrow) {
+  studydeckArrow.addEventListener("click", () => {
+    const submenu = studydeckArrow.parentElement.nextElementSibling;
+    submenu.style.display =
+      submenu.style.display === "block" ? "none" : "block";
+  });
+}
+
+/* ================= HTML / CSS / JS SUBMENUS ================= */
+
+document.querySelectorAll(".tech-arrow").forEach((arrow) => {
+  arrow.addEventListener("click", () => {
+    const submenu = arrow.parentElement.nextElementSibling;
+    submenu.style.display =
+      submenu.style.display === "block" ? "none" : "block";
+  });
+});

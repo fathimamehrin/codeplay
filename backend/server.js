@@ -65,7 +65,23 @@ const userSchema = new mongoose.Schema({
 
 const User = mongoose.model("User", userSchema);
 
+// ================= Lesson Schema =================
+const lessonSchema = new mongoose.Schema({
+  course: { type: String, enum: ["HTML","CSS","JS"], required: true },
+  title: { type: String, required: true },
+  content: { type: String, required: true },
+  points: { type: Number, default: 0 }
+});
+const Lesson = mongoose.model("Lesson", lessonSchema);
 
+// ================= Game Schema =================
+const gameSchema = new mongoose.Schema({
+  course: { type: String, enum: ["HTML","CSS","JS"], required: true },
+  title: { type: String, required: true },
+  type: { type: String, enum: ["quiz","puzzle"], required: true },
+  points: { type: Number, default: 0 }
+});
+const Game = mongoose.model("Game", gameSchema);
 // ================= Register =================
 app.post("/register", async (req, res) => {
 
@@ -365,6 +381,27 @@ app.delete("/delete-user/:id", async (req,res)=>{
     res.status(500).json({message:"Server error"});
   }
 
+});
+app.post("/admin/add-lesson", async (req,res)=>{
+  try{
+    const {course,title,content,points} = req.body;
+    const lesson = new Lesson({course,title,content,points});
+    await lesson.save();
+    res.json({success:true,message:"Lesson added"});
+  }catch(err){
+    res.status(500).json({success:false,message:"Server error"});
+  }
+});
+
+app.post("/admin/add-game", async (req,res)=>{
+  try{
+    const {course,title,type,points} = req.body;
+    const game = new Game({course,title,type,points});
+    await game.save();
+    res.json({success:true,message:"Game added"});
+  }catch(err){
+    res.status(500).json({success:false,message:"Server error"});
+  }
 });
 
 // ================= Leaderboard =================

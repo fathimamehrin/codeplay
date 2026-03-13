@@ -1,17 +1,17 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Home</title>
+  <meta charset="UTF-8">
+  <title>Simple Page</title>
 
-  <link href="https://fonts.googleapis.com/css2?family=Jaini+Purva&display=swap" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="css/home.css">
+  <!-- Google Font: Instrument Serif -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
 
+  <link rel="stylesheet" href="css/htmlfirst.css">
+  
 </head>
-
-
 <body>
 
 <!-- ====== SIDEBAR ====== -->
@@ -120,9 +120,9 @@
 </div>
 
 
-      <div class="points">
+      <div class="point">
           <img src="/images/Group 115.png" width="24">
-          <span id="points-count">00</span>
+          <span id="point">00</span>
       </div>
 
       <a href="graph.html">
@@ -137,48 +137,36 @@
   </div>
 </nav>
 
-<main>
-
-  <div class="card plain">
-    <a href="studydeck.html" class="module-btn plain" id="studydeck-btn">Study Deck</a>
-  </div>
-
-  <div class="card">
-    <a href="htmlfirst.html" class="module-btn" id="html-btn">
-      <img class="html-icon" src="/images/HTML5_logo_and_wordmark.svg 1.png" alt="HTML">
-      <span class="html">HTML</span>
-      <img src="/images/unlock.png" class="unlock" alt="unLocked">
-      <img src="/images/Group 115.png" class="egg" alt="Egg">
-      <span class="progress" id="html-progress">0/30</span>
-    </a>
-  </div>
-
-  <div class="card">
-    <a href="cssIntro.html" class="module-btn locked" id="css-btn">
-      <img class="css-icon" src="/images/css3-logo-png_seeklogo-186678 1.png" alt="CSS">
-      <span class="CSS">CSS</span>
-      <img src="/images/Group 124.png" class="lock" id="css-lock" alt="Locked">
-      <img src="/images/Group 115.png" class="egg" alt="Egg">
-      <span class="progress" id="css-progress">0/50</span>
-    </a>
-  </div>
-
-  <div class="card">
-    <a href="jsLesson.html" class="module-btn locked" id="js-btn">
-      <img class="js-icon" src="/images/image 9.png" alt="JavaScript">
-      <span class="js">JavaScript</span>
-      <img src="/images/Group 124.png" class="lock" alt="Locked">
-      <img src="/images/Group 115.png" class="egg" alt="Egg">
-      <span class="progress" id="js-progress">0/60</span>
-    </a>
-  </div>
-</main>
 
 
-<script src="/js/home.js"></script>
-<script src="js/progress.js"></script>
+  <!-- Main content -->
+<div class="main-section">
 
+    <div class="title-row">
+        <h1>Why learn HTML first?</h1>
+        <img src="/images/" class="ninja">
+    </div>
 
+    <div class="galaxy-box">
+        <div class="inner-box">
+            HTML  is the basic language of every website.   
+            It tells the browser what is a heading, a picture,
+            a link, or a paragraph.<br>
+            When you learn HTML first, you understand how
+            a page is built, so later you can decorate it
+            with CSS and add cool actions with JavaScript.
+        </div>
+    </div>
+
+    <div class="start-container">
+      <a href="htmlintro.html">
+        <img src="images/start.png" class="start-btn">
+        </a>
+    </div>
+
+</div>
+
+<script src="js/htmlintro.js"></script>
 
 </body>
 </html>

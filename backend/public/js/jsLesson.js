@@ -1,5 +1,6 @@
 const jsLessons = [
   {
+    id:"js-output",
     title :"JavaScript Output",
     desc :"JavaScript can display output using alerts, console messages, or by updating page content using methods like <b>innerHTML</b>.",
     top: `
@@ -11,8 +12,7 @@ const jsLessons = [
     &lt;script&gt;<br>
   `,
   middle:
-    "document.getElementById(demo&quot;).innerHTML = " +
-    "&quot;&lt;h2&gt;Hello World&lt;/h2&gt;&quot;;<br>",
+    "document.getElementById(&quot;demo&quot;).innerHTML = &quot;&lt;h2&gt;Hello World&lt;/h2&gt;&quot;;<br>",
   bottom: `
     &lt;/script&gt;<br><br>
     &lt;/body&gt;<br>
@@ -20,6 +20,7 @@ const jsLessons = [
   `
   },
   {
+    id:"js-variables",
 title :"JavaScript Variables",
 desc :"In JavaScript, variables are used to store data values. In this example, <b>x</b>, <b>y</b>, and <b>z</b> are variables, and <b>z</b> stores the result of adding x and y.",
 
@@ -49,6 +50,7 @@ bottom: `
 },
 
 {
+  id:"js-datatypes",
 title :"JavaScript Data Types",
 desc :"JavaScript variables can store different types of data. Common data types include <b>String</b>, <b>Number</b>, and <b>Boolean</b>.",
 
@@ -74,6 +76,7 @@ bottom: `
 `
 },
 {
+  id:"js-string",
 title :"JavaScript String",
 desc :"A <b>String</b> represents text. Strings are written inside single or double quotes.",
 
@@ -97,6 +100,7 @@ bottom: `
 `
 },
 {
+  id:"js-number",
 title :"JavaScript Number",
 desc :"The <b>Number</b> data type represents numeric values like integers and decimals.",
 
@@ -122,6 +126,7 @@ bottom: `
 `
 },
 {
+  id:"js-boolean",
 title :"JavaScript Boolean",
 desc :"A <b>Boolean</b> data type represents two values: <b>true</b> or <b>false</b>.",
 
@@ -145,9 +150,9 @@ bottom: `
 `
 },
 {
+  id:"js-operators",
 title :"JavaScript Operators",
-desc :"Operators are symbols used to perform operations on variables and values. JavaScript has different types of operators such as <b>Arithmetic</b>, <b>Assignment</b>, <b>Comparison</b>, and <b>Logical</b> operators.",
-
+desc :"Operators are symbols used to perform operations on values and variables, such as Arithmetic, Assignment, Comparison, and Logical operators.",
 top: `
 &lt;html&gt;<br>
 &lt;body&gt;<br><br>
@@ -170,6 +175,7 @@ bottom: `
 `
 },
 {
+  id:"js-addition",
 title :"Arithmetic Operators (Addition)" ,
 desc :"The addition operator (+) adds numbers:",
 
@@ -196,6 +202,7 @@ bottom: `
 },
 
 {
+  id:"js-subtraction",
 title :"Arithmetic Operators (Subtraction)" ,
 desc :"The subtraction operator (-) subtracts one number from another:",
 
@@ -221,6 +228,7 @@ bottom: `
 `
 },
 {
+  id:"js-multiplication",
 title :"Arithmetic Operators (Multiplication)" ,
 desc :"The multiplication operator (*) multiplies numbers:",
 
@@ -246,6 +254,7 @@ bottom: `
 `
 },
 {
+  id:"js-division",
 title :"Arithmetic Operators (Division)" ,
 desc :"The division operator (/) divides one number by another:",
 
@@ -271,6 +280,7 @@ bottom: `
 `
 },
 {
+  id:"js-assignment",
 title :"Assignment Operators",
 desc :"Assignment operators are used to assign values to variables.",
 
@@ -295,6 +305,7 @@ bottom: `
 `
 },
 {
+  id:"js-comparison",
 title :"Comparison Operators",
 desc :"Comparison operators are used to compare two values and return <b>true</b> or <b>false</b>.",
 
@@ -320,6 +331,7 @@ bottom: `
 `
 },
 {
+  id:"js-equal",
 title :"Comparison Operator (Equal to =)" ,
 desc :"The equal to operator (==) checks if two values are equal.",
 
@@ -345,6 +357,7 @@ bottom: `
 `
 },
 {
+  id:"js-not-equal",
 title :"Comparison Operator (Not Equal !=)" ,
 desc :"The not equal operator (!=) checks if two values are not equal.",
 
@@ -370,6 +383,7 @@ bottom: `
 `
 },
 {
+  id:"js-greater",
 title :"Comparison Operator (Greater Than >)" ,
 desc :"The greater than operator (>) checks if the first value is greater than the second value.",
 
@@ -395,6 +409,7 @@ bottom: `
 `
 },
 {
+  id:"js-less",
 title :"Comparison Operator (Less Than  <)" ,
 desc :"The less than operator (<) checks if the first value is smaller than the second value.",
 
@@ -420,6 +435,7 @@ bottom: `
 `
 },
 {
+  id:"js-greater-equal",
 title :"Comparison Operator (Greater Than or Equal >=)" ,
 desc :"The greater than or equal operator (>=) checks if the first value is greater than or equal to the second value.",
 
@@ -445,6 +461,7 @@ bottom: `
 `
 },
 {
+  id:"js-less-equal",
 title :"Comparison Operator (Less Than or Equal <=)" ,
 desc :"The less than or equal operator (<=) checks if the first value is less than or equal to the second value.",
 
@@ -470,6 +487,7 @@ bottom: `
 `
 },
 {
+  id:"js-if",
 title :"JavaScript If Statement" ,
 desc :"The <b>if</b> statement runs a block of code if a specified condition is true.",
 
@@ -495,6 +513,7 @@ bottom: `
 `
 },
 {
+  id:"js-if-else",
 title :"JavaScript If...Else Statement" ,
 desc :"The <b>if...else</b> statement runs one block of code if the condition is true and another block if it is false.",
 
@@ -522,6 +541,7 @@ bottom: `
 `
 },
 {
+  id:"js-else-if",
 title :"JavaScript Else If Statement" ,
 desc :"The <b>else if</b> statement is used to check multiple conditions.",
 
@@ -552,6 +572,7 @@ bottom: `
 },
 
   {
+    id:"js-for-loop",
     title : "For Loop",
     desc : "Loops can execute a block of code a number of times.A for loop is used when the number of repetitions is known.",
     top :`
@@ -569,6 +590,7 @@ bottom: `
       bottom : `&lt;/script&gt;<br>&lt;/body&gt;<br>&lt;/html&gt;`
   },
   {
+    id:"js-while-loop",
     title : "While Loop",
     desc : "While loops execute a block of code as long as a specified condition is true.Javascript have two types of while loops, <b>while loop and do while loop </b>",
     top :`
@@ -578,6 +600,7 @@ bottom: `
       `,
     middle : `
       <pre class="highlight-pre">
+      let i = 1;
       while (i &lt;= 3) {
       document.write("Welcome&lt;br&gt;");
       i++;
@@ -587,8 +610,9 @@ bottom: `
       bottom : `&lt;/script&gt;<br>&lt;/body&gt;<br>&lt;/html&gt;`
   },
   {
+    id:"js-do-while",
     title : "DO..WHILE LOOP",
-    desc : "The do while loop is a variant of the while loop. This loop will execute the code block once, before checking if the condition is true, then it will repeat the loop as long as the condition is true.",
+    desc : "The do...while loop runs the code once before checking the condition, then repeats while the condition is true.",
     top :`
       &lt;html&gt;<br>
       &lt;body&gt;<br>
@@ -596,6 +620,7 @@ bottom: `
       `,
     middle : `
       <pre class="highlight-pre">
+      let i = 1;
       do {
       document.write("Learning JS&lt;br&gt;");
       i++;
@@ -605,6 +630,7 @@ bottom: `
       bottom : `&lt;/script&gt;<br>&lt;/body&gt;<br>&lt;/html&gt;`
   },
   {
+    id:"js-functions",
       title : "Functions",
       desc : "Functions are blocks of code that run when they are called.",
       top :`
@@ -612,12 +638,11 @@ bottom: `
         &lt;body&gt;<br>
         &lt;script&gt;<br>
         `,
-      middle :`
-        function greet() {
-        alert(&quot;Hello!&quot;);
-        "}<br>" 
+      middle :
+        "function greet() {<br>" +
+        "&nbsp;&nbsp;alert(&quot;Hello!&quot;);<br>" +
+        "}<br>" +
         "greet();",
-      `,
         
       bottom : `&lt;/script&gt;<br>&lt;/body&gt;<br>&lt;/html&gt;`
 
@@ -625,6 +650,7 @@ bottom: `
   
     
     {
+      id:"js-events",
       title : "Events",
       desc : "Events allow JavaScript to respond to user actions like clicking a button.",
       top :`
@@ -633,16 +659,16 @@ bottom: `
         &lt;button onclick=&quot;sayHi()&quot;&gt;Click Me&lt;/button&gt;
         &lt;script&gt;<br>
         `,
-      middle :`
-        "function sayHi() {
-        "&nbsp;&nbsp;alert(&quot;Hi there!&quot;);
+      middle :
+        "function sayHi() {<br>" +
+        "&nbsp;&nbsp;alert(&quot;Hi there!&quot;);<br>" +
         "}",
-      `,
         
       bottom :  `&lt;/script&gt;<br>&lt;/body&gt;<br>&lt;/html&gt;`
 
     },
     {
+      id:"js-arrays",
 title :"JavaScript Arrays",
 desc :"An array is used to store multiple values in a single variable. Array values are written inside square brackets <b>[ ]</b> and separated by commas.",
 
@@ -666,6 +692,7 @@ bottom: `
 `
 },
 {
+  id:"js-objects",
 title :"JavaScript Objects",
 desc :"Objects are used to store multiple values in a single variable using <b>key:value</b> pairs.",
 
@@ -691,6 +718,142 @@ bottom: `
 
 ];
 
+const jsValidations = [
+  {
+    lessonId: "js-output",
+    validate: code => code.includes("document.getElementById") && code.includes("innerHTML")
+  },
+  {
+    lessonId: "js-variables",
+    validate: code => code.includes("let x") && code.includes("let y") && code.includes("let z")
+  },
+  {
+    lessonId: "js-datatypes",
+    validate: code => code.includes("let name") && code.includes("let age") && code.includes("let student")
+  },
+  {
+    lessonId: "js-string",
+    validate: code => code.includes("let text")
+  },
+  {
+    lessonId: "js-number",
+    validate: code => code.includes("let x") && code.includes("let y") && code.includes("let sum")
+  },
+  {
+    lessonId: "js-boolean",
+    validate: code => code.includes("true") || code.includes("false") || code.includes("isStudent")
+  },
+  {
+    lessonId: "js-operators",
+    validate: code => code.includes("+") || code.includes("-") || code.includes("*") || code.includes("/")
+  },
+  {
+    lessonId: "js-addition",
+    validate: code => code.includes("+")
+  },
+  {
+    lessonId: "js-subtraction",
+    validate: code => code.includes("-")
+  },
+  {
+    lessonId: "js-multiplication",
+    validate: code => code.includes("*")
+  },
+  {
+    lessonId: "js-division",
+    validate: code => code.includes("/")
+  },
+  {
+    lessonId: "js-assignment",
+    validate: code => code.includes("=") && code.includes("+=")
+  },
+  {
+    lessonId: "js-comparison",
+    validate: code => code.includes(">") || code.includes("<") || code.includes("==") || code.includes("!=")
+  },
+  {
+    lessonId: "js-equal",
+    validate: code => code.includes("==")
+  },
+  {
+    lessonId: "js-not-equal",
+    validate: code => code.includes("!=")
+  },
+  {
+    lessonId: "js-greater",
+    validate: code => code.includes(">")
+  },
+  {
+    lessonId: "js-less",
+    validate: code => code.includes("<")
+  },
+  {
+    lessonId: "js-greater-equal",
+    validate: code => code.includes(">=")
+  },
+  {
+    lessonId: "js-less-equal",
+    validate: code => code.includes("<=")
+  },
+  {
+    lessonId: "js-if",
+    validate: code => code.includes("if(") || code.includes("if (")
+  },
+  {
+    lessonId: "js-if-else",
+    validate: code => code.includes("if(") && code.includes("else")
+  },
+  {
+    lessonId: "js-else-if",
+    validate: code => code.includes("else if")
+  },
+  {
+    lessonId: "js-for-loop",
+    validate: code => code.includes("for(") || code.includes("for (")
+  },
+  {
+    lessonId: "js-while-loop",
+    validate: code => code.includes("while(") || code.includes("while (")
+  },
+  {
+    lessonId: "js-do-while",
+    validate: code => code.includes("do {") && code.includes("while")
+  },
+  {
+    lessonId: "js-functions",
+    validate: code => code.includes("function") && code.includes("greet()")
+  },
+  {
+    lessonId: "js-events",
+    validate: code => code.includes("onclick") && code.includes("function sayHi")
+  },
+  {
+    lessonId: "js-arrays",
+    validate: code => code.includes("[") && code.includes("]") && code.includes("fruits")
+  },
+  {
+    lessonId: "js-objects",
+    validate: code => code.includes("{") && code.includes("}") && code.includes("person")
+  }
+];
+
+// SAVE LAST VISITED PAGE
+const email = localStorage.getItem("userEmail");
+
+if (email) {
+  fetch("/save-last-page", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json"
+    },
+    body: JSON.stringify({
+      email: email,
+      lastVisited: window.location.pathname + window.location.search
+      
+    })
+  });
+}
+
 // ==========================
 // GLOBAL VARIABLES
 // ==========================
@@ -704,9 +867,19 @@ completedJsLessons =
   JSON.parse(localStorage.getItem("completedJsLessons")) || {};
 
 const lessonGames = {
-  2: "/jsgame1.html", // Game after lesson 2
-  5: "/jsgame2.html"  // Game after lesson 5
+  18: "/jsgame1.html", // Game after lesson 2
+  28: "/jsgame2.html"  // Game after lesson 5
 };
+
+function updatePointsDisplay() {
+
+  const pointsEl = document.getElementById("points-count");
+
+  if (pointsEl) {
+    pointsEl.innerText = jsPoints.toString().padStart(2, "0");
+  }
+
+}
 
 // ==========================
 // PAGE LOAD
@@ -736,7 +909,8 @@ window.onload = async () => {
 
   if (gameResult === "complete" && !gameRewarded) {
     jsPoints += 5;
-    document.getElementById("point").innerText = jsPoints;
+     updatePointsDisplay();
+    
 
     await fetch("/update-progress", {
       method: "POST",
@@ -748,7 +922,7 @@ window.onload = async () => {
       })
     });
 
-    localStorage.setItem("jsGameRewarded", "true");
+    
     localStorage.removeItem("jsGameResult");
   }
 
@@ -762,6 +936,61 @@ window.onload = async () => {
   loadJsLesson(currentJsLesson);
 };
 
+// ---------- STUDYDECK SUBMENU TOGGLE ----------
+    const studydeckArrow = document.querySelector(".studydeck-arrow");
+  if (studydeckArrow) {
+    studydeckArrow.addEventListener("click", (e) => {
+      e.stopPropagation();
+      const submenu = studydeckArrow.parentElement.nextElementSibling;
+
+      submenu.style.display =
+        submenu.style.display === "block" ? "none" : "block";
+    });
+  }
+
+   /* ---------------- HTML / CSS / JS TOGGLES ---------------- */
+
+  document.querySelectorAll(".tech-arrow").forEach((arrow) => {
+    arrow.addEventListener("click", (e) => {
+      e.stopPropagation();
+      const submenu = arrow.parentElement.nextElementSibling;
+
+      submenu.style.display =
+        submenu.style.display === "block" ? "none" : "block";
+    });
+  });
+
+  // ==========================
+// SIDEBAR SAFETY
+// ==========================
+const menuBtn = document.getElementById("menu-btn");
+const sidebar = document.getElementById("sidebar");
+const overlay = document.getElementById("overlay");
+
+if (menuBtn && sidebar && overlay) {
+  menuBtn.addEventListener("click", () => {
+    sidebar.classList.add("open");
+    overlay.classList.add("show");
+  });
+
+  overlay.addEventListener("click", () => {
+    sidebar.classList.remove("open");
+    overlay.classList.remove("show");
+  });
+
+}
+
+// ====================== LOG OUT ====================== //
+document.getElementById("removeAccount").addEventListener("click", e => {
+  e.preventDefault();
+
+  if (!confirm("Are you sure you want to log out?")) return;
+
+  localStorage.clear();
+  window.location.href = "about.html";
+});
+
+
 // ==========================
 // RESTORE PROGRESS
 // ==========================
@@ -774,7 +1003,7 @@ async function restoreJsProgressFromBackend() {
     const data = await res.json();
 
     jsPoints = data.points || 0;
-    document.getElementById("point").innerText = jsPoints;
+updatePointsDisplay();
 
   } catch (err) {
     console.error("❌ Restore failed", err);
@@ -805,6 +1034,8 @@ function loadJsLesson(index) {
   canGoNextJs = !!completedJsLessons[index];
 }
 
+
+
 // ==========================
 // RUN CODE
 // ==========================
@@ -813,33 +1044,81 @@ function runJsCode() {
   const iframe = document.getElementById("output");
   const code = editor.value.trim();
 
+  
+
   if (code === "") {
-    showAlert();
+    showAlert("please enter some code");
     return;
   }
+
+  // ---------- VALIDATION ----------
+  const currentValidation = jsValidations.find(
+    v => v.lessonId === jsLessons[currentJsLesson].id
+  );
+
+  let isValid = true;
+  if (currentValidation && typeof currentValidation.validate === "function") {
+    isValid = currentValidation.validate(code);
+  }
+
+  if (!isValid) {
+    showAlert("❌ Your code does not match the lesson requirements. Check syntax or missing elements.")
+    return; // Stop code execution if validation fails
+  }
+
 
   editor.style.display = "none";
   iframe.style.display = "block";
 
-  const doc = iframe.contentDocument || iframe.contentWindow.document;
-  doc.open();
-  doc.write(`<script>${code}<\/script>`);
-  doc.close();
+  iframe.contentDocument.open();
+  iframe.contentDocument.write(
+    `<!DOCTYPE html><html><body>${code}</body></html>`
+  );
+  iframe.contentDocument.close();
+
 
   canGoNextJs = true;
 
   if (!completedJsLessons[currentJsLesson]) {
     completedJsLessons[currentJsLesson] = true;
     jsPoints += 2;
-    document.getElementById("point").innerText = jsPoints;
+
+    updatePointsDisplay();
+    
+    let progress = parseInt(localStorage.getItem("jsLessonProgress")) || 0;
+
+  // prevent duplicate counting
+  let jsProgressKey = "js_" + currentJsLesson;
+
+  if (!localStorage.getItem(jsProgressKey)) {
+    progress++;
+    localStorage.setItem("jsLessonProgress", progress);
+    localStorage.setItem(jsProgressKey, "true");
+  }
 
     localStorage.setItem(
       "completedJsLessons",
       JSON.stringify(completedJsLessons)
     );
 
-    updateJsProgressToBackend();
-  }
+   const email = localStorage.getItem("userEmail");
+
+    if (email) {
+      fetch("/update-progress", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          email,
+          subject: "js",
+          value: 2,
+          completedLessons: { [currentJsLesson]: true }
+        })
+      })
+      .then(res => res.json())
+      .then(data => console.log("✅ Lesson progress synced", data))
+      .catch(err => console.error("❌ Failed to sync", err));
+    }
+  }  
 }
 
 // ==========================
@@ -866,8 +1145,8 @@ function nextJsLesson() {
   }
 
   if (currentJsLesson < jsLessons.length - 1) {
-    window.location.href =
-      `jsLesson.html?jsLesson=${currentJsLesson + 1}`;
+     currentJsLesson++;
+      loadJsLesson(currentJsLesson);  // load next lesson
   }
 }
 
@@ -878,7 +1157,7 @@ function prevJsLesson() {
   if (currentJsLesson > 0) {
     window.location.href = `jsLesson.html?jsLesson=${currentJsLesson - 1}`;
   } else {
-    window.location.href = "jsIntro.html";
+    window.location.href = "/jsIntro.html";
   }
 }
 
@@ -891,9 +1170,14 @@ function loadAlert() {
     .then(html => document.body.insertAdjacentHTML("beforeend", html));
 }
 
-function showAlert() {
+function showAlert(message = "Something went wrong!") {
   document.getElementById("customAlert").style.display = "block";
   document.getElementById("alertOverlay").style.display = "block";
+
+  const msg = document.getElementById("alertMessage");
+  if (msg) {
+    msg.innerText = message;
+  }
 }
 
 function closeAlert() {

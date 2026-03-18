@@ -1,20 +1,20 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Home</title>
+  <meta charset="UTF-8">
+ 
+<title>Simple Page</title>
+  <!-- Google Font: Instrument Serif -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
 
-  <link href="https://fonts.googleapis.com/css2?family=Jaini+Purva&display=swap" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="css/home.css">
-
+  <link rel="stylesheet" href="css/jsStructure.css">
+  
+   
 </head>
-
-
 <body>
-
-<!-- ====== SIDEBAR ====== -->
+    <!-- ====== SIDEBAR ====== -->
 <div class="sidebar" id="sidebar">
   <h2>Menu</h2>
   <ul>
@@ -92,103 +92,92 @@
 
   </ul>
 </li>
-
-<li><a href="myaccount.html">My Account</a></li>
-    <li class="has-submenu">
-    <div class="menu-row">
-      <a href="#">Projects</a>
-      <span class="arrow project-arrow">▸</span>
-    </div>
-    <ul class="submenu">
-      <li><a href="htmlproject.html">HTML Project</a></li>
-      <li><a href="cssproject.html">CSS Project</a></li>
-    </ul>
-  </li>
-      <li><a href="#" id="removeAccount">Log out</a></li>
-    </ul>
-  </div>
     
-    
+    <li><a href="myaccount.html">My Account</a></li>
+    <li><a href="htmlproject.html">Projects</a></li>
+    <li><a href="#" id="removeAccount">Log out</a></li>
+  </ul>
+</div>
 <div class="overlay" id="overlay"></div>
 
-<!-- ====== NAVBAR ====== -->
+  <!-- ====== NAVBAR ====== -->
 <nav class="navbar">
   <div class="menu" id="menu-btn">
-      <img src="/images/Group 119.png" alt="menu" width="24">
+      <img src="images/Group 119.png" alt="menu" width="24">
   </div>
 
   <div class="right">
-    <a href="myaccount.html">
     <div class="profile">
         <div class="profile-pic-wrapper">
-            <img id="home-profile-pic" src="/images/default.png" alt="profile">
+            <img id="home-profile-pic" src="images/default.png" alt="profile">
         </div>
-      </a>
-        <div id="home-username" class="profile-name">Username</div>
-
-        
+        <div id="home-username" class="profile-name">Username</div>  
     </div>
-</div>
-
-
-      <div class="points">
-          <img src="/images/Group 115.png" width="24">
-          <span id="points-count">00</span>
+    
+      <div class="point">
+          <img src="images/Group 115.png" width="24">
+          <span id="point">00</span>
       </div>
 
-      <a href="graph.html">
-        <div class="graph">
-    <img src="/images/Group 116.png" width="24" class="progress-img">
-  </div>
-</a>
+      <div class="graph">
+          <img src="images/Group 116.png" width="24">
+      </div>
 
       <div class="notifications">
-          <img src="/images/notifi.png" width="24">
+          <img src="images/notifi.png" width="24">
       </div>
   </div>
 </nav>
 
-<main>
+<div id="js-structure">
+  <div class="middle-section">
 
-  <div class="card plain">
-    <a href="studydeck.html" class="module-btn plain" id="studydeck-btn">Study Deck</a>
+    <p class="heading">This is how your JavaScript looks:</p>
+
+    <div class="content-area">
+
+      <div class="code-box">
+   <p><span class="tag">&lt;!DOCTYPE html&gt;</span> 
+   
+    <p><span class="tag">&lt;html&gt;</span> 
+
+    <p><span class="tag">&lt;body&gt;</span>
+
+    <p><span class="tag">&lt;button onclick="sayHello()"&gt;Click Me&lt;/button&gt;</span> 
+    <span class="comment">/* button that runs JavaScript when clicked */</span></p>
+
+    <p><span class="tag">&lt;script&gt;</span> 
+    <span class="comment">/* start of JavaScript code */</span></p>
+
+    <p><span class="tag">function sayHello(){</span> 
+    <span class="comment">/* creates a function */</span></p>
+
+    <p><span class="tag">alert("Hello!");</span> 
+    <span class="comment">/* shows a popup message */</span></p>
+
+    <p><span class="tag">}</span></p>
+
+    <p><span class="tag">&lt;/script&gt;</span></p>
+
+    <p><span class="tag">&lt;/body&gt;</span></p>
+
+    <p><span class="tag">&lt;/html&gt;</span></p>
+      </div>
+
+    </div>
+
   </div>
 
-  <div class="card">
-    <a href="htmlintro.html" class="module-btn" id="html-btn">
-      <img class="html-icon" src="/images/HTML5_logo_and_wordmark.svg 1.png" alt="HTML">
-      <span class="html">HTML</span>
-      <img src="/images/unlock.png" class="unlock" alt="unLocked">
-      <img src="/images/Group 115.png" class="egg" alt="Egg">
-      <span class="progress" id="html-progress">0/30</span>
+  <div class="button-wrapper">
+    <img src="images/Group 96 (1).png" class="next-img">
+    <a href="jsLesson.html">
+    <button id="nextBtn">NEXT</button>
     </a>
   </div>
-
-  <div class="card">
-    <a href="cssIntro.html" class="module-btn locked" id="css-btn">
-      <img class="css-icon" src="/images/css3-logo-png_seeklogo-186678 1.png" alt="CSS">
-      <span class="CSS">CSS</span>
-      <img src="/images/Group 124.png" class="lock" id="css-lock" alt="Locked">
-      <img src="/images/Group 115.png" class="egg" alt="Egg">
-      <span class="progress" id="css-progress">0/50</span>
-    </a>
   </div>
-
-  <div class="card">
-    <a href="jsintro.html" class="module-btn locked" id="js-btn">
-      <img class="js-icon" src="/images/image 9.png" alt="JavaScript">
-      <span class="js">JavaScript</span>
-      <img src="/images/Group 124.png" class="lock" alt="Locked">
-      <img src="/images/Group 115.png" class="egg" alt="Egg">
-      <span class="progress" id="js-progress">0/60</span>
-    </a>
-  </div>
-</main>
-
-
-<script src="/js/home.js"></script>
-<script src="js/progress.js"></script>
-
+  
+  <script src="js/jsStructure.js"></script>
+  
 
 
 </body>

@@ -2,64 +2,100 @@
 body{
 margin:0;
 font-family:Arial;
-background:#1e172d;
+background: url("/images/galaxyhd1.png");
+background-size: cover;
 color:white;
-
 min-height:100vh;
 }
 
-.navbar {
+ .navbar {
   display: flex;
   justify-content: space-between;
   align-items: center;
   background: #30234f;
-  padding: 8px 20px;
+  padding: 10px 20px;
   color: white;
-  margin-bottom: 50px;
+  font-family: 'Instrument Serif',serif;
+ 
+  
 }
 
-/* LEFT SECTION */
-.navbar .left {
-  display: flex;
-  align-items: center;
-  cursor: pointer;
+.profile{
+  margin-left: 900px;
 }
 
-.menu-icon {
-  width: 24px;
-  cursor: pointer;
-}
-
-/* RIGHT SECTION */
 .navbar .right {
   display: flex;
   align-items: center;
-   gap: 35px; /* spacing between icons */
+  gap: 35px;
+  
 }
 
-.navbar .right img {
-  padding-left: 0px;
+.navbar .right img{
+  padding-left: 0px;  
 }
 
-/* PROFILE */
-.profile {
+.point {
   display: flex;
   align-items: center;
-  gap: 8px;
+  position: relative;
+  cursor: pointer;
+}
+.graph{
+  cursor: pointer;
+  transition: filter 0.3s;
+
+}
+  
+
+.graph:hover{
+  filter: brightness(0) invert(1);
+}
+.notifications{
+  height: 27px;
+  cursor: pointer;
+
+}
+.notifications:hover{
+filter:brightness(100) ;
+}
+#point {
+  position: relative;
+  top: 1px;   
+  margin-left: 4px;
+  font-size: 19px;
+  font-family: 'Instrument Serif',serif;
+  letter-spacing: 0px;
+
+}
+.menu{
+  cursor:pointer;
+  transition: content 0.3s;
+}
+.menu:hover{
+content: url(/images/white\ menu.png);
+height:19px ;
+padding-bottom: 5px;
+}
+.profile {
+    display: flex;
+    align-items: center;
+    gap: 8px;
 }
 
-.profile-pic-wrapper img {
-  width: 35px;
-  height: 35px;
-  border-radius: 50%;
-  overflow: hidden;
-  flex-shrink: 0;
+.profile-pic-wrapper {
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    overflow: hidden;
+    flex-shrink: 0;
 }
 
 #home-profile-pic {
     width: 100%;
     height: 100%;
     object-fit: cover;
+    
 }
 
   
@@ -70,139 +106,163 @@ min-height:100vh;
   margin-top: 3px;
 }
 
-/* POINTS */
-.point {
-  display: flex;
-  align-items: center;
-  position: relative;
-  cursor: pointer;
-}
-
-.point-span {
-  position: relative;
-  margin-left: 4px;
-   top: 1px; 
-  font-size: 19px;
-  font-family: 'Instrument Serif', serif;
-  letter-spacing: 0px;
-}
-
-/* GRAPH */
-.graph {
-  transition: filter 0.3s;
-  cursor: pointer;
-}
-
-.graph:hover {
-  filter: brightness(0) invert(1);
-}
-
-.notifications{
-  height: 27px;
-  cursor: pointer;
-
-}
-
-/* NOTIFICATIONS */
-.notifications:hover {
-  filter: brightness(100);
-}
-
-/* ===================== */
-/* DROPDOWN SIDE MENU */
-/* ===================== */
-
-.dropdown {
+.sidebar {
   position: fixed;
   top: 0;
-  left: -260px;     /* hidden */
-  width: 250px;
+  left: -300px;
+  width: 230px;
   height: 100%;
   background-color: #30234f;
-  color: white;
-  z-index: 1000;
-  transition: left 0.3s ease;
+  color: #fff;
+  padding: 20px;
+  transition: 0.4s ease;
+  z-index: 999;
   overflow-y: auto;
-  padding-top: 15px;
 }
 
-/* Show animation */
-.dropdown.show {
+.sidebar::-webkit-scrollbar{
+  width: 5px;
+}
+.sidebar::-webkit-scrollbar-thumb{
+  background: rgba(255,255,255,0.3);
+  border-radius: 10px;
+}
+
+.sidebar.open {
   left: 0;
 }
 
-/* MENU TITLE */
-.menu-title {
+.sidebar h2 {
   font-size: 22px;
-  font-weight: bold;
-  padding: 10px 15px;
-  margin: 0;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+  margin-bottom: 25px;
+  font-family: "Instrument Serif", serif;
+  text-transform: uppercase;
+  letter-spacing: 2px;
 }
 
-/* MENU LIST */
-.dropdown ul {
+.sidebar ul {
   list-style: none;
   padding: 0;
-  margin: 0;
 }
 
-.dropdown ul li {
-  padding: 10px 15px;
-  cursor: pointer;
-  transition: background 0.2s;
+.sidebar ul li {
+  margin: 18px 0;
+}
+
+.sidebar ul li a {
+  color: #dddddd;
+  text-decoration: none;
   font-size: 18px;
   font-family: "Instrument Serif", serif;
 }
 
-/* Hover underline */
-.dropdown ul li:hover {
+.sidebar ul li a:hover {
+  color: white;
   text-decoration: underline;
-  background: rgba(255, 255, 255, 0.05);
 }
 
-/* ===================== */
-/* SUBMENU */
-/* ===================== */
+.menu-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+/* ---------------- FONT SIZE HIERARCHY ---------------- */
 
-.submenu {
-  display: none;
+/* Level 1: Main sidebar links (Home, Studydeck, etc.) */
+.sidebar > ul > li > a,
+.menu-row > a {
+  font-size: 20px;
+}
+
+/* Level 2: HTML, CSS, JavaScript (inside Studydeck) */
+.submenu > li > .menu-row > a {
+  font-size: 19px;
+  color: #d6d6d6;
+}
+
+/* Level 3: Subtopics (HTML/CSS/JS topics) */
+.sub-submenu li a {
+  font-size: 17px;
+  color: #bfbfbf;
+  
+}
+
+/* Hover clarity */
+.submenu > li > .menu-row > a:hover,
+.sub-submenu li a:hover {
+  color: #ffffff;
+}
+
+
+.submenu,
+.sub-submenu {
+  list-style: none;
   padding-left: 15px;
-  background-color: #2a1f46;
+  display: none;
+  
 }
 
-.submenu li {
-  font-size: 18px;
-  padding: 8px 15px;
+.submenu li,
+.sub-submenu li {
+  margin: 10px 0;
 }
 
-/* Show submenu */
-.submenu-open .submenu {
+/* Submenu links */
+.submenu a,
+.sub-submenu a {
+  color: #cfcfcf;
+  text-decoration: none;
+}
+
+.submenu a:hover,
+.sub-submenu a:hover {
+  color: #ffffff;
+  text-decoration: underline;
+}
+
+/* Arrows */
+.arrow {
+  cursor: pointer;
+  font-size: 15px;
+  color: #cfcfcf;
+  user-select: none;
+}
+
+.arrow:hover {
+  color: #ffffff;
+}
+
+
+
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(255, 255, 255, 0);
+  display: none;
+  z-index: 998;
+}
+
+.overlay.show {
   display: block;
-}
-
-/* Arrow */
-.has-submenu::after {
-  content: "▸";
-  float: right;
-}
-
-.submenu-open.has-submenu::after {
-  content: "▾";
 }
 
 .container{
   align-items: center;
   justify-content: center;
   display: flex;
+  margin-top: 30px;
 }
 
 .game-container{
 background:#1e1638;
-padding:30px;
+padding-left:10px;
+padding-right: 10px;
 width:500px;
 border-radius:10px;
-margin-top: -20px;
+
 text-align:center;
 margin-left: -200px;
 box-shadow:0 0 20px rgba(0,0,0,0.5);

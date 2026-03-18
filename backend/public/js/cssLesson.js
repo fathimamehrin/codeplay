@@ -1,35 +1,31 @@
 const cssLessons = [
   {
+    id: "css-text-color",
     title: "CSS Text Color",
     desc: "The color property is used to change the text color.",
-
     top: `
 &lt;html&gt;<br>
 &lt;body&gt;<br>
 `,
-
     middle: `
 <pre class="highlight-pre">
 &lt;h3 <span class="highlight">style="color: blue;"</span>&gt;Hello World&lt;/h3&gt;
 &lt;p <span class="highlight">style="color: red;"</span>&gt;This text is red&lt;/p&gt;
 </pre>
 `,
-
     bottom: `
 &lt;/body&gt;<br>
 &lt;/html&gt;<br>
 `
   },
-
   {
+    id: "css-font-size",
     title: "CSS Font-Size",
     desc: "The font-size property is used to change the size of the text.",
-
     top: `
 &lt;html&gt;<br>
 &lt;body&gt;<br>
 `,
-
     middle: `
 <pre class="highlight-pre">
 &lt;p <span class="highlight">style="font-size: 24px; color: red;"</span>&gt;
@@ -37,22 +33,19 @@ This text is bigger
 &lt;/p&gt;
 </pre>
 `,
-
     bottom: `
 &lt;/body&gt;<br>
 &lt;/html&gt;<br>
 `
   },
-
   {
+    id: "css-font-family",
     title: "CSS Font Family",
     desc: "The font-family property is used to change the font style.",
-
     top: `
 &lt;html&gt;<br>
 &lt;body&gt;<br>
 `,
-
     middle: `
 <pre class="highlight-pre">
 &lt;p <span class="highlight">style="font-family: Arial; color: red;"</span>&gt;
@@ -60,22 +53,19 @@ This text uses Arial font
 &lt;/p&gt;
 </pre>
 `,
-
     bottom: `
 &lt;/body&gt;<br>
 &lt;/html&gt;<br>
 `
   },
-
   {
+    id: "css-font-weight",
     title: "CSS Font Weight",
     desc: "The font-weight property is used to make text bold.",
-
     top: `
 &lt;html&gt;<br>
 &lt;body&gt;<br>
 `,
-
     middle: `
 <pre class="highlight-pre">
 &lt;p <span class="highlight">style="font-weight: bold;"</span>&gt;
@@ -83,17 +73,15 @@ This text is bold
 &lt;/p&gt;
 </pre>
 `,
-
     bottom: `
 &lt;/body&gt;<br>
 &lt;/html&gt;<br>
 `
   },
-
   {
+    id: "css-text-align",
     title: "CSS Text Align",
     desc: "The text-align property is used to align text.",
-
     top: `
 &lt;html&gt;<br>
 &lt;head&gt;<br>
@@ -107,24 +95,21 @@ p {
 &lt;/head&gt;<br>
 &lt;body&gt;<br>
 `,
-
     middle: `
 <pre class="highlight-pre">
 &lt;h2&gt;Centering Text&lt;/h2&gt;
 &lt;p&gt;This text is centered.&lt;/p&gt;
 </pre>
 `,
-
     bottom: `
 &lt;/body&gt;<br>
 &lt;/html&gt;<br>
 `
   },
-
   {
+    id: "css-background-color",
     title: "CSS Background Color",
     desc: "The background-color property is used to set the background color.",
-
     top: `
 &lt;html&gt;<br>
 &lt;head&gt;<br>
@@ -138,23 +123,20 @@ p {
 &lt;/head&gt;<br>
 &lt;body&gt;<br>
 `,
-
     middle: `
 <pre class="highlight-pre">
 &lt;p&gt;This text has a blue background.&lt;/p&gt;
 </pre>
 `,
-
     bottom: `
 &lt;/body&gt;<br>
 &lt;/html&gt;<br>
 `
   },
-
   {
+    id: "css-border",
     title: "CSS Border",
     desc: "The border property is used to set the border style, width, and color.",
-
     top: `
 &lt;html&gt;<br>
 &lt;head&gt;<br>
@@ -168,23 +150,20 @@ p {
 &lt;/head&gt;<br>
 &lt;body&gt;<br>
 `,
-
     middle: `
 <pre class="highlight-pre">
 &lt;p&gt;This text has a border.&lt;/p&gt;
 </pre>
 `,
-
     bottom: `
 &lt;/body&gt;<br>
 &lt;/html&gt;<br>
 `
   },
-
   {
+    id: "css-border-radius",
     title: "CSS Border Radius",
     desc: "The border-radius property is used to create rounded corners.",
-
     top: `
 &lt;html&gt;<br>
 &lt;head&gt;<br>
@@ -202,24 +181,21 @@ p.round {
 &lt;/head&gt;<br>
 &lt;body&gt;<br>
 `,
-
     middle: `
 <pre class="highlight-pre">
 &lt;p class="normal"&gt;Normal border&lt;/p&gt;
 &lt;p class="round"&gt;Rounded border&lt;/p&gt;
 </pre>
 `,
-
     bottom: `
 &lt;/body&gt;<br>
 &lt;/html&gt;<br>
 `
   },
-
   {
+    id: "css-height-width",
     title: "CSS Height and Width",
     desc: "The height and width properties are used to set the size of an element.",
-
     top: `
 &lt;html&gt;<br>
 &lt;head&gt;<br>
@@ -235,23 +211,20 @@ div {
 &lt;/head&gt;<br>
 &lt;body&gt;<br>
 `,
-
     middle: `
 <pre class="highlight-pre">
 &lt;div&gt;This div has a height of 200px and width of 50%.&lt;/div&gt;
 </pre>
 `,
-
     bottom: `
 &lt;/body&gt;<br>
 &lt;/html&gt;<br>
 `
   },
-
   {
+    id: "css-margin",
     title: "CSS Margin",
     desc: "Margins create space outside an element.",
-
     top: `
 &lt;html&gt;<br>
 &lt;head&gt;<br>
@@ -266,23 +239,20 @@ div {
 &lt;/head&gt;<br>
 &lt;body&gt;<br>
 `,
-
     middle: `
 <pre class="highlight-pre">
 &lt;div&gt;This element has a margin of 70px.&lt;/div&gt;
 </pre>
 `,
-
     bottom: `
 &lt;/body&gt;<br>
 &lt;/html&gt;<br>
 `
   },
-
   {
+    id: "css-padding",
     title: "CSS Padding",
     desc: "Padding creates space inside an element.",
-
     top: `
 &lt;html&gt;<br>
 &lt;head&gt;<br>
@@ -297,23 +267,20 @@ div {
 &lt;/head&gt;<br>
 &lt;body&gt;<br>
 `,
-
     middle: `
 <pre class="highlight-pre">
 &lt;div&gt;This element has padding inside the border.&lt;/div&gt;
 </pre>
 `,
-
     bottom: `
 &lt;/body&gt;<br>
 &lt;/html&gt;<br>
 `
   },
-
   {
+    id: "css-display",
     title: "CSS Display",
     desc: "The display property controls how an element is shown.",
-
     top: `
 &lt;html&gt;<br>
 &lt;head&gt;<br>
@@ -327,7 +294,6 @@ div {
 &lt;/head&gt;<br>
 &lt;body&gt;<br>
 `,
-
     middle: `
 <pre class="highlight-pre">
 &lt;div class="block"&gt;Block element&lt;/div&gt;
@@ -335,16 +301,15 @@ div {
 &lt;div class="none"&gt;Hidden element&lt;/div&gt;
 </pre>
 `,
-
     bottom: `
 &lt;/body&gt;<br>
 &lt;/html&gt;<br>
 `
   },
-{
-  title: "CSS Display: Inline",
+  {
+    id: "css-display-inline",
+    title: "CSS Display: Inline",
     desc: "Using display: inline on list items makes them appear in a single horizontal line instead of stacking vertically.",
-
     top: `
 &lt;html&gt;<br>
 &lt;head&gt;<br>
@@ -361,7 +326,6 @@ li {<br>
 &lt;/head&gt;<br>
 &lt;body&gt;<br>
 `,
-
     middle: `
 <pre class="highlight-pre">
 &lt;p&gt;Display a list as a horizontal menu:&lt;/p&gt;
@@ -374,17 +338,15 @@ li {<br>
 &lt;/ul&gt;
 </pre>
 `,
-
     bottom: `
 &lt;/body&gt;<br>
 &lt;/html&gt;
 `
   },
-
   {
+    id: "css-display-links-block",
     title: "CSS Display: Links as Block",
     desc: "By default, links (a elements) are inline. Using display: block makes each link appear on a new line.",
-
     top: `
 &lt;html&gt;<br>
 &lt;head&gt;<br>
@@ -396,7 +358,6 @@ a {<br>
 &lt;/head&gt;<br>
 &lt;body&gt;<br>
 `,
-
     middle: `
 <pre class="highlight-pre">
 &lt;h1&gt;Display links as block elements&lt;/h1&gt;
@@ -406,16 +367,15 @@ a {<br>
 &lt;a href="#"&gt;JavaScript&lt;/a&gt;
 </pre>
 `,
-
     bottom: `
 &lt;/body&gt;<br>
 &lt;/html&gt;
 `
   },
   {
+    id: "css-display-none",
     title: "CSS Display: none",
     desc: "The display: none value completely hides an element. The hidden element is removed from the layout and no space is kept.",
-
     top: `
 &lt;html&gt;<br>
 &lt;head&gt;<br>
@@ -427,7 +387,6 @@ a {<br>
 &lt;/head&gt;<br>
 &lt;body&gt;<br>
 `,
-
     middle: `
 <pre class="highlight-pre">
 &lt;h1&gt;display: none Example&lt;/h1&gt;
@@ -437,16 +396,49 @@ a {<br>
 &lt;p&gt;The hidden paragraph does not take any space.&lt;/p&gt;
 </pre>
 `,
-
     bottom: `
 &lt;/body&gt;<br>
 &lt;/html&gt;
 `
   }
-
-
 ];
 
+const cssValidation = {
+  "css-text-color": ["color"],
+  "css-font-size": ["font-size"],
+  "css-font-family": ["font-family"],
+  "css-font-weight": ["font-weight"],
+  "css-text-align": ["text-align"],
+  "css-background-color": ["background-color"],
+  "css-border": ["border"],
+  "css-border-radius": ["border-radius"],
+  "css-height-width": ["height", "width"],
+  "css-margin": ["margin"],
+  "css-padding": ["padding"],
+  "css-display": ["display"],
+  "css-display-inline": ["display", "inline"],
+  "css-display-links-block": ["display", "block"],
+  "css-display-none": ["display", "none"]
+};
+
+
+
+// SAVE LAST VISITED PAGE
+const email = localStorage.getItem("userEmail");
+
+if (email) {
+  fetch("/save-last-page", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json"
+    },
+    body: JSON.stringify({
+      email: email,
+      lastVisited: window.location.pathname + window.location.search
+
+    })
+  });
+}
 // ==========================
 // GLOBAL VARIABLES
 // ==========================
@@ -464,13 +456,65 @@ const lessonGames = {
   14: "/cssgame2.html"
 };
 
+function updatePointsDisplay() {
 
-// DOM
-// ==========================
-const menuIcon = document.getElementById("menuIcon");
-const dropdownMenu = document.getElementById("dropdownMenu");
-const lessonList = document.getElementById("lessonList");
-const gameContainer = document.getElementById("gameContainer");
+  const pointsEl = document.getElementById("points-count");
+
+  if (pointsEl) {
+    pointsEl.innerText = cssPoints.toString().padStart(2, "0");
+  }
+
+}
+
+
+// ---------- STUDYDECK SUBMENU TOGGLE ----------
+    const studydeckArrow = document.querySelector(".studydeck-arrow");
+  if (studydeckArrow) {
+    studydeckArrow.addEventListener("click", (e) => {
+      e.stopPropagation();
+      const submenu = studydeckArrow.parentElement.nextElementSibling;
+
+      submenu.style.display =
+        submenu.style.display === "block" ? "none" : "block";
+    });
+  }
+
+   /* ---------------- HTML / CSS / JS TOGGLES ---------------- */
+
+  document.querySelectorAll(".tech-arrow").forEach((arrow) => {
+    arrow.addEventListener("click", (e) => {
+      e.stopPropagation();
+      const submenu = arrow.parentElement.nextElementSibling;
+
+      submenu.style.display =
+        submenu.style.display === "block" ? "none" : "block";
+    });
+  });
+
+  // ====================== SIDEBAR TOGGLE ====================== //
+const menuBtn = document.getElementById("menu-btn");
+const sidebar = document.getElementById("sidebar");
+const overlay = document.getElementById("overlay");
+
+menuBtn.addEventListener("click", () => {
+  sidebar.classList.add("open");
+  overlay.classList.add("show");
+});
+
+overlay.addEventListener("click", () => {
+  sidebar.classList.remove("open");
+  overlay.classList.remove("show");
+});
+
+// ====================== LOG OUT ====================== //
+document.getElementById("removeAccount").addEventListener("click", e => {
+  e.preventDefault();
+
+  if (!confirm("Are you sure you want to log out?")) return;
+
+  localStorage.clear();
+  window.location.href = "about.html";
+});
 
 
 // ==========================
@@ -505,7 +549,7 @@ const gameRewarded = localStorage.getItem("cssGameRewarded");
 if (gameResult === "complete" && !gameRewarded) {
 
     cssPoints += 5;
-    document.getElementById("point").innerText = cssPoints;
+    updatePointsDisplay();
 
     await fetch("/update-progress", {
       method: "POST",
@@ -550,7 +594,7 @@ async function restoreCssProgressFromBackend() {
 
     cssPoints = data.points || 0;
 
-    document.getElementById("point").innerText = cssPoints;
+    updatePointsDisplay();
 
   } catch (err) {
     console.error("❌ Restore failed", err);
@@ -582,6 +626,25 @@ function loadCssLesson(index) {
 
   canGoNextCss = !!completedCssLessons[index];
 }
+// ==========================
+// CSS VALIDATION FUNCTION
+// ==========================
+function validateCSSAnswer(userCode, lessonId) {
+  const rules = cssValidation[lessonId];
+  if (!rules) return false; // fail if no rules defined
+
+  // Normalize code: lowercase + remove all spaces around :, ;
+  const normalizedCode = userCode
+    .toLowerCase()
+    .replace(/\s*:\s*/g, ":")   // remove spaces around colon
+    .replace(/\s*;\s*/g, ";")   // remove spaces around semicolon
+    .replace(/\s+/g, " ");      // normalize other whitespace
+
+  return rules.every(rule => {
+    // also normalize rule to match the colon removal
+    return normalizedCode.includes(rule.replace(/\s+/g, "").toLowerCase());
+  });
+}
 
 
 // ==========================
@@ -594,7 +657,15 @@ async function runCssCode() {
   const code = editor.value.trim();
 
   if (code === "") {
-    showAlert();
+    showAlert("please write some code first");
+    return;
+  }
+
+   // ✅ VALIDATION 
+  const isValid = validateCSSAnswer(code, currentCssLesson);
+
+  if (!isValid) {
+    showAlert("❌ Your code does not match the lesson requirements. Check syntax or missing elements.");
     return;
   }
 
@@ -613,14 +684,25 @@ async function runCssCode() {
   completedCssLessons[currentCssLesson] = true;
 
   cssPoints += 2;
-  document.getElementById("point").innerText = cssPoints;
+  updatePointsDisplay();
+
+  let progress = parseInt(localStorage.getItem("cssLessonProgress")) || 0;
+
+  // prevent duplicate counting
+  let cssProgressKey = "css_" + currentCssLesson;
+
+  if (!localStorage.getItem(cssProgressKey)) {
+    progress++;
+    localStorage.setItem("cssLessonProgress", progress);
+    localStorage.setItem(cssProgressKey, "true");
+  }
 
   localStorage.setItem(
     "completedCssLessons",
     JSON.stringify(completedCssLessons)
   );
 
-  updateCssProgressToBackend();
+  await updateCssProgressToBackend();
 }
 }
 
@@ -656,8 +738,8 @@ function nextCssLesson() {
 
   // Go to next lesson
   if (currentCssLesson < cssLessons.length - 1) {
-    window.location.href =
-      `cssLesson.html?cssLesson=${currentCssLesson + 1}`;
+    currentCssLesson++;            // ⭐ ADD THIS LINE
+    loadCssLesson(currentCssLesson); 
   }
 }
 
@@ -684,9 +766,16 @@ function loadAlert() {
 // ==========================
 // ALERT
 // ==========================
-function showAlert() {
+function showAlert(message = "Something went wrong!") {
   document.getElementById("customAlert").style.display = "block";
   document.getElementById("alertOverlay").style.display = "block";
+
+  const msg = document.getElementById("alertMessage");
+  if (msg) {
+    msg.innerText = message;
+  }
+
+
 }
 
 function closeAlert() {

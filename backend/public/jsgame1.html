@@ -3,17 +3,135 @@
 <head>
 <title>JavaScript Logic Lab</title>
 
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Jacquarda+Bastarda+9&display=swap" rel="stylesheet"> 
 <link rel="stylesheet" href="css/jsgame1.css">
 
 </head>
 
 <body>
+  <div class="sidebar" id="sidebar">
+  <h2>Menu</h2>
+  <ul>
+    <li><a href="about.html">Home</a></li>
+    <li><a href="about.html#features">About</a></li>
+    <li><a href="home.html">Lessons</a></li>
 
-<h1>🎮 JavaScript Logic Lab</h1>
+    <!-- Studydeck -->
+    <li class="has-submenu">
+      <div class="menu-row">
+        <a href="studydeck.html">Studydeck</a>
+        <span class="arrow studydeck-arrow">▸</span>
+      </div>
+
+      <ul class="submenu">
+
+        <!-- HTML -->
+        <li class="has-submenu">
+          <div class="menu-row">
+            <a href="htmlnotes.html">HTML</a>
+            <span class="arrow tech-arrow">▸</span>
+          </div>
+          <ul class="sub-submenu">
+            <li><a href="htmlnotes.html#1">Basic Structure Tags</a></li>
+            <li><a href="htmlnotes.html#2">Text Formatting Tags</a></li>
+            <li><a href="htmlnotes.html#4">Links & Images</a></li>
+            <li><a href="htmlnotes.html#5">Containers & Layouts</a></li>
+            <li><a href="htmlnotes.html#6">Lists</a></li>
+            <li><a href="htmlnotes.html#7">Forms And Inputs</a></li>
+            <li><a href="htmlnotes.html#8">Media Elements</a></li>
+            <li><a href="htmlnotes.html#9">Scripting & Meta</a></li>
+          </ul>
+        </li>
+
+        <!-- CSS -->
+        <li class="has-submenu">
+          <div class="menu-row">
+            <a href="/html/cssnotes.html">CSS</a>
+            <span class="arrow tech-arrow">▸</span>
+          </div>
+          <ul class="sub-submenu">
+            <li><a href="/html/cssnotes.html#1">Basic CSS Structure</a></li>
+            <li><a href="/html/cssnotes.html#2">CSS Box Model</a></li>
+            <li><a href="/html/cssnotes.html#3">Colors & Background</a></li>
+            <li><a href="/html/cssnotes.html#4">Text & Fonts</a></li>
+            <li><a href="/html/cssnotes.html#5">Display & Position</a></li>
+            <li><a href="/html/cssnotes.html#6">Flexbox</a></li>
+            <li><a href="/html/cssnotes.html#7">Responsive Design</a></li>
+            <li><a href="/html/cssnotes.html#8">Effects & Animation</a></li>
+            <li><a href="/html/cssnotes.html#9">Border Property</a></li>
+          </ul>
+        </li>
+
+        <!-- JavaScript -->
+        <li class="has-submenu">
+          <div class="menu-row">
+            <a href="/html/jsnotes.html">JavaScript</a>
+            <span class="arrow tech-arrow">▸</span>
+          </div>
+          <ul class="sub-submenu">
+            <li><a href="/html/jsnotes.html#vars">Variables</a></li>
+            <li><a href="/html/jsnotes.html#types">Data Types</a></li>
+            <li><a href="/html/jsnotes.html#operators">Operators</a></li>
+            <li><a href="/html/jsnotes.html#conditions">Conditional Statements</a></li>
+            <li><a href="/html/jsnotes.html#loops">Loops</a></li>
+            <li><a href="/html/jsnotes.html#functions">Functions</a></li>
+            <li><a href="/html/jsnotes.html#JS1">DOM Manipulation</a></li>
+            <li><a href="/html/jsnotes.html#JS2">Events</a></li>
+            <li><a href="/html/jsnotes.html#JS3">Arrays</a></li>
+            <li><a href="/html/jsnotes.html#JS4">Objects</a></li>
+            <li><a href="/html/jsnotes.html#JS5">Local Storage</a></li>
+            <li><a href="/html/jsnotes.html#JS6">Error Handling</a></li>
+          </ul>
+        </li>
+
+      </ul>
+    </li>
+
+    <li><a href="/html/myaccount.html">My Account</a></li>
+    <li><a href="projects.html">Projects</a></li>
+    <li><a href="#" id="removeAccount">Log out</a></li>
+  </ul>
+</div>
+<div class="overlay" id="overlay"></div>
+
+<!-- ====== NAVBAR ====== -->
+<nav class="navbar">
+  <div class="menu" id="menu-btn">
+      <img src="/images/Group 119.png" alt="menu" width="24">
+  </div>
+
+  <div class="right">
+    <div class="profile">
+        <div class="profile-pic-wrapper">
+            <img id="home-profile-pic" src="default.png" alt="profile">
+        </div>
+        <div id="home-username" class="profile-name">Username</div>
+    </div>
+</div>
+
+
+      <div class="points">
+          <img src="/images/Group 115.png" width="24">
+          <span id="points-count" class="point-span">00</span>
+      </div>
+
+      <div class="graph">
+          <img src="/images/Group 116.png" width="24">
+      </div>
+
+      <div class="notifications">
+          <img src="/images/notifi.png" width="24">
+      </div>
+  </div>
+</nav>
+
+<div id="js-game1">
+<h2>🎮 JavaScript Logic Lab</h2>
 
 <div id="game-box">
 
-<h2 id="level"></h2>
+<h3 id="level"></h2>
 
 <pre id="code"></pre>
 
@@ -23,6 +141,19 @@
 
 <p id="score"></p>
 
+</div>
+
+<div class="right-buttons">
+  <div class="button-wrapper">
+    <img src="/images/Group 96 (1).png" class="prev">
+    <button onclick="prevJsLesson()">PREV</button>
+  </div>
+
+  <div class="button-wrapper">
+    <img src="/images/Group 96 (1).png" class="next">
+    <button id="nextBtn" onclick="nextJsLesson()">NEXT</button>
+  </div>
+</div>
 </div>
 
 <script src="js/jsgame1.js"></script>

@@ -42,6 +42,18 @@ window.onload = async () => {
     });
   });
 
+  // ---------- PROJECTS SUBMENU TOGGLE ----------
+const projectArrow = document.querySelector(".project-arrow");
+if (projectArrow) {
+  projectArrow.addEventListener("click", (e) => {
+    e.stopPropagation();
+    const submenu = projectArrow.parentElement.nextElementSibling;
+
+    submenu.style.display =
+      submenu.style.display === "block" ? "none" : "block";
+  });
+}
+
   // ---------- FETCH USER DATA ----------
   if (!email) return;
 

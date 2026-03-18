@@ -22,7 +22,7 @@ async function restoreProgressFromBackend() {
 
     points = Number(data.points) || 0;
 
-    const pointEl = document.getElementById("point");
+    const pointEl = document.getElementById("points-count");
     if (pointEl) {
       pointEl.innerText = points;
     }
@@ -82,6 +82,29 @@ window.onload = async function () {
   }
   
 };
+// ---------- STUDYDECK SUBMENU TOGGLE ----------
+    const studydeckArrow = document.querySelector(".studydeck-arrow");
+  if (studydeckArrow) {
+    studydeckArrow.addEventListener("click", (e) => {
+      e.stopPropagation();
+      const submenu = studydeckArrow.parentElement.nextElementSibling;
+
+      submenu.style.display =
+        submenu.style.display === "block" ? "none" : "block";
+    });
+  }
+
+   /* ---------------- HTML / CSS / JS TOGGLES ---------------- */
+
+  document.querySelectorAll(".tech-arrow").forEach((arrow) => {
+    arrow.addEventListener("click", (e) => {
+      e.stopPropagation();
+      const submenu = arrow.parentElement.nextElementSibling;
+
+      submenu.style.display =
+        submenu.style.display === "block" ? "none" : "block";
+    });
+  });
 
 // ==========================
 // SIDEBAR SAFETY
@@ -100,7 +123,18 @@ if (menuBtn && sidebar && overlay) {
     sidebar.classList.remove("open");
     overlay.classList.remove("show");
   });
+
 }
+
+// ====================== LOG OUT ====================== //
+document.getElementById("removeAccount").addEventListener("click", e => {
+  e.preventDefault();
+
+  if (!confirm("Are you sure you want to log out?")) return;
+
+  localStorage.clear();
+  window.location.href = "about.html";
+});
  //game logic
 
 const cards = document.querySelectorAll(".card:not(.finish)");

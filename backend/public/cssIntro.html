@@ -1,21 +1,20 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<title>CSS Intro</title>
+  <meta charset="UTF-8">
+  <title>Simple Page</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif&display=swap" rel="stylesheet">
-<link href="https://fonts.googleapis.com/css2?family=Jacquarda+Bastarda+9&display=swap" rel="stylesheet">
+  <!-- Google Font: Instrument Serif -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
 
-<link rel="stylesheet" href="css/cssIntro.css">
-
-
-
-
+  <link rel="stylesheet" href="css/cssintro.css">
+  
 </head>
-
 <body>
-  <!-- ====== SIDEBAR ====== -->
+
+<!-- ====== SIDEBAR ====== -->
 <div class="sidebar" id="sidebar">
   <h2>Menu</h2>
   <ul>
@@ -95,7 +94,16 @@
 </li>
     
     <li><a href="myaccount.html">My Account</a></li>
-    <li><a href="htmlproject.html">Projects</a></li>
+    <li class="has-submenu">
+  <div class="menu-row">
+    <a href="#">Projects</a>
+    <span class="arrow project-arrow">▸</span>
+  </div>
+  <ul class="submenu">
+    <li><a href="htmlproject.html">HTML Project</a></li>
+    <li><a href="cssproject.html">CSS Project</a></li>
+  </ul>
+</li>
     <li><a href="#" id="removeAccount">Log out</a></li>
   </ul>
 </div>
@@ -104,77 +112,71 @@
 <!-- ====== NAVBAR ====== -->
 <nav class="navbar">
   <div class="menu" id="menu-btn">
-      <img src="images/Group 119.png" alt="menu" width="24">
+      <img src="/images/Group 119.png" alt="menu" width="24">
   </div>
 
   <div class="right">
+    <a href="myaccount.html">
     <div class="profile">
         <div class="profile-pic-wrapper">
-            <img id="home-profile-pic" src="images/default.png" alt="profile">
+            <img id="home-profile-pic" src="/images/default.png" alt="profile">
         </div>
+      </a>
         <div id="home-username" class="profile-name">Username</div>
-
-        
     </div>
 
 
 
-      <div class="points">
-          <img src="images/Group 115.png" width="24">
-          <span id="points-count">00</span>
+      <div class="point">
+          <img src="/images/Group 115.png" width="24">
+          <span id="point">00</span>
       </div>
 
-      <div class="graph">
-          <img src="images/Group 116.png" width="24">
-      </div>
+      <a href="graph.html">
+        <div class="graph">
+    <img src="/images/Group 116.png" width="24" class="progress-img">
+  </div>
+</a>
 
       <div class="notifications">
-          <img src="images/notifi.png" width="24">
+          <img src="/images/notifi.png" width="24">
       </div>
   </div>
 </nav>
 
 
-<div class="container">
-  <pre class="pre">
+<div id="css-intro"></div>
+  <!-- Main content -->
+<div class="main-section">
 
-<h1>This is how your CSS looks:</h1>
+    <div class="title-row">
+        <h1>Why Learn CSS?</h1>
+        <img src="images/thinking img.png" class="ninja">
+    </div>
 
-<div class="codebox">
+    <div class="galaxy-box">
+        <div class="inner-box">
+            CSS is used to style and design web pages.  
+            It controls colors, layouts, spacing,
+            fonts, and animations.<br>
+            With CSS, a plain HTML page becomes
+            beautiful and visually appealing.
+            After learning HTML structure,
+            CSS helps you make the page look
+            modern and attractive.
+        </div>
+    </div>
 
-&lt;style&gt;  <span class="comment">/* CSS starts inside the style tag */</span>
-
-body {       <span class="comment">/* selects the whole webpage */</span>
-  background-color: lightblue;   <span class="comment">/* changes page background */</span>
-  font-family: Arial;            <span class="comment">/* changes text style */</span>
-}
-
-h1 {        <span class="comment">/* selects all &lt;h1&gt; headings */</span>
-  color: blue;                   <span class="comment">/* changes text color */</span>
-  text-align: center;            <span class="comment">/* centers the heading */</span>
-}
-
-p {         <span class="comment">/* selects all &lt;p&gt; paragraphs */</span>
-  font-size: 18px;               <span class="comment">/* changes text size */</span>
-  color: #333;                   <span class="comment">/* changes text color */</span>
-}
-
-&lt;/style&gt;
-
-</pre>
-
-
-</div>
-
-<div class="button-wrapper">
-    <img src="images/Group 96 (1).png" class="next-img">
-    <a href="/cssLesson.html">
-    <button id="nextBtn">NEXT</button>
-    </a>
-  </div>
+    <div class="start-container">
+      <a href="cssStructure.html">
+        <img src="images/start.png" class="start-btn">
+        </a>
+    </div>
 
 </div>
-<script src="js/cssLesson.js"></script>
+</div>
+
+<script src="js/cssStructure.js"></script>
 
 </body>
 </html>

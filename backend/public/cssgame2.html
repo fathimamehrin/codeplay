@@ -6,53 +6,149 @@
 <title>CSS Detective</title>
 
 <link rel="stylesheet" href="/css/cssgame2.css">
+ <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Jacquarda+Bastarda+9&display=swap" rel="stylesheet">
+
 </head>
 
 <body>
 
-    <nav class="navbar">
-
-  <!-- LEFT -->
-  <div class="menu" id="menu-btn">
-    <img src="/images/Group 119.png" id="menuIcon" class="menu-icon" alt="menu" width="24">
+       <!-- ====== SIDEBAR ====== -->
+<div class="sidebar" id="sidebar">
+  <h2>Menu</h2>
+  <ul>
+    <li><a href="about.html">Home</a></li>
+    <li><a href="about.html#features">About</a></li>
+    <li><a href="home.html">Lessons</a></li>
+    
+     
+  <li class="has-submenu">
+  <div class="menu-row">
+    <a href="studydeck.html">Studydeck</a>
+    <span class="arrow studydeck-arrow">▸</span>
   </div>
 
-  <!-- DROPDOWN -->
-  <div class="dropdown" id="dropdownMenu">
-    <h3 class="menu-title">HTML Lessons</h3>
-    <ul id="lessonList"></ul>
-  </div>
+  <ul class="submenu">
 
-  <!-- RIGHT -->
-  <div class="right">
-
-    <div class="profile">
-      <div class="profile-pic-wrapper">
-        <img id="home-profile-pic" src="/images/default.png" alt="profile">
+    <!-- HTML -->
+    <li class="has-submenu">
+      <div class="menu-row">
+        <a href="htmlnotes.html">HTML</a>
+        <span class="arrow tech-arrow">▸</span>
       </div>
-      <div id="home-username" class="profile-name">Username</div>
-    </div>
+      <ul class="sub-submenu">
+        <li><a href="htmlnotes.html#1">Basic Structure Tags</a></li>
+        <li><a href="htmlnotes.html#2">Text Formatting Tags</a></li>
+        <li><a href="htmlnotes.html#4">Links & Images</a></li>
+        <li><a href="htmlnotes.html#5">Containers & Layouts</a></li>
+        <li><a href="htmlnotes.html#6">Lists</a></li>
+        <li><a href="htmlnotes.html#7">Forms And Inputs</a></li>
+        <li><a href="htmlnotes.html#8">Media Elements</a></li>
+        <li><a href="htmlnotes.html#9">Scripting & Meta</a></li>
+      </ul>
+    </li>
 
-    <div class="point">
-      <img src="/images/Group 115.png" width="24">
-      <span id="point" class="point-span">00</span>
-    </div>
+    <!-- CSS -->
+    <li class="has-submenu">
+      <div class="menu-row">
+        <a href="cssnotes.html">CSS</a>
+        <span class="arrow tech-arrow">▸</span>
+      </div>
+      <ul class="sub-submenu">
+        <li><a href="cssnotes.html#1">Basic CSS Structure</a></li>
+        <li><a href="cssnotes.html#2">CSS Box Model</a></li>
+        <li><a href="cssnotes.html#3">Colors & Background</a></li>
+        <li><a href="cssnotes.html#4">Text & Fonts</a></li>
+        <li><a href="cssnotes.html#5">Display & Position</a></li>
+        <li><a href="cssnotes.html#6">Flexbox(Modern Layout)</a></li>
+        <li><a href="cssnotes.html#7">Responsive Design</a></li>
+        <li><a href="cssnotes.html#8">Effects & Animation</a></li>
+        <li><a href="cssnotes.html#9">Border Property</a></li>
+      </ul>
+    </li>
 
-    <div class="graph">
-      <img src="/images/Group 116.png" width="24">
-    </div>
+    <!-- JavaScript -->
+    <li class="has-submenu">
+      <div class="menu-row">
+        <a href="jsnotes.html">JavaScript</a>
+        <span class="arrow tech-arrow">▸</span>
+      </div>
+      <ul class="sub-submenu">
+      <li><a href="jsnotes.html#vars">Variables</a></li>
+      <li><a href="jsnotes.html#types">Data Types</a></li>
+      <li><a href="jsnotes.html#operators">Operators</a></li>
+      <li><a href="jsnotes.html#conditions">Conditional Statements</a></li>
+      <li><a href="jsnotes.html#loops">Loops</a></li>
+      <li><a href="jsnotes.html#functions">Functions</a></li>
+      <li><a href="jsnotes.html#JS1">Dom Manipulation</a></li>
+      <li><a href="jsnotes.html#JS2">Events</a></li>
+      <li><a href="jsnotes.html#JS3">Arrays</a></li>
+      <li><a href="jsnotes.html#JS4">Objects</a></li>
+      <li><a href="jsnotes.html#JS5">Local Storage</a></li>
+      <li><a href="jsnotes.html#JS6">Error Handling</a></li>
+      </ul>
+    </li>
 
-    <div class="notifications">
-      <img src="/images/notifi.png" width="24">
-    </div>
-
+  </ul>
+</li>
+    
+    <li><a href="myaccount.html">My Account</a></li>
+    <li class="has-submenu">
+  <div class="menu-row">
+    <a href="#">Projects</a>
+    <span class="arrow project-arrow">▸</span>
   </div>
-  </nav>
+  <ul class="submenu">
+    <li><a href="htmlproject.html">HTML Project</a></li>
+    <li><a href="cssproject.html">CSS Project</a></li>
+  </ul>
+</li>
+    <li><a href="#" id="removeAccount">Log out</a></li>
+  </ul>
+</div>
+<div class="overlay" id="overlay"></div>
+
+  <!-- ====== NAVBAR ====== -->
+<nav class="navbar">
+  <div class="menu" id="menu-btn">
+      <img src="images/Group 119.png" alt="menu" width="24">
+  </div>
+
+  <div class="right">
+      <a href="myaccount.html">
+        <div class="profile">
+        <div class="profile-pic-wrapper">
+            <img id="home-profile-pic" src="images/default.png" alt="profile">
+        </div>
+        </a>
+        <div id="home-username" class="profile-name">Username</div>  
+    </div>
+  </div>
+    
+      <div class="point">
+          <img src="images/Group 115.png" width="24">
+          <span id="point">00</span>
+      </div>
+
+      <a href="graph.html">
+      <div class="graph">
+          <img src="images/Group 116.png" width="24">
+      </div>
+      </a>
+
+      <div class="notifications">
+          <img src="images/notifi.png" width="24">
+      </div>
+  </div>
+</nav>
+
+<div id="css-game2">
+
   <div class="container">
 
 <div class="game-container">
 
-<h1>🕵️ CSS Detective</h1>
+<h2>🕵️ CSS Detective</h2>
 
 <div class="top-bar">
 <span id="case"></span>
@@ -89,7 +185,7 @@ CodePlay
   </div>
 </div>
 </div>
-
+</div>
 
 <script src="js/cssgame2.js"></script>
 

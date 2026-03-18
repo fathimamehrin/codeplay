@@ -118,10 +118,12 @@
     <div class="right">
 
         <!-- Profile -->
+         <a href="myaccount.html">
         <div class="profile">
             <div class="profile-pic-wrapper">
                 <img id="home-profile-pic" src="/images/default.png" alt="Profile Picture">
             </div>
+          </a>
             <div id="home-username" class="profile-name">Username</div>
         </div>
         </div>
@@ -134,9 +136,11 @@
         </div>
 
         <!-- Graph -->
+         <a href="graph.html">
         <div class="graph">
             <img src="/images/Group 116.png" alt="Progress Graph" width="24">
         </div>
+        </a>
 
         <!-- Notifications -->
         <div class="notifications">
@@ -150,38 +154,34 @@
 <div id="css-project">
 <!-- ===== MAIN CONTAINER ===== -->
 <div id="container">
-  <h2>PROJECT: STYLE YOUR PORTFOLIO</h2>
+  <h2>PROJECT: MAKE YOUR PORTFOLIO INTERACTIVE</h2>
 
   <!-- Instructions -->
   <div class="instructions">
-    <strong>Goal:</strong> Make your profile visually attractive using CSS.<br><br>
+    <strong>Goal:</strong> Make your existing CSS portfolio interactive using JavaScript.<br><br>
     <strong>Requirements:</strong>
     <ul>
-      <li>Center the card</li>
-      <li>Add background color</li>
-      <li>Style text (font-size, color)</li>
-      <li>Add border or box-shadow</li>
-      <li>Add hover effect on links</li>
-      <li>Make image rounded (border-radius)</li>
+      <li>Toggle sections or info on button click</li>
+      <li>Add hover effects using JS</li>
+      <li>Change content dynamically using JS</li>
+      <li>Use at least one JavaScript function to manipulate the portfolio DOM</li>
     </ul>
   </div>
 
   <!-- HTML Editor -->
   <div class="editor">
     <div class="editor-header">
-      
       <button class="run-btn" onclick="runCode()">Run</button>
     </div>
-    <textarea id="htmlInput" placeholder="Write your HTML code here..."></textarea>
+    <textarea id="htmlInput" placeholder="Your portfolio HTML from CSS project will load here..."></textarea>
   </div>
 
-  <!-- CSS Editor -->
+  <!-- JS Editor -->
   <div class="editor">
     <div class="editor-header">
-      
       <button class="run-btn" onclick="runCode()">Run</button>
     </div>
-    <textarea id="cssInput" placeholder="Write your CSS code here..."></textarea>
+    <textarea id="jsInput" placeholder="Write your JavaScript code here..."></textarea>
   </div>
 
   <!-- Output Area -->
@@ -193,9 +193,4 @@
     <button id="submitBtn" class="submitBtn">SUBMIT</button>
   </div>
 </div>
-</div>
-</div>
-
-<script src="js/cssproject.js"></script>
-</body>
-</html>
+ <script src="js/jsproject.js"></script>

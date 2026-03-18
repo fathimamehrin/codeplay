@@ -121,7 +121,8 @@ options:["border","border-radius","margin","height"]
 {
 question:"Which property increased the width?",
 apply:box=>{
-box.style.width="280px"
+box.style.width="150px"
+
 },
 answer:"width",
 options:["height","width","margin","padding"]
@@ -130,7 +131,7 @@ options:["height","width","margin","padding"]
 {
 question:"Which property increased the height?",
 apply:box=>{
-box.style.height="150px"
+box.style.height="100px"
 },
 answer:"height",
 options:["width","height","margin","border"]
@@ -139,7 +140,7 @@ options:["width","height","margin","border"]
 {
 question:"Which property added space inside the box?",
 apply:box=>{
-box.style.padding="25px"
+box.style.padding="15px"
 },
 answer:"padding",
 options:["padding","margin","width","height"]
@@ -214,8 +215,8 @@ options:[
 {
 question:"Which TWO properties changed the size?",
 apply:box=>{
-box.style.width="260px"
-box.style.height="140px"
+box.style.width="200px"
+box.style.height="100px"
 },
 answer:"width + height",
 options:[

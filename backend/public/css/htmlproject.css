@@ -27,6 +27,7 @@ body {
 .navbar .right {
   display: flex;
   align-items: center;
+  gap: 35px;
 }
 
 .navbar .right img{

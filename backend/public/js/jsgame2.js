@@ -1,3 +1,218 @@
+
+const params = new URLSearchParams(window.location.search);
+const fromLesson = Number(params.get("jsLesson")) || 0;
+
+
+// ==========================
+// NAVBAR USER INFO
+// ==========================
+window.onload = async () => {
+
+const username = localStorage.getItem("username");
+const profilePic = localStorage.getItem("profilePic");
+
+document.getElementById("home-username").textContent =
+username || "Username";
+
+const profileEl = document.getElementById("home-profile-pic");
+
+if(profileEl){
+profileEl.src = profilePic || "/images/default.png";
+profileEl.style.width = "35px";
+profileEl.style.height = "35px";
+profileEl.style.borderRadius = "50%";
+}
+
+
+await restoreJsProgressFromBackend();
+
+loadLevel();
+
+};
+
+// ==========================
+// SIDEBAR MENU
+// ==========================
+const menuBtn = document.getElementById("menu-btn");
+const sidebar = document.getElementById("sidebar");
+const overlay = document.getElementById("overlay");
+
+if (menuBtn && sidebar && overlay) {
+
+menuBtn.addEventListener("click", () => {
+sidebar.classList.add("open");
+overlay.classList.add("show");
+});
+
+overlay.addEventListener("click", () => {
+sidebar.classList.remove("open");
+overlay.classList.remove("show");
+});
+
+}
+
+// ==========================
+// STUDYDECK TOGGLE
+// ==========================
+const studydeckArrow = document.querySelector(".studydeck-arrow");
+
+if (studydeckArrow) {
+
+studydeckArrow.addEventListener("click", (e) => {
+
+e.stopPropagation();
+
+const submenu = studydeckArrow.parentElement.nextElementSibling;
+
+submenu.style.display =
+submenu.style.display === "block" ? "none" : "block";
+
+});
+
+}
+
+// ==========================
+// TECH MENU TOGGLES
+// ==========================
+document.querySelectorAll(".tech-arrow").forEach((arrow) => {
+
+arrow.addEventListener("click", (e) => {
+
+e.stopPropagation();
+
+const submenu = arrow.parentElement.nextElementSibling;
+
+submenu.style.display =
+submenu.style.display === "block" ? "none" : "block";
+
+});
+
+});
+
+// ==========================
+// LOG OUT
+// ==========================
+const logoutBtn = document.getElementById("removeAccount");
+
+if(logoutBtn){
+logoutBtn.addEventListener("click", e => {
+
+e.preventDefault();
+
+if (!confirm("Are you sure you want to log out?")) return;
+
+localStorage.clear();
+window.location.href = "about.html";
+
+});
+}
+
+// ==========================
+// POINTS VARIABLES
+// ==========================
+let jsPoints = 0;
+
+// ==========================
+// UPDATE POINT DISPLAY
+// ==========================
+function updatePointsDisplay() {
+
+const pointsEl = document.getElementById("points-count");
+
+if(pointsEl){
+pointsEl.innerText = jsPoints.toString().padStart(2,"0");
+}
+
+}
+
+// ==========================
+// RESTORE POINTS FROM SERVER
+// ==========================
+async function restoreJsProgressFromBackend(){
+
+const email = localStorage.getItem("userEmail");
+
+if(!email) return;
+
+try{
+
+const res = await fetch(`/get-progress?email=${email}&subject=js`);
+const data = await res.json();
+
+jsPoints = data.points || 0;
+
+updatePointsDisplay();
+
+}catch(err){
+
+console.error("❌ Restore failed",err);
+
+}
+
+}
+
+// ==========================
+// UPDATE BACKEND
+// ==========================
+async function updateProgressToBackend(value) {
+  const email = localStorage.getItem("userEmail");
+  if (!email) return;
+
+  try {
+    const response = await fetch("/update-progress", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        email,
+        subject: "js",
+        value: value,
+        game: "jsGame2"
+      })
+    });
+
+    if (!response.ok) {
+      throw new Error("Server error");
+    }
+
+    await restoreJsProgressFromBackend();
+
+  } catch (err) {
+    console.error("❌ Failed to update progress", err);
+  }
+}
+// ==========================
+// UPDATE POINTS TO SERVER
+// ==========================
+async function updateJsProgressToBackend(value){
+
+const email = localStorage.getItem("userEmail");
+
+if(!email) return;
+
+try{
+
+await fetch("/update-progress",{
+
+method:"POST",
+headers:{"Content-Type":"application/json"},
+body:JSON.stringify({
+
+email,
+subject:"js",
+value:value
+
+})
+
+});
+
+}catch(err){
+
+console.error("❌ Save failed",err);
+
+}
+
+}
+
 const levels = [
   {
     instruction: "If age = 16, can the person vote? (yes/no)",
@@ -52,14 +267,14 @@ const levels = [
 ];
 
 let currentLevel = 0;
-let score = 0;
+
 
 const levelNumber = document.getElementById("level-number");
 const levelInstruction = document.getElementById("level-instruction");
 const codeInput = document.getElementById("code-input");
 const runCodeBtn = document.getElementById("run-code");
 const feedback = document.getElementById("feedback");
-const scoreEl = document.getElementById("score");
+
 const showHintBtn = document.getElementById("show-hint");
 const hintText = document.getElementById("hint-text");
 
@@ -78,14 +293,13 @@ runCodeBtn.addEventListener("click", () => {
 
   if (userAnswer === correctAnswer) {
     feedback.textContent = "✅ Correct!";
-    score++;
-    scoreEl.textContent = score;
     currentLevel++;
     if (currentLevel < levels.length) {
       setTimeout(loadLevel, 800);
     } else {
       setTimeout(() => {
-        alert(`🎉 Congratulations! You completed all levels. Final Score: ${score}/10`);
+        alert(`🎉 Congratulations! You completed all levels. `);
+         localStorage.setItem("jsGameResult","complete");
       }, 500);
     }
   } else {
@@ -98,4 +312,12 @@ showHintBtn.addEventListener("click", () => {
   hintText.style.display = "block";
 });
 
-window.onload = loadLevel;
+
+
+function prevJsLesson() {
+  window.location.href = `jsLesson.html?jsLesson=${fromLesson-1}`;
+}
+
+function nextJsLesson() {
+  window.location.href = `jsLesson.html?jsLesson=${fromLesson + 1}`;
+}

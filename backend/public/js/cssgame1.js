@@ -103,6 +103,40 @@ if (menuBtn && sidebar && overlay) {
   });
 }
 
+// ---------- STUDYDECK SUBMENU TOGGLE ----------
+    const studydeckArrow = document.querySelector(".studydeck-arrow");
+  if (studydeckArrow) {
+    studydeckArrow.addEventListener("click", (e) => {
+      e.stopPropagation();
+      const submenu = studydeckArrow.parentElement.nextElementSibling;
+
+      submenu.style.display =
+        submenu.style.display === "block" ? "none" : "block";
+    });
+  }
+
+   /* ---------------- HTML / CSS / JS TOGGLES ---------------- */
+
+  document.querySelectorAll(".tech-arrow").forEach((arrow) => {
+    arrow.addEventListener("click", (e) => {
+      e.stopPropagation();
+      const submenu = arrow.parentElement.nextElementSibling;
+
+      submenu.style.display =
+        submenu.style.display === "block" ? "none" : "block";
+    });
+  });
+
+  // ====================== LOG OUT ====================== //
+document.getElementById("removeAccount").addEventListener("click", e => {
+  e.preventDefault();
+
+  if (!confirm("Are you sure you want to log out?")) return;
+
+  localStorage.clear();
+  window.location.href = "about.html";
+});
+
 // ==========================
 // GAME LEVELS
 // ==========================
@@ -185,7 +219,7 @@ async function finishGame() {
 
 
 function prevCssLesson() {
-  window.location.href = `cssLesson.html?cssesson=${fromLesson-1}`;
+  window.location.href = `cssLesson.html?cssLesson=${fromLesson-1}`;
 }
 
 function nextCssLesson() {

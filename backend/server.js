@@ -59,7 +59,18 @@ const userSchema = new mongoose.Schema({
 },
 
   profilePic: { type: String, default: "default.png" } ,
-  lastVisited: { type: String, default: "home.html" } 
+  lastVisited: { type: String, default: "home.html" } ,
+
+  completedLessons: {
+  html: { type: Object, default: {} },
+  css: { type: Object, default: {} },
+  js: { type: Object, default: {} }
+},
+
+streak: {
+  count: { type: Number, default: 0 },
+  lastDate: { type: Date, default: null }
+}
 });
 
 const User = mongoose.model("User", userSchema);
@@ -403,20 +414,23 @@ app.post("/admin/add-game", async (req,res)=>{
   }
 });
 
-// ================= Leaderboard =================
-app.get("/leaderboard", async (req,res)=>{
+app.post("/save-last-page", async (req, res) => {
 
-  try{
+  const { email, lastVisited } = req.body;
 
-    const users = await User.find()
-      .sort({points:-1})
-      .limit(5);
+  try {
 
-    res.json(users);
+    await User.updateOne(
+      { email },
+      { $set: { lastVisited: lastVisited } }
+    );
 
-  }catch(err){
-    console.error(err);
-    res.status(500).json({message:"Server error"});
+    res.json({ success: true });
+
+  } catch (err) {
+
+    res.json({ success: false });
+
   }
 
 });

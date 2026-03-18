@@ -1,11 +1,10 @@
-body {
-  margin: 0;
-  font-family: 'Instrument Serif',serif;
+body{
   background-color: #2b2457;
+  margin: 0px;
+  font-family:'Instrument Serif',serif ;
+  font-weight:100;
   
-  color: white;
 }
-
 .navbar {
   display: flex;
   justify-content: space-between;
@@ -14,85 +13,50 @@ body {
   padding: 10px 20px;
   color: white;
   margin-bottom: 50px;
-  
 }
 
-.profile{
-  margin-left: 900px;
+/* LEFT SECTION */
+.navbar .left {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
 }
 
+.menu-icon {
+  width: 24px;
+  cursor: pointer;
+}
+
+/* RIGHT SECTION */
 .navbar .right {
   display: flex;
   align-items: center;
-  gap:35px;
-  
+   gap: 35px; /* spacing between icons */
 }
 
-.navbar .right img{
-  padding-left: 0px;  
+.navbar .right img {
+  padding-left: 0px;
 }
 
-.point {
+/* PROFILE */
+.profile {
   display: flex;
   align-items: center;
-  position: relative;
-  cursor: pointer;
-}
-.graph{
-  cursor: pointer;
-  transition: filter 0.3s;
-
-}
-  
-
-.graph:hover{
-  filter: brightness(0) invert(1);
-}
-.notifications{
-  height: 27px;
-  cursor: pointer;
-
-}
-.notifications:hover{
-filter:brightness(100) ;
-}
-#point {
-  position: relative;
-  top: 1px;   
-  margin-left: 4px;
-  font-size: 19px;
-  font-family: 'Instrument Serif',serif;
-  letter-spacing: 0px;
-
-}
-.menu{
-  cursor:pointer;
-  transition: content 0.3s;
-}
-.menu:hover{
-
-height:19px ;
-padding-bottom: 5px;
-}
-.profile {
-    display: flex;
-    align-items: center;
-    gap: 8px;
+  gap: 8px;
 }
 
-.profile-pic-wrapper {
-    width: 35px;
-    height: 35px;
-    border-radius: 50%;
-    overflow: hidden;
-    flex-shrink: 0;
+.profile-pic img {
+  width: 35px;
+  height: 35px;
+  border-radius: 50%;
+  overflow: hidden;
+  flex-shrink: 0;
 }
 
 #home-profile-pic {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    
 }
 
   
@@ -102,6 +66,45 @@ padding-bottom: 5px;
   font-weight: small;
   margin-top: 3px;
 }
+
+/* POINTS */
+.point {
+  display: flex;
+  align-items: center;
+  position: relative;
+  cursor: pointer;
+}
+
+#point {
+  position: relative;
+  margin-left: 4px;
+   top: 1px; 
+  font-size: 19px;
+  font-family: 'Instrument Serif', serif;
+  letter-spacing: 0px;
+}
+
+/* GRAPH */
+.graph {
+  transition: filter 0.3s;
+  cursor: pointer;
+}
+
+.graph:hover {
+  filter: brightness(0) invert(1);
+}
+
+.notifications{
+  height: 27px;
+  cursor: pointer;
+
+}
+
+/* NOTIFICATIONS */
+.notifications:hover {
+  filter: brightness(100);
+}
+
 
 .sidebar {
   position: fixed;
@@ -246,72 +249,73 @@ padding-bottom: 5px;
   display: block;
 }
 
-/* ===== MAIN SECTION ===== */
 
-.main-section {
-  position: absolute;
-  top: 60px;
-  left: 350px;
+.middle-section {
+    width: 80%;
+    margin-top: 10px;
+    margin-left: 170px;
 }
 
-.title-row {
-  display: flex;
-  align-items: center;
-  
+.heading {
+    color: white;
+    margin-bottom: 15px;
+    font-size: 28px;
+    margin-top: -20px;
+
 }
 
-.title-row h1 {
-  font-size: 38px;
-  font-weight: lighter;
-  letter-spacing: 2px;
-   
+.content-area {
+    width: 80%;
+    
 }
 
-.ninja{
-  width: 80px;
+.code-box {
+    background-color: #8e8e8e;
+    padding: 20px 40px 40px;
+    width: 100%;
+    height: 350px;
+    border-radius: 8px;
 }
 
-
-/* Galaxy box */
-.galaxy-box {
-  background-image: url("/images/galaxyhd1.png");
-  background-size: cover;
-  background-position: center;
-  width: 500px;
-  padding: 25px;
-  border-radius: 18px;
-  margin-top: 0px;
-  border: 1px solid rgba(255, 255, 255, 0.467);
+.code-box p {
+    margin: 12px 0;
+    font-size: 18px;
 }
 
-/* Inner box */
-.inner-box {
-  background-color: rgba(255, 255, 255, 0.084);
-  padding: 50px;
-  border-radius: 15px;
-
-  width: 400px;   /* limits text width */
-
-  font-size: 22px;
-  line-height:1.6;
-}
-/* ===== START BUTTON ===== */
-
-.start-container {
-  width: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin-top: 40px;
-}
-.start-btn {
-  width: 250px;
-  cursor: pointer;
-  
+.tag {
+    color: black;
 }
 
-/* ✨ HOVER EFFECT */
-.start-btn:hover {
-  transform: scale(1.08);
-  filter: brightness(1.2);
+.comment {
+    color: white;
+}
+
+.button-wrapper{
+position:relative;
+display:inline-block;
+margin-left: 1000px;
+margin-top: 20px;
+}
+
+.next-img{
+width:180px; 
+height: 50px;  /* adjust if needed */
+}
+
+.alert-box{
+  display: none;
+}
+
+#nextBtn{
+position:absolute;
+top:50%;
+left:50%;
+transform:translate(-50%, -50%);
+
+background:transparent;
+border:none;
+color:white;
+font-size:20px;
+font-family: "Instrument Serif", serif;
+cursor:pointer;
 }
